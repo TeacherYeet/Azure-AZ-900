@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kosten beheren in Azure</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body>
+
+<header class="course-header">
+  <div class="container">
+    <div class="brand">
+      <img src="../shared/assets/roc-logo.png" alt="ROC van Amsterdam" class="logo-img">
+      <div class="brand-text">
+        <div class="school">ROC van Amsterdam</div>
+        <div class="course-title">Cloud &amp; Azure — Verdieping Software (D1-K1)</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span class="period-tag">Periode 1 · Nederlands</span><br>
+      Docent: H.D. Lal
+    </div>
+  </div>
+</header>
+
+<nav class="breadcrumb">
+  <div class="container">
+    <a href="../index.html">Cursusoverzicht</a> <span class="sep">/</span>
+    <a href="00-overzicht.html">Opdracht 3</a> <span class="sep">/</span>
+    Kosten beheren
+  </div>
+</nav>
+
+<main class="container">
+  <span class="page-kicker">Les 6 van 8</span>
+  <h1>Kosten beheren in Azure</h1>
+  <p class="page-intro">
+    In Opdracht 2 heb je geleerd over CapEx en OpEx. Nu ga je concreter kijken: welke factoren
+    beïnvloeden wat je in Azure betaalt, en welke tools helpt Microsoft je om kosten in te schatten en
+    te beheersen?
+  </p>
+
+  <h2>Factoren die de kosten beïnvloeden</h2>
+  <table>
+    <thead><tr><th>Factor</th><th>Uitleg</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Resourcetype</strong></td><td>Kosten zijn resource-specifiek: wat er precies gemeten wordt (en hoeveel metingen), hangt af van het type resource.</td></tr>
+      <tr><td><strong>Verbruik (consumption)</strong></td><td>Bij het pay-as-you-go-model is verbruik één van de grootste kostenfactoren.</td></tr>
+      <tr><td><strong>Onderhoud</strong></td><td>Je Azure-omgeving monitoren en onderhouden helpt onnodige kosten op te sporen en te verminderen — bijvoorbeeld door onderbenutte VM's uit te zetten.</td></tr>
+      <tr><td><strong>Geografie</strong></td><td>Hetzelfde type resource kan in verschillende regio's verschillend geprijsd zijn.</td></tr>
+      <tr><td><strong>Netwerkverkeer</strong></td><td>Inkomend verkeer is vaak gratis, maar uitgaand verkeer (of verkeer tussen Azure-resources) wordt beïnvloed door billing zones en kost dus geld.</td></tr>
+      <tr><td><strong>Subscription</strong></td><td>Het type en de configuratie van je subscription beïnvloedt de kosten — een gratis proefaccount laat je bijvoorbeeld sommige resources gratis uitproberen.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Azure Marketplace</h2>
+  <p>
+    De <strong>Azure Marketplace</strong> is een online marktplaats waar klanten applicaties en
+    diensten van duizenden certificeerde serviceproviders kunnen vinden, uitproberen, kopen en direct
+    inrichten binnen Azure — van open-sourceplatforms en kant-en-klare VM- en database-images tot
+    ontwikkeltools. De Marketplace bevat meer dan 10.000 aanbiedingen.
+  </p>
+
+  <h2>Pricing Calculator versus TCO Calculator</h2>
+  <p>Microsoft biedt twee verschillende rekentools, elk met een ander doel:</p>
+  <table>
+    <thead><tr><th>Tool</th><th>Waarvoor gebruik je het?</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Pricing Calculator</strong></td>
+        <td>Schat de kosten van specifieke Azure-producten in, vóórdat je ze aanmaakt. Je configureert opties zoals regio, tier, factureringsopties, supportopties en eventuele programma's/kortingen (bijvoorbeeld dev/test-prijzen). Let op: dit levert een schatting op, geen exacte prijsopgave.</td>
+      </tr>
+      <tr>
+        <td><strong>Total Cost of Ownership (TCO) Calculator</strong></td>
+        <td>Vergelijkt de kosten van je huídige on-premises infrastructuur met de verwachte kosten in Azure, en laat zien hoeveel je kunt besparen door te migreren.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout tip">
+    <div class="callout-title">💡 Koppeling met CapEx en OpEx (Opdracht 2)</div>
+    De <strong>TCO Calculator</strong> is precies het instrument dat de vergelijking uit Opdracht 2
+    concreet maakt: het legt de <strong>CapEx</strong>-kosten van je bestaande, fysieke
+    infrastructuur naast de <strong>OpEx</strong>-kosten van diezelfde werklast in Azure. De
+    <strong>Pricing Calculator</strong> gebruik je dáárna, zodra je eenmaal voor Azure hebt gekozen en
+    precies wilt weten wat een specifieke configuratie gaat kosten.
+  </div>
+
+  <h2>Azure Cost Management</h2>
+  <p>
+    <strong>Azure Cost Management</strong> is de tool waarmee je je Azure-uitgaven continu monitort en
+    beheerst, met vijf hoofdfuncties:
+  </p>
+  <ul>
+    <li><strong>Rapportage</strong> — facturatierapporten inzien.</li>
+    <li><strong>Data-verrijking</strong> — extra context toevoegen aan kostendata.</li>
+    <li><strong>Budgetten</strong> — een uitgavenbudget instellen.</li>
+    <li><strong>Waarschuwingen (alerting)</strong> — een melding krijgen als kosten een ingestelde grens overschrijden.</li>
+    <li><strong>Aanbevelingen</strong> — suggesties krijgen om kosten te verlagen.</li>
+  </ul>
+
+  <h2>Tags</h2>
+  <p>
+    <strong>Tags</strong> zijn metadata die je aan Azure-resources toevoegt, in de vorm van een
+    naam-waardepaar (bijvoorbeeld <code>afdeling: marketing</code>). Hiermee organiseer je resources
+    logisch — bijvoorbeeld per project, afdeling of kostenplaats — wat vooral heel bruikbaar is om
+    facturatie-informatie samen te vatten en per tag te rapporteren.
+  </p>
+
+  <div class="callout extra">
+    <div class="callout-title">🔍 Voorbeeld</div>
+    Een IT-afdeling voegt de tag <code>project: webshop-vernieuwing</code> toe aan alle resources die
+    bij dat project horen (VM, database, storage account). Aan het einde van de maand kan de
+    afdeling met Azure Cost Management precies zien hoeveel dát ene project heeft gekost — ook al
+    staan de resources verspreid over meerdere resource groups.
+  </div>
+
+  <div class="quiz-block" id="quiz-6"></div>
+
+  <div class="page-footer-nav">
+    <a class="nav-link" href="07-identiteit-en-beveiliging.html"><span class="dir">&larr; Vorige</span><span class="lbl">Identiteit en beveiliging</span></a>
+    <a class="nav-link next" href="09-governance-en-compliance.html"><span class="dir">Volgende &rarr;</span><span class="lbl">Governance en compliance</span></a>
+  </div>
+</main>
+
+<footer class="course-footer">
+  ROC van Amsterdam · Cloud &amp; Azure — Verdieping Software · Docent H.D. Lal
+</footer>
+
+<script src="../shared/scorm-api.js"></script>
+<script src="../shared/quiz-engine.js"></script>
+<script>
+ROCQuiz.render("quiz-6", {
+  title: "Check je begrip",
+  checkLabel: "Controleer antwoorden",
+  resetLabel: "Opnieuw proberen",
+  passLabel: "Goed gedaan! Je weet hoe je kosten in Azure inschat en beheert.",
+  retryLabel: "Bekijk de uitleg hierboven nog eens en probeer het opnieuw.",
+  incompleteLabel: "Beantwoord eerst alle vragen.",
+  questions: [
+    {
+      text: "Wat is het verschil tussen de Pricing Calculator en de TCO Calculator?",
+      options: [
+        "De Pricing Calculator schat de kosten van specifieke Azure-producten; de TCO Calculator vergelijkt on-premises kosten met Azure-kosten",
+        "Beide doen precies hetzelfde, maar de TCO Calculator is nieuwer",
+        "De TCO Calculator is alleen bedoeld voor het schatten van opslagkosten"
+      ],
+      correct: 0,
+      explanation: "De Pricing Calculator geeft een kostenschatting voor specifieke Azure-producten die je wilt inrichten. De TCO Calculator vergelijkt de kosten van je bestaande on-premises omgeving met de kosten van diezelfde werklast in Azure."
+    },
+    {
+      text: "Welke vijf functies biedt Azure Cost Management?",
+      options: [
+        "Rapportage, data-verrijking, budgetten, waarschuwingen en aanbevelingen",
+        "Authenticatie, autorisatie, MFA, RBAC en Conditional Access",
+        "Regio's, availability zones, region pairs, resource groups en subscriptions"
+      ],
+      correct: 0,
+      explanation: "Azure Cost Management biedt rapportage, data-verrijking, budgetten instellen, waarschuwingen (alerting) en kostenaanbevelingen."
+    },
+    {
+      text: "Wat is het doel van tags op Azure-resources?",
+      options: [
+        "Ze versleutelen de resource automatisch",
+        "Ze geven metadata (naam-waardeparen) waarmee je resources logisch organiseert, bijvoorbeeld voor kostenoverzichten",
+        "Ze bepalen in welke regio een resource wordt geplaatst"
+      ],
+      correct: 1,
+      explanation: "Tags zijn naam-waardeparen die metadata geven aan resources, waardoor je ze logisch kunt indelen — bijvoorbeeld om facturatiekosten per project of afdeling samen te vatten."
+    },
+    {
+      text: "Welke factor beïnvloedt de Azure-kosten NIET rechtstreeks volgens deze les?",
+      options: ["Geografie (regio)", "Netwerkverkeer", "De kleur van het Azure-portaallogo"],
+      correct: 2,
+      explanation: "Resourcetype, verbruik, onderhoud, geografie, netwerkverkeer en het type subscription beïnvloeden de kosten allemaal — de kleur van het logo uiteraard niet."
+    }
+  ]
+});
+</script>
+</body>
+</html>

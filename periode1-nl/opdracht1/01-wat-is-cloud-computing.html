@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Wat is cloud computing?</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body>
+
+<header class="course-header">
+  <div class="container">
+    <div class="brand">
+      <img src="../shared/assets/roc-logo.png" alt="ROC van Amsterdam" class="logo-img">
+      <div class="brand-text">
+        <div class="school">ROC van Amsterdam</div>
+        <div class="course-title">Cloud &amp; Azure — Verdieping Software (D1-K1)</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span class="period-tag">Periode 1 · Nederlands</span><br>
+      Docent: H.D. Lal
+    </div>
+  </div>
+</header>
+
+<nav class="breadcrumb">
+  <div class="container">
+    <a href="../index.html">Cursusoverzicht</a> <span class="sep">/</span>
+    <a href="00-overzicht.html">Opdracht 1</a> <span class="sep">/</span>
+    Wat is cloud computing?
+  </div>
+</nav>
+
+<main class="container">
+  <span class="page-kicker">Les 1 van 3</span>
+  <h1>Wat is cloud computing?</h1>
+  <p class="page-intro">
+    Voordat je onderzoek doet naar softwarepakketten, is het handig om te weten wat "de cloud"
+    precies is. Deze les geeft je de basisbegrippen die je nodig hebt voor Opdracht 1.
+  </p>
+
+  <h2>Cloud computing in één zin</h2>
+  <p>
+    <strong>Cloud computing</strong> is het via internet leveren van IT-diensten — zoals rekenkracht,
+    opslag, netwerken en software — zonder dat jij zelf servers hoeft te kopen, beheren of onderhouden.
+    Een cloudprovider (zoals Microsoft met Azure, maar ook Amazon met AWS of Google met Google Cloud)
+    beheert de hardware in grote datacenters, en jij "huurt" precies zoveel als je nodig hebt.
+  </p>
+  <p>
+    Dit maakt innovatie sneller mogelijk, geeft flexibele toegang tot resources, en levert
+    schaalvoordelen op die je als individuele organisatie zelf nooit zou kunnen bereiken.
+  </p>
+
+  <h2>Het model achter de cloud</h2>
+  <p>
+    Cloud computing is eigenlijk een model waarmee je op aanvraag (<em>on-demand</em>) toegang krijgt
+    tot een gedeelde pool van configureerbare resources: servers, netwerken, opslag, applicaties en
+    diensten. Deze resources zijn overal beschikbaar, eenvoudig toegankelijk via het netwerk, en
+    razendsnel op te schalen of weer af te schalen — met minimale inspanning van jouw kant of van de
+    provider.
+  </p>
+
+  <h2>Wie is verantwoordelijk voor wat?</h2>
+  <p>
+    Bij cloud computing wordt de verantwoordelijkheid over beveiliging en beheer verdeeld tussen jou
+    (de klant) en de cloudprovider. Dit heet het <strong>shared responsibility model</strong>
+    (gedeelde verantwoordelijkheid). Hoeveel de provider voor zijn rekening neemt, hangt af van het
+    type dienst dat je afneemt — daar komen we in de volgende les op terug bij IaaS, PaaS en SaaS.
+  </p>
+
+  <div class="callout tip">
+    <div class="callout-title">💡 Waarom dit belangrijk is voor Opdracht 1</div>
+    Bijna elk beroep krijgt tegenwoordig te maken met clouddiensten — van een winkelkassa die in de
+    cloud draait tot een ontwerper die bestanden deelt via OneDrive. Als je in je onderzoek beschrijft
+    wélke software relevant is voor jouw beroep, kom je bijna altijd een cloudcomponent tegen. Het
+    is dus goed om te snappen wat die term precies betekent.
+  </div>
+
+  <h2>Drie soorten cloudmodellen</h2>
+  <p>Cloudomgevingen bestaan in drie hoofdvormen, elk met eigen voor- en nadelen:</p>
+  <table>
+    <thead><tr><th>Model</th><th>Kenmerk</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Private cloud</strong></td><td>Een organisatie richt een cloudomgeving in het eigen datacenter in. De organisatie is zelf verantwoordelijk voor beheer en biedt geen toegang aan gebruikers buiten de organisatie.</td></tr>
+      <tr><td><strong>Public cloud</strong></td><td>Eigendom van een clouddienst- of hostingprovider (zoals Microsoft). Biedt resources en diensten aan meerdere organisaties en gebruikers tegelijk, toegankelijk via een beveiligde internetverbinding.</td></tr>
+      <tr><td><strong>Hybrid cloud</strong></td><td>Combineert public en private cloud, zodat applicaties kunnen draaien op de meest geschikte plek — bijvoorbeeld gevoelige data privé, en de rest in de public cloud.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="quiz-block" id="quiz-1"></div>
+
+  <div class="page-footer-nav">
+    <a class="nav-link" href="00-overzicht.html"><span class="dir">&larr; Vorige</span><span class="lbl">Opdracht 1 overzicht</span></a>
+    <a class="nav-link next" href="02-service-en-deploymentmodellen.html"><span class="dir">Volgende &rarr;</span><span class="lbl">Cloud service- en implementatiemodellen</span></a>
+  </div>
+</main>
+
+<footer class="course-footer">
+  ROC van Amsterdam · Cloud &amp; Azure — Verdieping Software · Docent H.D. Lal
+</footer>
+
+<script src="../shared/scorm-api.js"></script>
+<script src="../shared/quiz-engine.js"></script>
+<script>
+ROCQuiz.render("quiz-1", {
+  title: "Check je begrip",
+  checkLabel: "Controleer antwoorden",
+  resetLabel: "Opnieuw proberen",
+  passLabel: "Mooi gedaan! Je snapt de basis van cloud computing.",
+  retryLabel: "Bekijk de uitleg hierboven nog eens en probeer het opnieuw.",
+  incompleteLabel: "Beantwoord eerst alle vragen.",
+  questions: [
+    {
+      text: "Wat is de kern van cloud computing?",
+      options: [
+        "Het via internet leveren van IT-diensten zonder dat je zelf hardware hoeft te beheren",
+        "Een back-up maken van bestanden op een externe harde schijf",
+        "Software die alleen offline werkt"
+      ],
+      correct: 0,
+      explanation: "Cloud computing draait om het op aanvraag leveren van IT-diensten (rekenkracht, opslag, netwerken, software) via internet, beheerd door een provider."
+    },
+    {
+      text: "Bij welk cloudmodel beheert een organisatie de cloudomgeving volledig zelf, in het eigen datacenter?",
+      options: ["Public cloud", "Private cloud", "Hybrid cloud"],
+      correct: 1,
+      explanation: "Een private cloud draait in het datacenter van de organisatie zelf, die ook zelf verantwoordelijk is voor het beheer."
+    },
+    {
+      text: "Wat beschrijft het 'shared responsibility model'?",
+      options: [
+        "Dat meerdere cloudproviders samen één dienst leveren",
+        "Hoe de verantwoordelijkheid voor beveiliging en beheer verdeeld is tussen klant en provider",
+        "Dat gebruikers hun wachtwoord met elkaar moeten delen"
+      ],
+      correct: 1,
+      explanation: "Het shared responsibility model beschrijft welk deel van beveiliging en beheer bij de cloudprovider ligt, en welk deel bij jou als klant — dit verschilt per type dienst (IaaS, PaaS, SaaS)."
+    },
+    {
+      text: "Een organisatie draait gevoelige data privé, maar gebruikt de public cloud voor extra rekenkracht tijdens piekmomenten. Welk model is dit?",
+      options: ["Private cloud", "Public cloud", "Hybrid cloud"],
+      correct: 2,
+      explanation: "Dit is een hybrid cloud: een combinatie van public en private cloud, waarbij applicaties draaien op de meest geschikte plek."
+    }
+  ]
+});
+</script>
+</body>
+</html>

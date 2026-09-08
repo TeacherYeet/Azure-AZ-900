@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Azure architectuur basis</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body>
+
+<header class="course-header">
+  <div class="container">
+    <div class="brand">
+      <img src="../shared/assets/roc-logo.png" alt="ROC van Amsterdam" class="logo-img">
+      <div class="brand-text">
+        <div class="school">ROC van Amsterdam</div>
+        <div class="course-title">Cloud &amp; Azure — Verdieping Software (D1-K1)</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span class="period-tag">Periode 1 · Nederlands</span><br>
+      Docent: H.D. Lal
+    </div>
+  </div>
+</header>
+
+<nav class="breadcrumb">
+  <div class="container">
+    <a href="../index.html">Cursusoverzicht</a> <span class="sep">/</span>
+    <a href="00-overzicht.html">Opdracht 3</a> <span class="sep">/</span>
+    Azure architectuur basis
+  </div>
+</nav>
+
+<main class="container">
+  <span class="page-kicker">Les 1 van 8</span>
+  <h1>Azure architectuur basis</h1>
+  <p class="page-intro">
+    Voordat je met Azure-diensten aan de slag gaat, moet je weten hoe Azure fysiek en organisatorisch
+    is opgebouwd. Deze les legt de bouwstenen uit: regio's, availability zones en de manier waarop
+    resources binnen Azure worden georganiseerd en beheerd.
+  </p>
+
+  <h2>Azure regio's</h2>
+  <p>
+    Azure heeft wereldwijd meer regio's dan enige andere cloudprovider: <strong>60+ regio's</strong> in
+    meer dan 140 landen. Een <strong>regio</strong> is een geografisch gebied met één of meer
+    datacenters die dicht bij elkaar liggen en via een low-latency netwerk zijn verbonden.
+  </p>
+  <p>Regio's bestaan om drie redenen:</p>
+  <ul>
+    <li><strong>Flexibiliteit en schaal</strong> — je kunt resources dicht bij je gebruikers plaatsen om vertraging (latency) te verminderen.</li>
+    <li><strong>Data residency</strong> — sommige wetgeving vereist dat data binnen een bepaald land of gebied blijft; door een regio te kiezen bepaal je waar je data fysiek staat.</li>
+    <li><strong>Compliance</strong> — Azure biedt per regio een uitgebreid aanbod aan naleving van wet- en regelgeving.</li>
+  </ul>
+  <p>
+    Niet elke dienst is in elke regio beschikbaar, en er bestaan ook <strong>global services</strong>
+    die regio-onafhankelijk werken.
+  </p>
+
+  <h2>Availability zones</h2>
+  <p>
+    Een <strong>availability zone</strong> is een fysiek gescheiden locatie ván datacenters binnen
+    dezelfde regio. Elke zone heeft zijn eigen onafhankelijke stroomvoorziening, koeling en netwerk, en
+    de zones zijn onderling verbonden via een privé glasvezelnetwerk. Een regio met availability
+    zone-ondersteuning heeft er minimaal drie.
+  </p>
+  <p>
+    Het idee: als je een applicatie verspreidt over meerdere availability zones, blijft die
+    beschikbaar zelfs als één hele datacenterlocatie uitvalt (bijvoorbeeld door een stroomstoring).
+    Elke zone werkt als een <em>isolatiegrens</em> — gaat zone 1 down, dan blijven zone 2 en 3 gewoon
+    doordraaien.
+  </p>
+
+  <div class="callout tip">
+    <div class="callout-title">💡 Regio versus availability zone</div>
+    Een <strong>regio</strong> is het grote geografische gebied (bijvoorbeeld "West-Europa"). Een
+    <strong>availability zone</strong> is een van de fysiek gescheiden datacenterlocaties binnen die
+    regio. Eén regio bestaat dus uit meerdere availability zones.
+  </div>
+
+  <h2>Region pairs</h2>
+  <p>
+    Elke Azure-regio wordt gekoppeld aan een andere regio binnen dezelfde geografie: een
+    <strong>region pair</strong>. Microsoft houdt hierbij minimaal 300 mijl afstand aan tussen de twee
+    regio's. Dit is bedoeld voor <strong>disaster recovery</strong>:
+  </p>
+  <ul>
+    <li>Sommige diensten repliceren automatisch naar de gekoppelde regio.</li>
+    <li>Bij een grote storing wordt het herstel van één regio uit elk paar met voorrang behandeld.</li>
+    <li>Azure-systeemupdates worden na elkaar (niet gelijktijdig) uitgerold over een region pair, zodat een fout in een update niet meteen beide regio's raakt.</li>
+  </ul>
+  <p>
+    Voorbeeld van een region pair: <em>West-Europa</em> en <em>Noord-Europa</em>.
+  </p>
+
+  <h2>De resource-hiërarchie: van doos naar dozen</h2>
+  <p>
+    Alles wat je in Azure aanmaakt — een virtuele machine, een opslagaccount, een netwerk — heet een
+    <strong>Azure resource</strong>. Om structuur en overzicht te houden, organiseert Azure deze
+    resources in een hiërarchie van vier niveaus, van klein naar groot:
+  </p>
+
+  <table>
+    <thead><tr><th>Niveau</th><th>Wat het is</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Resource</strong></td><td>Eén losse bouwsteen, zoals een virtuele machine of een opslagaccount.</td></tr>
+      <tr><td><strong>Resource group</strong></td><td>Een container die resources met dezelfde levenscyclus bij elkaar bundelt en beheert als één geheel.</td></tr>
+      <tr><td><strong>Subscription</strong></td><td>Een facturerings- en toegangsgrens die één of meer resource groups bevat.</td></tr>
+      <tr><td><strong>Management group</strong></td><td>Een groepering van meerdere subscriptions, voor bedrijfsbrede sturing.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout tip">
+    <div class="callout-title">💡 Denk aan geneste dozen</div>
+    Stel je vier maten dozen voor die in elkaar passen. De kleinste doos is een <strong>resource</strong>
+    (bijvoorbeeld één VM). Een paar van die dozen samen zitten in een grotere doos: de
+    <strong>resource group</strong> (bijvoorbeeld alle resources van één webapplicatie: de VM, de
+    database en het netwerk). Een aantal resource groups zit weer in een nog grotere doos: de
+    <strong>subscription</strong> (de facturerings- en toegangsgrens van een afdeling of klant). En
+    helemaal bovenaan staat de allergrootste doos, de <strong>management group</strong>, die meerdere
+    subscriptions bundelt — bijvoorbeeld alle subscriptions van een heel bedrijf.
+  </div>
+
+  <h3>Resource group — de details</h3>
+  <ul>
+    <li>Een resource kan in slechts <strong>één</strong> resource group tegelijk bestaan.</li>
+    <li>Resources in dezelfde resource group mogen in verschillende regio's staan.</li>
+    <li>Je kunt resources later naar een andere resource group verplaatsen.</li>
+    <li>Beveiliging (toegang regelen) kan je instellen op het niveau van de resource group, met role-based access control (RBAC).</li>
+  </ul>
+
+  <h3>Subscription — de details</h3>
+  <p>Een subscription geeft je geauthenticeerde en geautoriseerde toegang tot Azure, en vormt twee soorten grenzen:</p>
+  <ul>
+    <li><strong>Facturatiegrens</strong> — elke subscription krijgt een eigen factuur en kostenrapportage.</li>
+    <li><strong>Toegangsgrens</strong> — je beheert per subscription wie welke resources mag aanmaken en gebruiken.</li>
+  </ul>
+  <p>Eén account kan één of meerdere subscriptions hebben.</p>
+
+  <h3>Management group — de details</h3>
+  <ul>
+    <li>Een management group kan meerdere subscriptions bevatten.</li>
+    <li>Subscriptions erven automatisch de instellingen (zoals beleid) die op de management group zijn toegepast.</li>
+    <li>Eén directory ondersteunt tot 10.000 management groups.</li>
+    <li>Een boomstructuur van management groups kan tot zes niveaus diep zijn.</li>
+  </ul>
+
+  <div class="callout extra">
+    <div class="callout-title">🔍 Voorbeeld uit de praktijk</div>
+    Een groot bedrijf zet een management group op voor de hele organisatie, met daaronder aparte
+    management groups per afdeling (IT, Finance, Marketing). Elke afdeling heeft één of meer
+    subscriptions. Binnen de subscription van de IT-afdeling staat een resource group voor de
+    interne helpdesk-applicatie, met daarin de VM, de database en het netwerk als losse resources.
+    Beleid dat op de bovenste management group wordt ingesteld — bijvoorbeeld "alle resources moeten
+    in West-Europa staan" — geldt dan automatisch voor alles daaronder.
+  </div>
+
+  <div class="quiz-block" id="quiz-1"></div>
+
+  <div class="page-footer-nav">
+    <a class="nav-link" href="02-planning-maken.html"><span class="dir">&larr; Vorige</span><span class="lbl">Planning maken</span></a>
+    <a class="nav-link next" href="04-compute-in-azure.html"><span class="dir">Volgende &rarr;</span><span class="lbl">Compute in Azure</span></a>
+  </div>
+</main>
+
+<footer class="course-footer">
+  ROC van Amsterdam · Cloud &amp; Azure — Verdieping Software · Docent H.D. Lal
+</footer>
+
+<script src="../shared/scorm-api.js"></script>
+<script src="../shared/quiz-engine.js"></script>
+<script>
+ROCQuiz.render("quiz-1", {
+  title: "Check je begrip",
+  checkLabel: "Controleer antwoorden",
+  resetLabel: "Opnieuw proberen",
+  passLabel: "Mooi gedaan! Je begrijpt de basis van de Azure-architectuur.",
+  retryLabel: "Bekijk de uitleg hierboven nog eens en probeer het opnieuw.",
+  incompleteLabel: "Beantwoord eerst alle vragen.",
+  questions: [
+    {
+      text: "Wat is een availability zone?",
+      options: [
+        "Een geheel andere Azure-regio aan de andere kant van de wereld",
+        "Een fysiek gescheiden datacenterlocatie binnen dezelfde regio, met eigen stroom, koeling en netwerk",
+        "Een instelling waarmee je een resource group kunt vergrendelen"
+      ],
+      correct: 1,
+      explanation: "Availability zones zijn fysiek gescheiden locaties binnen één regio. Ze beschermen tegen uitval van een hele datacenterlocatie, omdat elke zone onafhankelijk van stroom, koeling en netwerk werkt."
+    },
+    {
+      text: "Wat is het doel van een region pair?",
+      options: [
+        "Twee regio's tegen elkaar laten opbieden op prijs",
+        "Twee gekoppelde regio's op minimaal 300 mijl afstand, voor disaster recovery en gefaseerde updates",
+        "Twee regio's die exact dezelfde naam hebben"
+      ],
+      correct: 1,
+      explanation: "Region pairs koppelen twee regio's binnen dezelfde geografie op minimaal 300 mijl afstand. Dit ondersteunt automatische replicatie, voorrang bij herstel na een storing, en gefaseerde system-updates."
+    },
+    {
+      text: "In welke volgorde staat de Azure resource-hiërarchie, van groot naar klein?",
+      options: [
+        "Resource group → Subscription → Management group → Resource",
+        "Management group → Subscription → Resource group → Resource",
+        "Subscription → Management group → Resource → Resource group"
+      ],
+      correct: 1,
+      explanation: "Van groot naar klein: management group (bundelt subscriptions) → subscription (facturatie- en toegangsgrens) → resource group (bundelt resources met dezelfde levenscyclus) → resource (de losse bouwsteen zelf)."
+    },
+    {
+      text: "Hoeveel resource groups kan één Azure-resource tegelijk toebehoren?",
+      options: ["Precies één", "Maximaal drie", "Onbeperkt veel, zolang ze in dezelfde regio staan"],
+      correct: 0,
+      explanation: "Elke Azure-resource moet in precies één (en niet meer dan één) resource group bestaan, ook al mogen resources binnen die groep in verschillende regio's staan."
+    }
+  ]
+});
+</script>
+</body>
+</html>

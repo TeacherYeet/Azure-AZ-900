@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flashcards: Exam Review</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body>
+
+<header class="course-header">
+  <div class="container">
+    <div class="brand">
+      <img src="../shared/assets/roc-logo.png" alt="ROC van Amsterdam" class="logo-img">
+      <div class="brand-text">
+        <div class="school">ROC van Amsterdam</div>
+        <div class="course-title">Cloud &amp; Azure — Verdieping Software (D1-K1)</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span class="period-tag">Periode 2 · English</span><br>
+      Docent: H.D. Lal
+    </div>
+  </div>
+</header>
+
+<nav class="breadcrumb">
+  <div class="container">
+    <a href="../index.html">Course overview</a> <span class="sep">/</span>
+    <a href="00-overview.html">Exam Prep</a> <span class="sep">/</span>
+    Flashcards: Exam Review
+  </div>
+</nav>
+
+<main class="container">
+  <span class="page-kicker">Exam Prep · Practice</span>
+  <h1>Flashcards: Exam Review</h1>
+  <p class="page-intro">
+    This master deck covers key terminology from all three AZ-900 exam domains — cloud concepts, Azure
+    architecture and services, and management and governance. Click a card to reveal its meaning, and
+    use Shuffle to test yourself out of order.
+  </p>
+
+  <div id="deck-1"></div>
+
+  <div class="page-footer-nav">
+    <a class="nav-link" href="03-review-management-and-governance.html"><span class="dir">&larr; Back</span><span class="lbl">Review: Management and Governance</span></a>
+    <a class="nav-link next" href="05-mock-exam.html"><span class="dir">Next &rarr;</span><span class="lbl">AZ-900 Mock Exam</span></a>
+  </div>
+</main>
+
+<footer class="course-footer">
+  ROC van Amsterdam · Cloud &amp; Azure — Verdieping Software · Docent H.D. Lal
+</footer>
+
+<script src="../shared/scorm-api.js"></script>
+<script src="../shared/flashcards.js"></script>
+<script>
+ROCFlashcards.render("deck-1", {
+  hint: "Click the card to reveal the answer.",
+  prevLabel: "Previous",
+  nextLabel: "Next",
+  shuffleLabel: "Shuffle",
+  cards: [
+    { term: "Cloud computing", def: "On-demand delivery of IT services (compute, storage, networking, software) over the internet, managed by a provider." },
+    { term: "Shared responsibility model", def: "The model describing how security and management responsibilities are divided between cloud provider and customer — the split changes with IaaS, PaaS, and SaaS." },
+    { term: "Public cloud", def: "A cloud environment owned by a provider (e.g. Microsoft) and made available to multiple organizations over the internet." },
+    { term: "Private cloud", def: "A cloud environment an organization builds and operates itself in its own datacenter, not accessible to outsiders." },
+    { term: "Hybrid cloud", def: "A combination of public and private cloud, letting applications run in the most appropriate location." },
+    { term: "CapEx", def: "Capital Expenditure — an upfront investment in physical infrastructure, whose value depreciates over time." },
+    { term: "OpEx", def: "Operational Expenditure — paying for products or services as you use them, with no upfront cost (pay-as-you-go)." },
+    { term: "Consumption-based model", def: "A pricing model where you pay only for the resources you actually use, with billing based on actual consumption." },
+    { term: "High availability", def: "The ability of a system to keep running and stay accessible, even through failures or disruptions." },
+    { term: "Scalability", def: "The ability to increase or decrease resources to match demand." },
+    { term: "Elasticity", def: "The ability of a system to automatically scale resources up or down in response to real-time demand." },
+    { term: "IaaS", def: "Infrastructure as a Service — rent servers, VMs, storage, and networks; you manage the OS and above." },
+    { term: "PaaS", def: "Platform as a Service — a ready-made platform to build, test, and deploy apps without managing the underlying infrastructure." },
+    { term: "SaaS", def: "Software as a Service — complete, ready-to-use software delivered over the internet, typically via subscription." },
+    { term: "Azure region", def: "A set of datacenters deployed within a defined latency perimeter and connected via a dedicated network." },
+    { term: "Availability zone", def: "A physically separate datacenter within an Azure region, with independent power, cooling, and networking." },
+    { term: "Region pair", def: "Two Azure regions, at least 300 miles apart, that some services replicate between for disaster recovery." },
+    { term: "Resource group", def: "A container that groups Azure resources sharing the same lifecycle; every resource belongs to exactly one." },
+    { term: "Subscription", def: "A billing and access-control boundary in Azure, grouping resource groups under one account." },
+    { term: "Management group", def: "A container above subscriptions used to apply governance settings across multiple subscriptions at once." },
+    { term: "Virtual Machine (VM)", def: "An IaaS software emulation of a physical computer, with its own virtual CPU, memory, storage, and networking." },
+    { term: "VM scale set", def: "A group of identical, load-balanced VMs that automatically scales out or in based on demand." },
+    { term: "Azure App Service", def: "A PaaS offering for building, deploying, and scaling web apps and APIs without managing servers." },
+    { term: "Azure Functions", def: "A serverless compute service that runs event-driven code, billed only for the time it actually executes." },
+    { term: "Azure Kubernetes Service (AKS)", def: "A managed service for orchestrating containers at scale." },
+    { term: "Virtual Network (VNet)", def: "Lets Azure resources securely communicate with each other, the internet, and on-premises networks." },
+    { term: "VPN Gateway", def: "Sends encrypted traffic between an Azure virtual network and an on-premises location, over the public internet." },
+    { term: "ExpressRoute", def: "Extends an on-premises network into Azure through a private connection, without using the public internet." },
+    { term: "Storage account", def: "A globally-uniquely-named Azure container that determines the storage services and redundancy options available to its data." },
+    { term: "LRS", def: "Locally Redundant Storage — three copies of data within a single datacenter in the primary region." },
+    { term: "GRS", def: "Geo-Redundant Storage — data replicated within the primary region and asynchronously copied to a secondary region." },
+    { term: "Hot / Cool / Archive tiers", def: "Blob storage access tiers, from frequently accessed (Hot) to rarely accessed with the lowest cost (Archive)." },
+    { term: "Microsoft Entra ID", def: "Azure's cloud-based identity and access management service (formerly Azure Active Directory) — handles authentication, SSO, and device management." },
+    { term: "Multi-factor authentication (MFA)", def: "Requiring two or more of: something you know, something you possess, and something you are, to verify identity." },
+    { term: "Azure RBAC", def: "Role-Based Access Control — fine-grained management of who can do what, scoped to a management group, subscription, resource group, or resource." },
+    { term: "Zero Trust", def: "A security model based on never trust, always verify — explicitly validate every request, use least-privilege access, assume breach." },
+    { term: "Microsoft Defender for Cloud", def: "A monitoring service providing threat protection, security recommendations, and a secure score across Azure and on-premises resources." },
+    { term: "Azure Policy", def: "Enforces organizational rules and evaluates resource compliance at scale." },
+    { term: "Azure Blueprints", def: "Bundles role assignments, policies, ARM templates, and resource groups to rapidly stand up governed environments." },
+    { term: "Resource lock", def: "A setting that prevents accidental deletion (CanNotDelete) or any modification (ReadOnly) of a resource." },
+    { term: "Azure Resource Manager (ARM)", def: "The management layer behind every Azure interaction, used to create, update, organize, and delete resources consistently." },
+    { term: "ARM template", def: "A JSON file that declaratively defines infrastructure to deploy — repeatable \"infrastructure as code.\"" },
+    { term: "Azure Arc", def: "Extends Azure management to resources outside Azure — on-premises servers, other clouds, and Kubernetes clusters." },
+    { term: "Azure Advisor", def: "Analyzes your Azure resources and gives personalized recommendations across reliability, security, performance, cost, and operational excellence." },
+    { term: "Azure Monitor", def: "Collects, analyzes, and acts on telemetry from cloud and on-premises environments to maximize availability and performance." },
+    { term: "AZ-900", def: "Microsoft Azure Fundamentals — the entry-level certification covering cloud concepts, Azure services, and management/governance." }
+  ]
+});
+</script>
+</body>
+</html>

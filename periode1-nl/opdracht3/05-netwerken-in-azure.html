@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Netwerken in Azure</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body>
+
+<header class="course-header">
+  <div class="container">
+    <div class="brand">
+      <img src="../shared/assets/roc-logo.png" alt="ROC van Amsterdam" class="logo-img">
+      <div class="brand-text">
+        <div class="school">ROC van Amsterdam</div>
+        <div class="course-title">Cloud &amp; Azure — Verdieping Software (D1-K1)</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span class="period-tag">Periode 1 · Nederlands</span><br>
+      Docent: H.D. Lal
+    </div>
+  </div>
+</header>
+
+<nav class="breadcrumb">
+  <div class="container">
+    <a href="../index.html">Cursusoverzicht</a> <span class="sep">/</span>
+    <a href="00-overzicht.html">Opdracht 3</a> <span class="sep">/</span>
+    Netwerken in Azure
+  </div>
+</nav>
+
+<main class="container">
+  <span class="page-kicker">Les 3 van 8</span>
+  <h1>Netwerken in Azure</h1>
+  <p class="page-intro">
+    Resources in de cloud moeten met elkaar, met het internet en soms met jouw eigen bedrijfsnetwerk
+    kunnen praten. Deze les geeft je op AZ-900-niveau de belangrijkste netwerkbegrippen in Azure —
+    zonder de diepe netwerktheorie.
+  </p>
+
+  <h2>Azure Virtual Network (VNet)</h2>
+  <p>
+    Een <strong>Azure Virtual Network (VNet)</strong> is het fundament van netwerken in Azure. Het
+    stelt Azure-resources in staat om veilig te communiceren:
+  </p>
+  <ul>
+    <li>met elkaar,</li>
+    <li>met het internet, en</li>
+    <li>met on-premises netwerken (het netwerk van je eigen organisatie).</li>
+  </ul>
+  <p>
+    Je kunt een VNet opdelen in kleinere stukken, <strong>subnets</strong> genoemd, om resources
+    logisch te groeperen en verkeer te beheren. Ook kun je twee VNets aan elkaar koppelen via
+    <strong>peering</strong>, zodat resources in beide netwerken met elkaar kunnen communiceren alsof
+    ze in hetzelfde netwerk zitten.
+  </p>
+  <p>
+    Om te bepalen welk verkeer een resource wél of niet mag ontvangen, gebruik je
+    <strong>network security groups</strong> — daarmee open je bijvoorbeeld specifiek poort 80 voor
+    HTTP-verkeer naar een virtuele machine.
+  </p>
+
+  <div class="callout tip">
+    <div class="callout-title">💡 Publieke versus private endpoints</div>
+    Een resource kan bereikbaar zijn via een <strong>public endpoint</strong> (een publiek adres,
+    toegankelijk via internet) of via een <strong>private endpoint</strong> (alleen bereikbaar binnen
+    je eigen virtual network). Voor gevoelige resources is een private endpoint veiliger, omdat het
+    verkeer nooit het openbare internet op hoeft.
+  </div>
+
+  <h2>Hybride verbindingen: VPN Gateway en ExpressRoute</h2>
+  <p>
+    Veel organisaties willen hun eigen (on-premises) netwerk verbinden met Azure. Daarvoor zijn twee
+    opties:
+  </p>
+  <table>
+    <thead><tr><th>Dienst</th><th>Hoe het werkt</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>VPN Gateway</strong></td>
+        <td>Verstuurt versleuteld verkeer tussen een Azure virtual network en een on-premises locatie, over het publieke internet.</td>
+      </tr>
+      <tr>
+        <td><strong>Azure ExpressRoute</strong></td>
+        <td>Breidt je on-premises netwerk uit naar Azure via een <em>privéverbinding</em>, aangeboden door een connectivity provider — dus niet over het openbare internet.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>
+    Kort gezegd: een VPN Gateway is de goedkopere, versleutelde route over het gewone internet;
+    ExpressRoute is een privé, doorgaans stabielere en snellere verbinding buiten het publieke
+    internet om.
+  </p>
+
+  <h2>Load balancing</h2>
+  <p>
+    Wanneer je meerdere instanties van een applicatie draait (bijvoorbeeld meerdere VM's in een scale
+    set), zorgt <strong>load balancing</strong> ervoor dat inkomend verkeer evenwichtig over die
+    instanties wordt verdeeld. Dit voorkomt dat één instantie overbelast raakt terwijl andere
+    nauwelijks gebruikt worden, en verhoogt zo de betrouwbaarheid en prestaties van je applicatie.
+  </p>
+
+  <h2>Azure DNS</h2>
+  <p>
+    <strong>Azure DNS</strong> is de dienst waarmee domeinnamen worden vertaald naar IP-adressen,
+    zodat resources vindbaar zijn op naam in plaats van op adres. Kenmerken:
+  </p>
+  <ul>
+    <li>Betrouwbaarheid en snelheid dankzij een wereldwijd netwerk van DNS-naamservers (met Anycast-netwerktechnologie).</li>
+    <li>Beveiliging via Azure Resource Manager, met role-based access control, monitoring en logging.</li>
+    <li>Eén DNS-dienst om zowel je Azure- als externe resources te beheren.</li>
+    <li>Ondersteuning voor volledig aangepaste, private domeinnamen binnen je eigen virtual networks.</li>
+    <li><strong>Alias records</strong> die rechtstreeks naar een Azure-resource kunnen verwijzen (handig als het IP-adres van die resource verandert).</li>
+  </ul>
+
+  <div class="quiz-block" id="quiz-3"></div>
+
+  <div class="page-footer-nav">
+    <a class="nav-link" href="04-compute-in-azure.html"><span class="dir">&larr; Vorige</span><span class="lbl">Compute in Azure</span></a>
+    <a class="nav-link next" href="06-opslag-in-azure.html"><span class="dir">Volgende &rarr;</span><span class="lbl">Opslag in Azure</span></a>
+  </div>
+</main>
+
+<footer class="course-footer">
+  ROC van Amsterdam · Cloud &amp; Azure — Verdieping Software · Docent H.D. Lal
+</footer>
+
+<script src="../shared/scorm-api.js"></script>
+<script src="../shared/quiz-engine.js"></script>
+<script>
+ROCQuiz.render("quiz-3", {
+  title: "Check je begrip",
+  checkLabel: "Controleer antwoorden",
+  resetLabel: "Opnieuw proberen",
+  passLabel: "Goed gedaan! Je snapt de basis van netwerken in Azure.",
+  retryLabel: "Bekijk de uitleg hierboven nog eens en probeer het opnieuw.",
+  incompleteLabel: "Beantwoord eerst alle vragen.",
+  questions: [
+    {
+      text: "Wat is de belangrijkste functie van een Azure Virtual Network (VNet)?",
+      options: [
+        "Het versturen van facturen voor Azure-resources",
+        "Het laten communiceren van Azure-resources met elkaar, het internet en on-premises netwerken",
+        "Het opslaan van bestanden in de cloud"
+      ],
+      correct: 1,
+      explanation: "Een VNet is de basis voor netwerken in Azure: het stelt resources in staat veilig te communiceren met elkaar, met het internet, en met je eigen (on-premises) netwerk."
+    },
+    {
+      text: "Wat is het verschil tussen VPN Gateway en ExpressRoute?",
+      options: [
+        "Beide zijn identiek, alleen de naam verschilt",
+        "VPN Gateway stuurt versleuteld verkeer over het publieke internet, ExpressRoute gebruikt een privéverbinding buiten het publieke internet om",
+        "ExpressRoute is alleen bedoeld voor opslag, VPN Gateway alleen voor compute"
+      ],
+      correct: 1,
+      explanation: "VPN Gateway verstuurt versleuteld verkeer tussen Azure en een on-premises locatie via het publieke internet. ExpressRoute biedt een privéverbinding via een connectivity provider, buiten het publieke internet om."
+    },
+    {
+      text: "Waar zorgt load balancing voor?",
+      options: [
+        "Voor het gelijkmatig verdelen van inkomend verkeer over meerdere instanties van een applicatie",
+        "Voor het versleutelen van al het netwerkverkeer",
+        "Voor het automatisch aanmaken van resource groups"
+      ],
+      correct: 0,
+      explanation: "Load balancing verdeelt inkomend verkeer evenwichtig over meerdere instanties, zodat er geen overbelaste of onderbenutte instanties ontstaan."
+    },
+    {
+      text: "Wat doet Azure DNS?",
+      options: [
+        "Het vertaalt domeinnamen naar IP-adressen, zodat resources op naam vindbaar zijn",
+        "Het versleutelt verkeer tussen twee virtuele netwerken",
+        "Het maakt automatisch een resource group aan voor elke nieuwe VM"
+      ],
+      correct: 0,
+      explanation: "Azure DNS is de domeinnaamservice van Azure: het zorgt dat namen (zoals een website-URL) worden omgezet naar het juiste IP-adres, met ondersteuning voor eigen private domeinnamen en alias records."
+    }
+  ]
+});
+</script>
+</body>
+</html>

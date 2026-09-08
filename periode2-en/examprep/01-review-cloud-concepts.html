@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Review: Cloud Concepts</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body>
+
+<header class="course-header">
+  <div class="container">
+    <div class="brand">
+      <img src="../shared/assets/roc-logo.png" alt="ROC van Amsterdam" class="logo-img">
+      <div class="brand-text">
+        <div class="school">ROC van Amsterdam</div>
+        <div class="course-title">Cloud &amp; Azure — Verdieping Software (D1-K1)</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span class="period-tag">Periode 2 · English</span><br>
+      Docent: H.D. Lal
+    </div>
+  </div>
+</header>
+
+<nav class="breadcrumb">
+  <div class="container">
+    <a href="../index.html">Course overview</a> <span class="sep">/</span>
+    <a href="00-overview.html">Exam Prep</a> <span class="sep">/</span>
+    Review: Cloud Concepts
+  </div>
+</nav>
+
+<main class="container">
+  <span class="page-kicker">Exam domain 1 of 3</span>
+  <h1>Review: Cloud Concepts</h1>
+  <p class="page-intro">
+    This is a quick-reference review, not a full re-teach. If any of these terms feel unfamiliar, go
+    back to the Assignment 1 lessons before continuing. Everything here maps directly to Microsoft's
+    <strong>"Describe cloud concepts"</strong> exam domain.
+  </p>
+
+  <h2>Cloud computing, in one line</h2>
+  <p>
+    Cloud computing is a model for enabling <strong>on-demand access to a shared pool of configurable
+    computing resources</strong> — servers, networking, storage, applications and services — that are
+    ubiquitous, convenient, and can be rapidly provisioned or released with minimal management effort
+    or provider interaction. It delivers faster innovation, flexible resources, and economies of scale.
+  </p>
+
+  <h2>Shared responsibility model</h2>
+  <p>
+    Security and management responsibilities are split between the <strong>cloud provider</strong> and
+    the <strong>customer</strong>. How much the provider takes on depends on the service type:
+  </p>
+  <table>
+    <thead><tr><th>Service type</th><th>Who manages what</th></tr></thead>
+    <tbody>
+      <tr><td><strong>On-premises</strong></td><td>Customer manages everything, top to bottom.</td></tr>
+      <tr><td><strong>IaaS</strong></td><td>Provider manages the physical infrastructure; customer manages OS, apps, and data.</td></tr>
+      <tr><td><strong>PaaS</strong></td><td>Provider also manages the OS and runtime; customer focuses on apps and data.</td></tr>
+      <tr><td><strong>SaaS</strong></td><td>Provider manages almost everything; customer mainly manages access and data.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Cloud deployment models</h2>
+  <table>
+    <thead><tr><th>Model</th><th>Characteristics</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Private cloud</strong></td><td>Built in an organization's own datacenter. The organization is responsible for operating it and does not provide access to outside users.</td></tr>
+      <tr><td><strong>Public cloud</strong></td><td>Owned by a cloud provider (e.g. Microsoft), providing resources to multiple organizations over the internet.</td></tr>
+      <tr><td><strong>Hybrid cloud</strong></td><td>Combines public and private cloud so applications can run in the most appropriate location.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>CapEx vs. OpEx</h2>
+  <table>
+    <thead><tr><th></th><th>Capital Expenditure (CapEx)</th><th>Operational Expenditure (OpEx)</th></tr></thead>
+    <tbody>
+      <tr><td><strong>When you pay</strong></td><td>Up-front, before use</td><td>As you go, billed immediately</td></tr>
+      <tr><td><strong>What it covers</strong></td><td>Physical infrastructure you buy and own</td><td>Services or products consumed on demand</td></tr>
+      <tr><td><strong>Value over time</strong></td><td>Reduces over time (depreciation)</td><td>No upfront cost — you only pay for what you use</td></tr>
+    </tbody>
+  </table>
+  <p>
+    Cloud providers operate on a <strong>consumption-based model</strong>: you pay only for the
+    resources you actually use. Benefits include no upfront costs, better cost prediction, and the
+    ability to start or stop paying for a resource as your needs change.
+  </p>
+
+  <h2>Benefits of the cloud</h2>
+  <ul>
+    <li><strong>High availability</strong> — the ability to keep a service running, even through disruptions.</li>
+    <li><strong>Scalability</strong> — adding or removing resources to match demand, manually or automatically.</li>
+    <li><strong>Elasticity</strong> — automatically scaling resources to match usage in real time.</li>
+    <li><strong>Reliability</strong> — a system's ability to recover from failures and keep functioning.</li>
+    <li><strong>Predictability</strong> — consistent performance and predictable costs, through monitoring and forecasting.</li>
+    <li><strong>Security</strong> — protection of data and infrastructure from threats, built into the platform.</li>
+    <li><strong>Governance</strong> — applying policies and standards consistently, at scale.</li>
+    <li><strong>Manageability</strong> — configuring, monitoring, and automating resources both in the cloud and on-premises.</li>
+  </ul>
+
+  <div class="callout tip">
+    <div class="callout-title">💡 Exam tip</div>
+    Scalability and elasticity are easy to mix up. <strong>Scalability</strong> is the general ability
+    to scale up/out; <strong>elasticity</strong> specifically means the system scales
+    <em>automatically</em> in response to demand.
+  </div>
+
+  <h2>Cloud service types: IaaS, PaaS, SaaS</h2>
+  <table>
+    <thead><tr><th>Type</th><th>What you get</th><th>Example use case</th></tr></thead>
+    <tbody>
+      <tr><td><strong>IaaS</strong><br>Infrastructure as a Service</td><td>Rent servers, VMs, storage, and networks. You manage the OS and up.</td><td>Lift-and-shift of an existing on-premises server.</td></tr>
+      <tr><td><strong>PaaS</strong><br>Platform as a Service</td><td>A ready-made platform for building, testing, and deploying apps, without managing the underlying infrastructure.</td><td>Deploying a web application quickly, focusing only on code.</td></tr>
+      <tr><td><strong>SaaS</strong><br>Software as a Service</td><td>Fully finished software, used over the internet, usually via subscription.</td><td>Microsoft 365, email, and calendars.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="quiz-block" id="quiz-1"></div>
+
+  <div class="page-footer-nav">
+    <a class="nav-link" href="00-overview.html"><span class="dir">&larr; Back</span><span class="lbl">Exam Prep overview</span></a>
+    <a class="nav-link next" href="02-review-architecture-and-services.html"><span class="dir">Next &rarr;</span><span class="lbl">Review: Azure Architecture and Services</span></a>
+  </div>
+</main>
+
+<footer class="course-footer">
+  ROC van Amsterdam · Cloud &amp; Azure — Verdieping Software · Docent H.D. Lal
+</footer>
+
+<script src="../shared/scorm-api.js"></script>
+<script src="../shared/quiz-engine.js"></script>
+<script>
+ROCQuiz.render("quiz-1", {
+  title: "Check your understanding",
+  checkLabel: "Check answers",
+  resetLabel: "Try again",
+  passLabel: "Nice work! You have a solid grip on cloud concepts.",
+  retryLabel: "Review the summary above and try again.",
+  incompleteLabel: "Please answer every question first.",
+  questions: [
+    {
+      text: "Which statement best describes cloud computing?",
+      options: [
+        "On-demand access to a shared pool of configurable computing resources, delivered over the internet",
+        "A local backup of your files kept on an external hard drive",
+        "Software that only runs on a single dedicated on-premises server"
+      ],
+      correct: 0,
+      explanation: "Cloud computing is a model for on-demand access to shared, configurable computing resources (servers, storage, networks, apps, services) that can be rapidly provisioned with minimal management effort."
+    },
+    {
+      text: "In the shared responsibility model, what always remains the customer's responsibility, regardless of service type?",
+      options: [
+        "The physical datacenter",
+        "Their data and identities",
+        "The physical network hardware"
+      ],
+      correct: 1,
+      explanation: "No matter which service type you use (IaaS, PaaS, or SaaS), the customer always retains responsibility for their data and identities. The provider's share of the remaining responsibilities grows from IaaS to SaaS."
+    },
+    {
+      text: "A hospital keeps patient records in its own datacenter for compliance reasons, but runs its public website using a public cloud provider. Which deployment model is this?",
+      options: ["Private cloud", "Public cloud", "Hybrid cloud"],
+      correct: 2,
+      explanation: "This is a hybrid cloud: sensitive data stays private while other workloads run in the public cloud, each in the most appropriate location."
+    },
+    {
+      text: "Which of the following is a characteristic of Operational Expenditure (OpEx)?",
+      options: [
+        "A large upfront investment whose value depreciates over time",
+        "Paying for what you use, with no upfront cost",
+        "A one-time purchase of physical servers"
+      ],
+      correct: 1,
+      explanation: "OpEx means spending on products or services as needed, billed immediately with no upfront cost — the cloud's pay-as-you-go pricing model."
+    },
+    {
+      text: "A company wants its infrastructure to automatically add and remove compute capacity based on real-time demand, without manual intervention. Which cloud benefit is this?",
+      options: ["Elasticity", "Governance", "Predictability"],
+      correct: 0,
+      explanation: "Elasticity specifically refers to automatically scaling resources up or down to match demand in real time."
+    },
+    {
+      text: "Which cloud service type gives you the MOST control over the operating system, while the provider still manages the physical hardware?",
+      options: ["SaaS", "PaaS", "IaaS"],
+      correct: 2,
+      explanation: "IaaS (Infrastructure as a Service) rents you the infrastructure — servers, storage, networking — while you remain responsible for the operating system, runtime, and everything above it."
+    },
+    {
+      text: "A development team wants to build and deploy a web app quickly without managing servers, operating systems, or runtimes. Which service type fits best?",
+      options: ["IaaS", "PaaS", "SaaS"],
+      correct: 1,
+      explanation: "PaaS (Platform as a Service) provides a ready-made environment for building, testing, and deploying applications, so the team can focus on code rather than infrastructure."
+    },
+    {
+      text: "Which is the best example of a SaaS product?",
+      options: [
+        "A virtual machine you configure yourself",
+        "A managed database platform you deploy code to",
+        "Microsoft 365, used directly through a web browser or app on a subscription"
+      ],
+      correct: 2,
+      explanation: "SaaS delivers complete, ready-to-use software over the internet, typically via subscription — Microsoft 365 is a classic example."
+    }
+  ]
+});
+</script>
+</body>
+</html>

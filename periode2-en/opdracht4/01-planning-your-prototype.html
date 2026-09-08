@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Planning Your Prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body>
+
+<header class="course-header">
+  <div class="container">
+    <div class="brand">
+      <img src="../shared/assets/roc-logo.png" alt="ROC van Amsterdam" class="logo-img">
+      <div class="brand-text">
+        <div class="school">ROC van Amsterdam</div>
+        <div class="course-title">Cloud &amp; Azure — Verdieping Software (D1-K1)</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span class="period-tag">Periode 2 · English</span><br>
+      Docent: H.D. Lal
+    </div>
+  </div>
+</header>
+
+<nav class="breadcrumb">
+  <div class="container">
+    <a href="../index.html">Course overview</a> <span class="sep">/</span>
+    <a href="00-overview.html">Assignment 4</a> <span class="sep">/</span>
+    Planning Your Prototype
+  </div>
+</nav>
+
+<main class="container">
+  <span class="page-kicker">Evidence · Proposal</span>
+  <h1>Planning Your Prototype</h1>
+  <p class="page-intro">
+    Before you touch Azure, you write a short proposal. A good proposal forces you to think through
+    what you are actually going to build — so that when you start clicking around in the Azure
+    portal, you already know what "done" looks like.
+  </p>
+
+  <h2>What makes a good technical proposal?</h2>
+  <p>
+    A proposal is not a essay — it is a working plan. A good proposal for this assignment is
+    <strong>small, concrete and testable</strong>. "I will build something with Azure" is not a plan;
+    "I will host a static portfolio website with three pages on an Azure Storage Account, using its
+    static website feature" is a plan. Keep these things in mind:
+  </p>
+  <ul>
+    <li><strong>Small scope.</strong> One page or a handful of pages is plenty. You can always extend it later (see the extra challenge).</li>
+    <li><strong>Concrete functionality.</strong> Describe what a visitor can actually do or see, not just "a website".</li>
+    <li><strong>Named services.</strong> Say exactly which Azure service you will use (e.g. Azure Storage static website hosting, or Azure App Service Free F1 tier) — not just "the cloud".</li>
+    <li><strong>A clear definition of done.</strong> Decide in advance how you will know your prototype works.</li>
+  </ul>
+
+  <div class="callout tip">
+    <div class="callout-title">💡 Why this matters</div>
+    In a real job, a proposal is what you show your supervisor or client before you start building.
+    Discussing your plan first — and getting agreement on scope — saves you from building the wrong
+    thing. Treat your teacher as your "opdrachtgever" (client) for this assignment: if your plan
+    changes significantly while building, discuss it with them first.
+  </div>
+
+  <h2>Fill in your proposal</h2>
+  <p>
+    Answer the questions below. Your answers are saved automatically in this browser as you work. Use
+    the download button at the bottom to save your proposal as a file and hand it in.
+  </p>
+
+  <div class="callout warning">
+    <div class="callout-title">⚠️ Note</div>
+    This worksheet only saves your text locally, in this browser, on this computer. Download your
+    answers regularly so you don't lose anything, and submit the downloaded file as your evidence.
+  </div>
+
+  <form id="worksheet-form">
+    <div class="worksheet-field">
+      <label for="f1">1. What will your prototype do?</label>
+      <div class="hint">Describe the core functionality — what can a visitor or user actually do with it?</div>
+      <textarea id="f1" rows="4" placeholder="For example: a single-page website that shows my portfolio, with a contact section..."></textarea>
+    </div>
+
+    <div class="worksheet-field">
+      <label for="f2">2. What will it look like?</label>
+      <div class="hint">Describe the basic layout and design — how many pages, what sections, what style?</div>
+      <textarea id="f2" rows="4" placeholder="For example: one page with a header, an About section, a project gallery and a footer..."></textarea>
+    </div>
+
+    <div class="worksheet-field">
+      <label for="f3">3. Which Azure service(s) and techniques will you use, and why?</label>
+      <div class="hint">Name the specific Azure service (e.g. Storage static website, App Service, Static Web Apps) and explain why it fits your plan.</div>
+      <textarea id="f3" rows="5" placeholder="I will use Azure Storage with static website hosting because..."></textarea>
+    </div>
+
+    <div class="worksheet-field">
+      <label for="f4">4. What does "done" look like?</label>
+      <div class="hint">How will you know your prototype works? What will you check or demonstrate?</div>
+      <textarea id="f4" rows="4" placeholder="My prototype is done when the live URL loads the homepage, all links work, and..."></textarea>
+    </div>
+
+    <div class="worksheet-actions">
+      <button type="button" class="btn btn-primary" id="save-btn">Save (in browser)</button>
+      <button type="button" class="btn btn-secondary" id="download-btn">Download as file</button>
+    </div>
+    <div class="completion-note" data-completion-note hidden>✓ Progress saved</div>
+  </form>
+
+  <div class="page-footer-nav">
+    <a class="nav-link" href="00-overview.html"><span class="dir">&larr; Previous</span><span class="lbl">Assignment 4 overview</span></a>
+    <a class="nav-link next" href="02-building-a-simple-azure-architecture.html"><span class="dir">Next &rarr;</span><span class="lbl">Building a Simple Azure Architecture</span></a>
+  </div>
+</main>
+
+<footer class="course-footer">
+  ROC van Amsterdam · Cloud &amp; Azure — Verdieping Software · Docent H.D. Lal
+</footer>
+
+<script src="../shared/scorm-api.js"></script>
+<script>
+(function () {
+  var STORAGE_KEY = "roc-azure-opdracht4-proposal";
+  var fields = ["f1", "f2", "f3", "f4"];
+
+  function loadDraft() {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return;
+      var data = JSON.parse(raw);
+      fields.forEach(function (id) {
+        if (data[id]) document.getElementById(id).value = data[id];
+      });
+    } catch (e) { /* localStorage unavailable — form still works, just without autosave */ }
+  }
+
+  function saveDraft() {
+    var data = {};
+    fields.forEach(function (id) { data[id] = document.getElementById(id).value; });
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch (e) { /* ignore */ }
+    if (window.ROCScorm) window.ROCScorm.markComplete();
+    var note = document.querySelector("[data-completion-note]");
+    if (note) note.hidden = false;
+  }
+
+  function downloadAnswers() {
+    var labels = {
+      f1: "1. What will your prototype do?",
+      f2: "2. What will it look like?",
+      f3: "3. Which Azure service(s) and techniques will you use, and why?",
+      f4: "4. What does \"done\" look like?"
+    };
+    var lines = ["Assignment 4: Prototype — Proposal", "ROC van Amsterdam — Cloud & Azure, Verdieping Software", ""];
+    fields.forEach(function (id) {
+      lines.push(labels[id]);
+      lines.push(document.getElementById(id).value || "(not filled in yet)");
+      lines.push("");
+    });
+    var blob = new Blob([lines.join("\n")], { type: "text/plain;charset=utf-8" });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = "assignment4-prototype-proposal.txt";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+    saveDraft();
+  }
+
+  document.getElementById("save-btn").addEventListener("click", saveDraft);
+  document.getElementById("download-btn").addEventListener("click", downloadAnswers);
+  loadDraft();
+})();
+</script>
+</body>
+</html>

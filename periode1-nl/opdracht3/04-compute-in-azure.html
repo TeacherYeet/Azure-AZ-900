@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Compute in Azure</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body>
+
+<header class="course-header">
+  <div class="container">
+    <div class="brand">
+      <img src="../shared/assets/roc-logo.png" alt="ROC van Amsterdam" class="logo-img">
+      <div class="brand-text">
+        <div class="school">ROC van Amsterdam</div>
+        <div class="course-title">Cloud &amp; Azure — Verdieping Software (D1-K1)</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span class="period-tag">Periode 1 · Nederlands</span><br>
+      Docent: H.D. Lal
+    </div>
+  </div>
+</header>
+
+<nav class="breadcrumb">
+  <div class="container">
+    <a href="../index.html">Cursusoverzicht</a> <span class="sep">/</span>
+    <a href="00-overzicht.html">Opdracht 3</a> <span class="sep">/</span>
+    Compute in Azure
+  </div>
+</nav>
+
+<main class="container">
+  <span class="page-kicker">Les 2 van 8</span>
+  <h1>Compute in Azure</h1>
+  <p class="page-intro">
+    "Compute" is de rekenkracht waarop je applicaties draaien: processors, geheugen, schijfruimte en
+    netwerk. Azure biedt hiervoor meerdere opties, van volledig zelf beheerde virtuele machines tot
+    kant-en-klare platforms. In deze les leer je de belangrijkste compute-diensten kennen.
+  </p>
+
+  <h2>Wat is Azure compute?</h2>
+  <p>
+    Azure compute is een <em>on-demand</em> rekendienst: je krijgt naar behoefte toegang tot
+    resources zoals schijven, processors, geheugen, netwerk en besturingssystemen. De belangrijkste
+    compute-diensten zijn: <strong>Virtual Machines</strong>, <strong>App Services</strong>,
+    <strong>Azure Kubernetes Service (AKS)</strong>, <strong>Container Instances</strong>,
+    <strong>Azure Virtual Desktop</strong> en <strong>Azure Functions</strong>.
+  </p>
+
+  <h2>Virtual Machines (VM's)</h2>
+  <p>
+    Een <strong>Azure Virtual Machine</strong> is een softwarematige nabootsing van een fysieke
+    computer, inclusief virtuele processor, geheugen, opslag en netwerk. Dit is een
+    <strong>IaaS</strong>-dienst (Infrastructure as a Service): jij krijgt volledige controle en kunt
+    het besturingssysteem en alle software er zelf op installeren en beheren.
+  </p>
+  <p>Typische toepassingen:</p>
+  <ul>
+    <li><strong>Ontwikkelen en testen</strong> — snel een computer met specifieke configuratie opzetten om te programmeren en te testen.</li>
+    <li><strong>Applicaties in de cloud</strong> — schaalbaar draaien: extra VM's bijzetten bij drukte, uitzetten als de vraag daalt.</li>
+    <li><strong>Uitbreiding van je datacenter</strong> — VM's in een Azure virtual network eenvoudig koppelen aan het netwerk van je eigen organisatie.</li>
+  </ul>
+
+  <h3>VM scale sets</h3>
+  <p>
+    Een <strong>VM scale set</strong> laat je automatisch schalen: bij toenemende vraag worden er
+    automatisch extra, identieke VM's bijgezet (<em>scale out</em>), en bij afnemende vraag worden ze
+    weer afgeschaald (<em>scale in</em>). Het verkeer wordt hierbij load-balanced over de VM's
+    verdeeld.
+  </p>
+
+  <h3>VM availability sets</h3>
+  <p>
+    Een <strong>availability set</strong> groepeert VM's zodat een storing er niet allemaal
+    tegelijk uitligt. Dit gebeurt via twee soorten domeinen:
+  </p>
+  <ul>
+    <li><strong>Update domain</strong> — houdt VM's gegroepeerd die tegelijk herstart kunnen worden zonder dat dit een storing veroorzaakt.</li>
+    <li><strong>Fault domain</strong> — groepeert VM's op basis van gedeelde stroomvoorziening en netwerk, zodat niet alle VM's door dezelfde hardwarestoring worden geraakt.</li>
+  </ul>
+
+  <h3>Azure Virtual Desktop</h3>
+  <p>
+    <strong>Azure Virtual Desktop</strong> is desktop- en app-virtualisatie die in de cloud draait.
+    Je kunt hiermee een complete desktop-virtualisatieomgeving opzetten zonder aparte gateway-servers
+    te hoeven beheren. Het ondersteunt echte <em>multi-session</em>-implementaties, waarbij meerdere
+    gebruikers tegelijk kunnen inloggen op dezelfde onderliggende machine.
+  </p>
+
+  <h2>Containers</h2>
+  <p>
+    Containers zijn een lichtgewicht, gevirtualiseerde omgeving. In tegenstelling tot een VM hoef je
+    bij een container geen besturingssysteem te beheren — containers zijn ontworpen om snel te worden
+    aangemaakt, op- en afgeschaald, en gestopt.
+  </p>
+  <ul>
+    <li><strong>Azure Container Instances (ACI)</strong> — een PaaS-dienst waarmee je een container in Azure draait zonder een virtuele machine of extra services te hoeven beheren.</li>
+    <li><strong>Azure Kubernetes Service (AKS)</strong> — een orchestratiedienst voor containers, geschikt voor gedistribueerde architecturen met grote aantallen containers.</li>
+  </ul>
+
+  <h2>Azure Functions</h2>
+  <p>
+    <strong>Azure Functions</strong> is Microsofts <em>serverless</em> compute-dienst: je schrijft
+    alleen de code voor jouw service, en niet voor de onderliggende infrastructuur. De code is
+    <strong>event-driven</strong> — hij wordt getriggerd door bijvoorbeeld een HTTP-verzoek, een
+    timer, of het uploaden van een bestand. De infrastructuur schaalt hierbij automatisch mee, en je
+    betaalt alleen voor wat je daadwerkelijk gebruikt (micro-billing).
+  </p>
+
+  <h2>Azure App Services</h2>
+  <p>
+    <strong>Azure App Service</strong> is een volledig beheerd <strong>PaaS</strong>-platform om
+    webapps en API's snel te bouwen, te implementeren en op te schalen. Het ondersteunt .NET, .NET
+    Core, Node.js, Java, Python en PHP, en biedt prestaties, beveiliging en compliance op
+    enterprise-niveau.
+  </p>
+
+  <h2>De compute-opties vergeleken</h2>
+  <table>
+    <thead><tr><th>Optie</th><th>Type</th><th>Wanneer gebruik je het?</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Virtual Machine</strong></td>
+        <td>IaaS</td>
+        <td>Cloud-server met Windows of Linux, compleet besturingssysteem inbegrepen. Handig voor "lift-and-shift"-migraties naar de cloud, en als je volledige controle wilt.</td>
+      </tr>
+      <tr>
+        <td><strong>VM Scale Set</strong></td>
+        <td>IaaS</td>
+        <td>Wanneer je vraag sterk wisselt en je automatisch VM's wilt bij- en afschalen, load-balanced.</td>
+      </tr>
+      <tr>
+        <td><strong>Containers (ACI / AKS)</strong></td>
+        <td>PaaS</td>
+        <td>Lichtgewicht, goed voor microservices; ontworpen voor schaalbaarheid en veerkracht via orchestratie.</td>
+      </tr>
+      <tr>
+        <td><strong>Azure Virtual Desktop</strong></td>
+        <td>PaaS</td>
+        <td>Wanneer je een volledige Windows-desktopervaring wilt aanbieden vanuit de cloud, toegankelijk via een browser of app, met meerdere gebruikers tegelijk.</td>
+      </tr>
+      <tr>
+        <td><strong>Azure Functions</strong></td>
+        <td>Serverless</td>
+        <td>Voor kleine stukjes code die alleen bij een gebeurtenis (event) hoeven te draaien, zonder dat je servers beheert.</td>
+      </tr>
+      <tr>
+        <td><strong>App Service</strong></td>
+        <td>PaaS</td>
+        <td>Voor het snel bouwen en hosten van webapps en API's, zonder infrastructuur te beheren.</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout tip">
+    <div class="callout-title">💡 Koppel dit terug aan IaaS/PaaS/SaaS</div>
+    Herken je het patroon uit Opdracht 1? Virtual Machines en VM Scale Sets zijn <strong>IaaS</strong>
+    — jij beheert nog het besturingssysteem. App Services, AKS/ACI en Azure Virtual Desktop zijn
+    <strong>PaaS</strong> — het platform is al voor je geregeld. Azure Functions gaat nog een stap
+    verder: <em>serverless</em>, waarbij je je zelfs geen zorgen maakt over servers of platforms, en
+    alleen voor het daadwerkelijke gebruik betaalt.
+  </div>
+
+  <div class="quiz-block" id="quiz-2"></div>
+
+  <div class="page-footer-nav">
+    <a class="nav-link" href="03-azure-architectuur-basis.html"><span class="dir">&larr; Vorige</span><span class="lbl">Azure architectuur basis</span></a>
+    <a class="nav-link next" href="05-netwerken-in-azure.html"><span class="dir">Volgende &rarr;</span><span class="lbl">Netwerken in Azure</span></a>
+  </div>
+</main>
+
+<footer class="course-footer">
+  ROC van Amsterdam · Cloud &amp; Azure — Verdieping Software · Docent H.D. Lal
+</footer>
+
+<script src="../shared/scorm-api.js"></script>
+<script src="../shared/quiz-engine.js"></script>
+<script>
+ROCQuiz.render("quiz-2", {
+  title: "Check je begrip",
+  checkLabel: "Controleer antwoorden",
+  resetLabel: "Opnieuw proberen",
+  passLabel: "Goed gedaan! Je kent de belangrijkste compute-opties in Azure.",
+  retryLabel: "Bekijk de uitleg en de tabel hierboven nog eens en probeer het opnieuw.",
+  incompleteLabel: "Beantwoord eerst alle vragen.",
+  questions: [
+    {
+      text: "Wat is het belangrijkste kenmerk van een Azure Virtual Machine ten opzichte van een container?",
+      options: [
+        "Een VM bevat een compleet besturingssysteem dat jij zelf beheert; een container niet",
+        "Een VM kan niet schalen, een container wel",
+        "Een VM is altijd goedkoper dan een container"
+      ],
+      correct: 0,
+      explanation: "Een VM is een IaaS-oplossing met een volledig besturingssysteem dat jij beheert. Containers zijn lichtgewicht en delen het besturingssysteem van de host, waardoor je géén OS hoeft te beheren."
+    },
+    {
+      text: "Waarvoor gebruik je een VM scale set?",
+      options: [
+        "Om automatisch VM's bij te zetten of af te schalen op basis van de vraag",
+        "Om een virtuele machine te beveiligen tegen aanvallen",
+        "Om een resource group aan te maken"
+      ],
+      correct: 0,
+      explanation: "Een VM scale set biedt load-balanced automatisch schalen: meer VM's bij toenemende vraag (scale out), minder bij afnemende vraag (scale in)."
+    },
+    {
+      text: "Wat is kenmerkend voor Azure Functions?",
+      options: [
+        "Je beheert de volledige virtuele machine zelf",
+        "Het is event-driven serverless compute: code draait alleen bij een trigger, en je betaalt naar gebruik",
+        "Het is alleen geschikt voor het draaien van een compleet besturingssysteem"
+      ],
+      correct: 1,
+      explanation: "Azure Functions is serverless: de code wordt getriggerd door een gebeurtenis (bijvoorbeeld een HTTP-request of timer), de infrastructuur schaalt automatisch mee, en je betaalt alleen voor het daadwerkelijke gebruik."
+    },
+    {
+      text: "Welke compute-dienst is een PaaS-platform, specifiek bedoeld om snel webapps en API's te bouwen en te hosten?",
+      options: ["Virtual Machine", "Azure App Service", "VM availability set"],
+      correct: 1,
+      explanation: "Azure App Service is een volledig beheerd PaaS-platform voor het bouwen, implementeren en schalen van webapps en API's, zonder dat je de onderliggende infrastructuur beheert."
+    }
+  ]
+});
+</script>
+</body>
+</html>

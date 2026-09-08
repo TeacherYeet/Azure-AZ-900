@@ -1,0 +1,58 @@
+<?xml version="1.0" standalone="no" ?>
+<manifest identifier="COM.ROCVANAMSTERDAM.CLOUDAZURE.PERIODE1" version="1"
+  xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2"
+  xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd
+                      http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
+  <metadata>
+    <schema>ADL SCORM</schema>
+    <schemaversion>1.2</schemaversion>
+  </metadata>
+  <organizations default="ROC_AZURE_ORG">
+    <organization identifier="ROC_AZURE_ORG">
+      <title>Cloud &amp; Azure - Verdieping Software - Periode 1 (Opdracht 1-3)</title>
+      <item identifier="ITEM_1" identifierref="RES_1" isvisible="true">
+        <title>Cloud &amp; Azure - Verdieping Software - Periode 1 (Opdracht 1-3)</title>
+      </item>
+    </organization>
+  </organizations>
+  <resources>
+    <resource identifier="RES_1" type="webcontent" adlcp:scormtype="sco" href="index.html">
+      <file href="index.html"/>
+      <file href="opdracht1/00-overzicht.html"/>
+      <file href="opdracht1/01-wat-is-cloud-computing.html"/>
+      <file href="opdracht1/02-service-en-deploymentmodellen.html"/>
+      <file href="opdracht1/03-azure-en-de-arbeidsmarkt.html"/>
+      <file href="opdracht1/04-flashcards.html"/>
+      <file href="opdracht1/05-werkblad.html"/>
+      <file href="opdracht1/06-extra-voor-wie-meer-wil.html"/>
+      <file href="opdracht2/00-overzicht.html"/>
+      <file href="opdracht2/01-voordelen-van-de-cloud.html"/>
+      <file href="opdracht2/02-je-opdrachtgever-overtuigen.html"/>
+      <file href="opdracht2/03-flashcards.html"/>
+      <file href="opdracht2/04-werkblad.html"/>
+      <file href="opdracht2/05-extra-voor-wie-meer-wil.html"/>
+      <file href="opdracht3/00-overzicht.html"/>
+      <file href="opdracht3/01-reflecteren-en-leerdoelen.html"/>
+      <file href="opdracht3/02-planning-maken.html"/>
+      <file href="opdracht3/03-azure-architectuur-basis.html"/>
+      <file href="opdracht3/04-compute-in-azure.html"/>
+      <file href="opdracht3/05-netwerken-in-azure.html"/>
+      <file href="opdracht3/06-opslag-in-azure.html"/>
+      <file href="opdracht3/07-identiteit-en-beveiliging.html"/>
+      <file href="opdracht3/08-kosten-beheren.html"/>
+      <file href="opdracht3/09-governance-en-compliance.html"/>
+      <file href="opdracht3/10-monitoring-en-tools.html"/>
+      <file href="opdracht3/11-flashcards-azure-services.html"/>
+      <file href="opdracht3/12-werkblad-logboek.html"/>
+      <file href="opdracht3/13-extra-voor-wie-meer-wil.html"/>
+      <file href="shared/assets/roc-logo.png"/>
+      <file href="shared/exam-timer.js"/>
+      <file href="shared/flashcards.js"/>
+      <file href="shared/quiz-engine.js"/>
+      <file href="shared/scorm-api.js"/>
+      <file href="shared/styles.css"/>
+    </resource>
+  </resources>
+</manifest>

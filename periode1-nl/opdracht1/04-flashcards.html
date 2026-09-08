@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flashcards: cloudterminologie</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body>
+
+<header class="course-header">
+  <div class="container">
+    <div class="brand">
+      <img src="../shared/assets/roc-logo.png" alt="ROC van Amsterdam" class="logo-img">
+      <div class="brand-text">
+        <div class="school">ROC van Amsterdam</div>
+        <div class="course-title">Cloud &amp; Azure — Verdieping Software (D1-K1)</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span class="period-tag">Periode 1 · Nederlands</span><br>
+      Docent: H.D. Lal
+    </div>
+  </div>
+</header>
+
+<nav class="breadcrumb">
+  <div class="container">
+    <a href="../index.html">Cursusoverzicht</a> <span class="sep">/</span>
+    <a href="00-overzicht.html">Opdracht 1</a> <span class="sep">/</span>
+    Flashcards
+  </div>
+</nav>
+
+<main class="container">
+  <span class="page-kicker">Oefenen</span>
+  <h1>Flashcards: cloudterminologie</h1>
+  <p class="page-intro">
+    Oefen de belangrijkste begrippen uit deze opdracht. Klik op een kaart om de betekenis te zien.
+  </p>
+
+  <div id="deck-1"></div>
+
+  <div class="page-footer-nav">
+    <a class="nav-link" href="03-azure-en-de-arbeidsmarkt.html"><span class="dir">&larr; Vorige</span><span class="lbl">Azure en de arbeidsmarkt</span></a>
+    <a class="nav-link next" href="05-werkblad.html"><span class="dir">Volgende &rarr;</span><span class="lbl">Werkblad Opdracht 1</span></a>
+  </div>
+</main>
+
+<footer class="course-footer">
+  ROC van Amsterdam · Cloud &amp; Azure — Verdieping Software · Docent H.D. Lal
+</footer>
+
+<script src="../shared/scorm-api.js"></script>
+<script src="../shared/flashcards.js"></script>
+<script>
+ROCFlashcards.render("deck-1", {
+  hint: "Klik op de kaart om de betekenis te zien.",
+  prevLabel: "Vorige",
+  nextLabel: "Volgende",
+  shuffleLabel: "Schudden",
+  cards: [
+    { term: "Cloud computing", def: "Het via internet leveren van IT-diensten (rekenkracht, opslag, netwerken, software) op aanvraag, beheerd door een provider." },
+    { term: "Public cloud", def: "Cloudomgeving van een provider (zoals Microsoft), toegankelijk voor meerdere organisaties via internet." },
+    { term: "Private cloud", def: "Cloudomgeving die een organisatie zelf in haar eigen datacenter opzet en beheert, niet toegankelijk voor buitenstaanders." },
+    { term: "Hybrid cloud", def: "Combinatie van public en private cloud, zodat je applicaties op de meest geschikte plek kunt draaien." },
+    { term: "IaaS", def: "Infrastructure as a Service — je huurt losse bouwstenen zoals servers, opslag en netwerken." },
+    { term: "PaaS", def: "Platform as a Service — een kant-en-klaar platform om applicaties te bouwen en te draaien, zonder infrastructuurbeheer." },
+    { term: "SaaS", def: "Software as a Service — kant-en-klare software die je via internet gebruikt, meestal via abonnement." },
+    { term: "CapEx", def: "Capital Expenditure — grote investering vooraf in fysieke infrastructuur, waarvan de waarde over tijd afneemt." },
+    { term: "OpEx", def: "Operational Expenditure — betalen voor diensten naar gebruik, zonder investering vooraf (pay-as-you-go)." },
+    { term: "Shared responsibility model", def: "Het model dat beschrijft hoe de verantwoordelijkheid voor beveiliging en beheer verdeeld is tussen cloudprovider en klant." },
+    { term: "Microsoft Azure", def: "Het cloudplatform van Microsoft, met honderden diensten voor rekenkracht, opslag, netwerken, AI en meer." },
+    { term: "AZ-900", def: "Microsoft Azure Fundamentals — de instapcertificering van Microsoft over basiskennis van cloud en Azure." }
+  ]
+});
+</script>
+</body>
+</html>

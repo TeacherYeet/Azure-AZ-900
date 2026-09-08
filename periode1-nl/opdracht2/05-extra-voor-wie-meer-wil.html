@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Extra: bereken een kostenvergelijking</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body>
+
+<header class="course-header">
+  <div class="container">
+    <div class="brand">
+      <img src="../shared/assets/roc-logo.png" alt="ROC van Amsterdam" class="logo-img">
+      <div class="brand-text">
+        <div class="school">ROC van Amsterdam</div>
+        <div class="course-title">Cloud &amp; Azure — Verdieping Software (D1-K1)</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span class="period-tag">Periode 1 · Nederlands</span><br>
+      Docent: H.D. Lal
+    </div>
+  </div>
+</header>
+
+<nav class="breadcrumb">
+  <div class="container">
+    <a href="../index.html">Cursusoverzicht</a> <span class="sep">/</span>
+    <a href="00-overzicht.html">Opdracht 2</a> <span class="sep">/</span>
+    Extra: voor wie meer wil
+  </div>
+</nav>
+
+<main class="container">
+  <span class="page-kicker extra">★ Extra — niet verplicht</span>
+  <h1>Bereken een kostenvergelijking</h1>
+  <p class="page-intro">
+    Deze opdracht is niet verplicht en telt niet mee voor je examenportfolio. Doe hem als je je
+    argumenten voor Opdracht 2 nog concreter wilt maken met echte getallen.
+  </p>
+
+  <div class="callout extra">
+    <div class="callout-title">★ Bonusopdracht</div>
+    Een van je sterkste argumenten richting je opdrachtgever is een concreet getal. Met de gratis
+    <strong>Azure Pricing Calculator</strong> van Microsoft kun je zelf uitrekenen wat een
+    cloudoplossing ongeveer kost, en dat vergelijken met de kosten van eigen (on-premises)
+    hardware.
+  </div>
+
+  <h2>Het scenario</h2>
+  <p>
+    Stel je voor: een klein bedrijf wil een eenvoudige webserver draaien voor hun website. Ze
+    twijfelen tussen twee opties:
+  </p>
+  <table>
+    <thead><tr><th>Optie</th><th>Kostenmodel</th><th>Kenmerk</th></tr></thead>
+    <tbody>
+      <tr><td><strong>On-premises</strong></td><td>CapEx</td><td>Zelf een fysieke server aanschaffen, plaatsen en onderhouden.</td></tr>
+      <tr><td><strong>Microsoft Azure</strong></td><td>OpEx</td><td>Een virtuele machine (VM) huren in de cloud, betalen naar gebruik.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Opdracht</h2>
+  <ol class="step-list">
+    <li>Ga naar de <strong>Azure Pricing Calculator</strong>: <a href="https://azure.microsoft.com/pricing/calculator" target="_blank" rel="noopener">azure.microsoft.com/pricing/calculator</a>.</li>
+    <li>Zoek de dienst <strong>Virtual Machines</strong> op en voeg deze toe aan je berekening. Kies een eenvoudige, kleine configuratie (bijvoorbeeld 1-2 vCPU's, weinig geheugen) — genoeg voor een simpele webserver.</li>
+    <li>Bekijk de geschatte kosten per maand die de calculator berekent. Noteer dit bedrag.</li>
+    <li>Zoek (of schat) wat een vergelijkbare fysieke server on-premises ongeveer zou kosten: aanschafprijs, stroomverbruik, ruimte en onderhoud. Dit hoeft geen exacte offerte te zijn — een globale schatting is genoeg.</li>
+    <li>Reflecteer kort: wat valt je op als je de twee bedragen naast elkaar zet? Waar zie je het verschil tussen CapEx (hoge kosten vooraf) en OpEx (lage, doorlopende kosten) terug in de getallen?</li>
+    <li><strong>Optioneel:</strong> gebruik deze kostenvergelijking als extra argument in je werkblad of gesprek voor Opdracht 2.</li>
+  </ol>
+
+  <div class="callout tip">
+    <div class="callout-title">💡 Waarom dit de moeite waard is</div>
+    Een opdrachtgever wordt vaak sneller overtuigd door een concreet getal dan door een algemeen
+    verhaal over "voordelen van de cloud". Als je kunt laten zien dat een cloudoplossing bijvoorbeeld
+    per maand goedkoper uitpakt dan een eigen server — of juist duidelijk maakt waarom je geen grote
+    investering vooraf hoeft te doen — geeft dat je argumentatie extra kracht.
+  </div>
+
+  <div class="page-footer-nav">
+    <a class="nav-link" href="04-werkblad.html"><span class="dir">&larr; Vorige</span><span class="lbl">Werkblad Opdracht 2</span></a>
+    <a class="nav-link next" href="../opdracht3/00-overzicht.html"><span class="dir">Volgende &rarr;</span><span class="lbl">Opdracht 3</span></a>
+  </div>
+</main>
+
+<footer class="course-footer">
+  ROC van Amsterdam · Cloud &amp; Azure — Verdieping Software · Docent H.D. Lal
+</footer>
+
+<script src="../shared/scorm-api.js"></script>
+</body>
+</html>

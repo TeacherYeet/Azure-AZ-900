@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flashcards: cloudvoordelen en kostenmodel</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body>
+
+<header class="course-header">
+  <div class="container">
+    <div class="brand">
+      <img src="../shared/assets/roc-logo.png" alt="ROC van Amsterdam" class="logo-img">
+      <div class="brand-text">
+        <div class="school">ROC van Amsterdam</div>
+        <div class="course-title">Cloud &amp; Azure — Verdieping Software (D1-K1)</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span class="period-tag">Periode 1 · Nederlands</span><br>
+      Docent: H.D. Lal
+    </div>
+  </div>
+</header>
+
+<nav class="breadcrumb">
+  <div class="container">
+    <a href="../index.html">Cursusoverzicht</a> <span class="sep">/</span>
+    <a href="00-overzicht.html">Opdracht 2</a> <span class="sep">/</span>
+    Flashcards
+  </div>
+</nav>
+
+<main class="container">
+  <span class="page-kicker">Oefenen</span>
+  <h1>Flashcards: cloudvoordelen en kostenmodel</h1>
+  <p class="page-intro">
+    Oefen de belangrijkste begrippen uit deze opdracht. Klik op een kaart om de betekenis te zien.
+  </p>
+
+  <div id="deck-1"></div>
+
+  <div class="page-footer-nav">
+    <a class="nav-link" href="02-je-opdrachtgever-overtuigen.html"><span class="dir">&larr; Vorige</span><span class="lbl">Je opdrachtgever overtuigen</span></a>
+    <a class="nav-link next" href="04-werkblad.html"><span class="dir">Volgende &rarr;</span><span class="lbl">Werkblad Opdracht 2</span></a>
+  </div>
+</main>
+
+<footer class="course-footer">
+  ROC van Amsterdam · Cloud &amp; Azure — Verdieping Software · Docent H.D. Lal
+</footer>
+
+<script src="../shared/scorm-api.js"></script>
+<script src="../shared/flashcards.js"></script>
+<script>
+ROCFlashcards.render("deck-1", {
+  hint: "Klik op de kaart om de betekenis te zien.",
+  prevLabel: "Vorige",
+  nextLabel: "Volgende",
+  shuffleLabel: "Schudden",
+  cards: [
+    { term: "CapEx", def: "Capital Expenditure — een investering vooraf in fysieke infrastructuur, waarvan de waarde in de loop van de tijd afneemt." },
+    { term: "OpEx", def: "Operational Expenditure — betalen voor producten of diensten naar gebruik (pay-as-you-go), zonder investering vooraf." },
+    { term: "Consumption-based model", def: "Het verbruiksmodel van cloudproviders: je betaalt alleen voor de resources die je daadwerkelijk gebruikt." },
+    { term: "High availability", def: "Hoge beschikbaarheid — diensten blijven draaien en toegankelijk, ook wanneer er storingen optreden." },
+    { term: "Scalability", def: "Schaalbaarheid — eenvoudig meer of minder rekenkracht en opslag toevoegen, zonder nieuwe hardware aan te schaffen." },
+    { term: "Reliability", def: "Betrouwbaarheid — systemen herstellen zichzelf van storingen en blijven de afgesproken functionaliteit leveren." },
+    { term: "Predictability", def: "Voorspelbaarheid — je weet vooraf ongeveer wat prestaties en kosten zullen zijn." },
+    { term: "Security", def: "Beveiliging — cloudproviders investeren zwaar in de beveiliging van hun datacenters en bieden ingebouwde beveiligingsdiensten." },
+    { term: "Governance", def: "Governance — centraal regels en beleid instellen, zodat resources binnen de afspraken van de organisatie blijven." },
+    { term: "Manageability", def: "Beheersbaarheid — resources eenvoudig beheren en monitoren via één centraal platform." },
+    { term: "Elasticity", def: "Elasticiteit — resources schalen automatisch mee met de actuele vraag, en schalen daarna weer terug." },
+    { term: "Azure Pricing Calculator", def: "Een gratis online tool van Microsoft waarmee je de geschatte kosten van Azure-diensten kunt berekenen." }
+  ]
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AZ-900 Mock Exam</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body>
+
+<header class="course-header">
+  <div class="container">
+    <div class="brand">
+      <img src="../shared/assets/roc-logo.png" alt="ROC van Amsterdam" class="logo-img">
+      <div class="brand-text">
+        <div class="school">ROC van Amsterdam</div>
+        <div class="course-title">Cloud &amp; Azure — Verdieping Software (D1-K1)</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span class="period-tag">Periode 2 · English</span><br>
+      Docent: H.D. Lal
+    </div>
+  </div>
+</header>
+
+<div class="exam-timer-bar"><div class="container">
+  <span>AZ-900 Practice Exam</span>
+  <span class="timer" data-timer>45:00</span>
+</div></div>
+
+<nav class="breadcrumb">
+  <div class="container">
+    <a href="../index.html">Course overview</a> <span class="sep">/</span>
+    <a href="00-overview.html">Exam Prep</a> <span class="sep">/</span>
+    AZ-900 Mock Exam
+  </div>
+</nav>
+
+<main class="container">
+  <span class="page-kicker">Exam Prep · Timed practice</span>
+  <h1>AZ-900 Mock Exam</h1>
+  <p class="page-intro">
+    A full, timed practice exam covering all three AZ-900 domains. Work through it as you would the
+    real exam — read each question carefully, choose the best answer, and manage your own time.
+  </p>
+
+  <div class="callout warning">
+    <div class="callout-title">⚠️ Unofficial practice tool</div>
+    This mock exam is created by ROC van Amsterdam for self-study purposes only. It is
+    <strong>not an official Microsoft product</strong> and is <strong>not affiliated with, endorsed
+    by, or reviewed by Microsoft</strong>. Question style and difficulty are modeled on the real
+    AZ-900 exam, but this is not a substitute for the official exam, and passing this mock exam does
+    not guarantee passing the real one.
+  </div>
+
+  <div class="quiz-block" id="quiz-mock"></div>
+
+  <div class="page-footer-nav">
+    <a class="nav-link" href="04-flashcards-exam-review.html"><span class="dir">&larr; Back</span><span class="lbl">Flashcards: Exam Review</span></a>
+    <a class="nav-link next" href="06-exam-day-tips.html"><span class="dir">Next &rarr;</span><span class="lbl">Exam Day: What to Expect</span></a>
+  </div>
+</main>
+
+<footer class="course-footer">
+  ROC van Amsterdam · Cloud &amp; Azure — Verdieping Software · Docent H.D. Lal
+</footer>
+
+<script src="../shared/scorm-api.js"></script>
+<script src="../shared/exam-timer.js"></script>
+<script src="../shared/quiz-engine.js"></script>
+<script>
+ROCExamTimer.start(45, function () {
+  alert("Time's up! Please submit your answers now.");
+});
+
+ROCQuiz.render("quiz-mock", {
+  title: "AZ-900 Practice Exam — 25 questions",
+  checkLabel: "Submit answers",
+  resetLabel: "Retake exam",
+  passLabel: "Pass! You scored at or above the 70% pass mark used by the real AZ-900 exam.",
+  retryLabel: "Not quite at the pass mark yet (70%). Review the explanations, revisit the review pages, and try again.",
+  incompleteLabel: "Please answer every question before submitting.",
+  passThreshold: 70,
+  questions: [
+    {
+      text: "Which statement best defines cloud computing?",
+      options: [
+        "The delivery of computing services over the internet, enabling faster innovation and flexible resources",
+        "The practice of keeping all servers physically on-premises",
+        "A method for backing up files to a USB drive"
+      ],
+      correct: 0,
+      explanation: "Cloud computing delivers computing services (compute, storage, networking, software) over the internet, on demand."
+    },
+    {
+      text: "A retail company keeps customer payment data on servers in its own building for compliance, but hosts its marketing website on a public cloud provider. Which cloud deployment model does this describe?",
+      options: ["Private cloud", "Hybrid cloud", "Public cloud"],
+      correct: 1,
+      explanation: "This is a hybrid cloud: sensitive workloads stay private, while other workloads run in the public cloud, each in the most appropriate location."
+    },
+    {
+      text: "In the shared responsibility model, which of these is ALWAYS the customer's responsibility, in every service model (IaaS, PaaS, and SaaS)?",
+      options: ["Physical datacenter security", "Data and identities", "The underlying network hardware"],
+      correct: 1,
+      explanation: "Regardless of service model, the customer always retains responsibility for their own data and identities."
+    },
+    {
+      text: "Which pricing approach is an example of Operational Expenditure (OpEx)?",
+      options: [
+        "Purchasing physical servers outright and depreciating their value over several years",
+        "Paying monthly for exactly the cloud resources consumed that month",
+        "A single upfront capital investment in a new datacenter building"
+      ],
+      correct: 1,
+      explanation: "OpEx means paying for what you use as you go, with no upfront investment — this is how cloud consumption-based billing works."
+    },
+    {
+      text: "A retailer's website traffic spikes dramatically during holiday sales and drops off afterward. Which cloud benefit specifically addresses automatically adjusting compute capacity to match this changing demand?",
+      options: ["Elasticity", "Governance", "Manageability"],
+      correct: 0,
+      explanation: "Elasticity is the ability to automatically scale resources up or down in real time to match demand, ideal for unpredictable spikes."
+    },
+    {
+      text: "A company wants to migrate an existing legacy application to the cloud with minimal changes, retaining full control over the operating system. Which service type is the best fit?",
+      options: ["SaaS", "PaaS", "IaaS"],
+      correct: 2,
+      explanation: "IaaS is best suited for lift-and-shift migrations, since it gives full control over the OS while the provider manages the underlying hardware."
+    },
+    {
+      text: "Which of the following is an example of Software as a Service (SaaS)?",
+      options: ["Azure Virtual Machines", "Azure App Service", "Microsoft 365"],
+      correct: 2,
+      explanation: "Microsoft 365 is complete, ready-to-use software delivered over the internet on a subscription — the definition of SaaS."
+    },
+    {
+      text: "What is the primary benefit of using Azure region pairs?",
+      options: [
+        "They guarantee zero downtime for all services",
+        "They provide a paired region for disaster recovery and prioritized recovery during outages",
+        "They eliminate the need for availability zones"
+      ],
+      correct: 1,
+      explanation: "Region pairs are at least 300 miles apart; some services replicate automatically to the pair, and recovery is prioritized for one region per pair during a broad outage."
+    },
+    {
+      text: "An Azure resource must belong to how many resource groups at a time?",
+      options: ["Exactly one", "At least one, but it can belong to several", "Zero or more, depending on the resource type"],
+      correct: 0,
+      explanation: "Every Azure resource belongs to exactly one resource group, which is used to manage resources sharing a lifecycle."
+    },
+    {
+      text: "What is the correct order of the Azure management hierarchy, from broadest to narrowest?",
+      options: [
+        "Resource groups → subscriptions → management groups → resources",
+        "Management groups → subscriptions → resource groups → resources",
+        "Subscriptions → management groups → resources → resource groups"
+      ],
+      correct: 1,
+      explanation: "The hierarchy runs: management groups (broadest) → subscriptions → resource groups → individual resources (narrowest)."
+    },
+    {
+      text: "A startup needs to deploy an application built with many small, independently deployable services, and wants those services to automatically restart and scale using orchestration. Which Azure service is the best fit?",
+      options: ["Azure Kubernetes Service (AKS)", "Azure Virtual Desktop", "Azure Data Box"],
+      correct: 0,
+      explanation: "AKS is designed to orchestrate containerized microservices, handling scaling, scheduling, and self-healing automatically."
+    },
+    {
+      text: "A company needs to connect its on-premises datacenter to Azure using a private, dedicated connection that does not go over the public internet. Which Azure service should they use?",
+      options: ["VPN Gateway", "ExpressRoute", "Azure DNS"],
+      correct: 1,
+      explanation: "ExpressRoute provides a private connection between on-premises infrastructure and Azure, facilitated by a connectivity provider, bypassing the public internet."
+    },
+    {
+      text: "Which Azure storage redundancy option provides the HIGHEST durability by combining zone redundancy in the primary region with replication to a secondary region?",
+      options: ["LRS", "ZRS", "GZRS"],
+      correct: 2,
+      explanation: "Geo-zone-redundant storage (GZRS) combines zone-redundant storage in the primary region with asynchronous replication to a secondary region, offering the highest durability."
+    },
+    {
+      text: "A company wants to store financial records that must be retained for 7 years and are almost never accessed. Which storage access tier minimizes storage cost for this data?",
+      options: ["Hot", "Cool", "Archive"],
+      correct: 2,
+      explanation: "The Archive tier is optimized for rarely accessed data with a minimum 180-day retention, offering the lowest storage cost at the expense of higher retrieval latency."
+    },
+    {
+      text: "What does Azure RBAC (Role-Based Access Control) primarily manage?",
+      options: [
+        "Which configurations are compliant with company standards",
+        "Fine-grained access — who can perform which actions on which resources",
+        "How resources are billed and tagged"
+      ],
+      correct: 1,
+      explanation: "Azure RBAC manages fine-grained access control: which users or groups can perform which actions on which scope of resources."
+    },
+    {
+      text: "Which of these is required for Multi-Factor Authentication (MFA)?",
+      options: [
+        "Two or more independent verification factors, such as a password and a code from a mobile app",
+        "A single, very long and complex password",
+        "A unique username for every application"
+      ],
+      correct: 0,
+      explanation: "MFA requires two or more independent factors: something you know, something you possess, and/or something you are."
+    },
+    {
+      text: "What best describes the Zero Trust security model?",
+      options: [
+        "Trust any device already connected to the internal network",
+        "Verify explicitly, use least-privilege access, and assume breach for every request",
+        "Rely entirely on a single perimeter firewall"
+      ],
+      correct: 1,
+      explanation: "Zero Trust assumes no implicit trust and requires explicit verification of every request, least-privilege access, and an assumption that a breach could already exist."
+    },
+    {
+      text: "A company wants a single unified score and set of recommendations to improve the reliability, security, performance, and cost-efficiency of resources it has already deployed. Which tool should it use?",
+      options: ["Azure Advisor", "Azure Blueprints", "Azure Policy"],
+      correct: 0,
+      explanation: "Azure Advisor analyzes deployed resources and produces personalized, actionable recommendations across reliability, security, performance, cost, and operational excellence."
+    },
+    {
+      text: "Which tool would a company use to estimate what an Azure deployment will cost BEFORE deploying it?",
+      options: ["Azure Cost Management", "Pricing Calculator", "Azure Monitor"],
+      correct: 1,
+      explanation: "The Pricing Calculator estimates costs for Azure products before purchase, based on configuration choices like region, tier, and support options."
+    },
+    {
+      text: "What is the purpose of Azure Policy?",
+      options: [
+        "To enforce organizational rules and evaluate whether existing resources comply with them",
+        "To grant users permission to create resources",
+        "To provide a discount on Azure billing"
+      ],
+      correct: 0,
+      explanation: "Azure Policy enforces organizational standards and evaluates resource compliance at scale, flagging or blocking non-compliant resources."
+    },
+    {
+      text: "A team wants to prevent a critical resource from being accidentally deleted, but still needs to make configuration changes to it regularly. Which resource lock type should they apply?",
+      options: ["ReadOnly", "CanNotDelete (Delete)", "No lock is needed since RBAC already prevents this"],
+      correct: 1,
+      explanation: "A CanNotDelete (Delete) lock blocks deletion while still allowing reads and updates, unlike a ReadOnly lock which blocks all changes."
+    },
+    {
+      text: "What is the main advantage of using ARM templates to deploy Azure infrastructure?",
+      options: [
+        "They allow you to bypass Azure Resource Manager entirely",
+        "They provide a declarative, repeatable way to deploy consistent infrastructure",
+        "They automatically reduce your Azure bill"
+      ],
+      correct: 1,
+      explanation: "ARM templates are JSON files describing infrastructure declaratively, enabling consistent, repeatable deployments — an \"infrastructure as code\" approach."
+    },
+    {
+      text: "A company operates servers on-premises, in Azure, and in another cloud provider, and wants to manage and govern all of them from a single control plane. Which Azure service enables this?",
+      options: ["Azure Arc", "Azure Advisor", "Azure Data Box"],
+      correct: 0,
+      explanation: "Azure Arc extends Azure management and governance to resources outside Azure, including on-premises servers, other clouds, and Kubernetes clusters."
+    },
+    {
+      text: "Which Azure Service Health view shows the health of your own, specific deployed resources?",
+      options: ["Azure Status", "Service Health", "Resource Health"],
+      correct: 2,
+      explanation: "Resource Health provides a tailored view of the health of your individual cloud resources, distinct from the broader Azure Status and Service Health views."
+    },
+    {
+      text: "A development team wants to collect telemetry from their application, set up smart alerts, and build custom dashboards to monitor performance. Which Azure tool is designed for this?",
+      options: ["Azure Monitor", "Azure Blueprints", "Service Trust portal"],
+      correct: 0,
+      explanation: "Azure Monitor collects, analyzes, and acts on telemetry from cloud and on-premises environments, including alerts, dashboards, and Application Insights."
+    }
+  ]
+});
+</script>
+</body>
+</html>

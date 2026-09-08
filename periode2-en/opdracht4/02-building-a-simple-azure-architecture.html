@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Building a Simple Azure Architecture</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body>
+
+<header class="course-header">
+  <div class="container">
+    <div class="brand">
+      <img src="../shared/assets/roc-logo.png" alt="ROC van Amsterdam" class="logo-img">
+      <div class="brand-text">
+        <div class="school">ROC van Amsterdam</div>
+        <div class="course-title">Cloud &amp; Azure — Verdieping Software (D1-K1)</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span class="period-tag">Periode 2 · English</span><br>
+      Docent: H.D. Lal
+    </div>
+  </div>
+</header>
+
+<nav class="breadcrumb">
+  <div class="container">
+    <a href="../index.html">Course overview</a> <span class="sep">/</span>
+    <a href="00-overview.html">Assignment 4</a> <span class="sep">/</span>
+    Building a Simple Azure Architecture
+  </div>
+</nav>
+
+<main class="container">
+  <span class="page-kicker">Lesson 2 · Build</span>
+  <h1>Building a Simple Azure Architecture</h1>
+  <p class="page-intro">
+    Time to build. This page walks you through deploying a basic static website or web app on Azure
+    from nothing to a live URL. Follow the steps in order, and take a screenshot after every step —
+    you will need them for your logbook.
+  </p>
+
+  <h2>Two simple routes</h2>
+  <p>
+    There are two beginner-friendly ways to host a small site on Azure. Pick the one that matches your
+    proposal:
+  </p>
+  <table>
+    <thead><tr><th>Route</th><th>Best for</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Azure Storage static website hosting</strong></td><td>Plain HTML/CSS/JavaScript — no server-side code. Cheapest and simplest option.</td></tr>
+      <tr><td><strong>Azure App Service (Free F1 tier)</strong></td><td>A web app that needs a bit more than static files, or that you want to manage as a "real" web app resource.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Steps</h2>
+  <ol class="step-list">
+    <li>
+      <strong>Sign up for an Azure account.</strong> Use the Azure free account (azure.microsoft.com/free)
+      if you don't have access yet, or use the student/school-provided credits or sandbox environment
+      your teacher points you to. Either way, make sure you know which subscription you are working in
+      before you create anything.
+    </li>
+    <li>
+      <strong>Create a Resource Group.</strong> In the Azure portal, search for "Resource groups" and
+      create a new one (for example <code>rg-prototype-yourname</code>). A resource group keeps
+      everything you build for this assignment together, so you can find it, manage it and clean it up
+      as one unit.
+    </li>
+    <li>
+      <strong>Create your resource.</strong>
+      <ul>
+        <li>For a static website: create a <strong>Storage account</strong> (Standard performance,
+          locally-redundant storage is fine), then open <em>Static website</em> under Data management
+          and enable it. Note the primary endpoint URL Azure gives you.</li>
+        <li>For a web app: create an <strong>App Service</strong>, choose the <strong>Free F1</strong>
+          pricing tier, and pick a runtime that matches your code (for example Node.js or a static
+          HTML runtime).</li>
+      </ul>
+    </li>
+    <li>
+      <strong>Upload or deploy your content.</strong> For static website hosting, upload your
+      <code>index.html</code> (and any CSS/JS/images) into the <code>$web</code> container using the
+      Azure Portal, Azure Storage Explorer, or the Azure CLI. For App Service, deploy your files using
+      the Deployment Center (for example connecting a GitHub repository), FTP, or the CLI.
+    </li>
+    <li>
+      <strong>Test the live URL.</strong> Open the endpoint URL Azure gave you in a browser. Check that
+      your pages load, links work, and nothing is broken. Test on your phone too, if your design is
+      meant to be responsive.
+    </li>
+    <li>
+      <strong>Take screenshots for your logbook.</strong> Capture the resource group, the resource
+      configuration screen, and the live site in the browser with its URL visible. These screenshots
+      are your evidence that you actually built and deployed something — not just planned it.
+    </li>
+  </ol>
+
+  <div class="callout tip">
+    <div class="callout-title">💡 Use the free tier responsibly</div>
+    Free-tier and student-credit resources come with limits (storage size, bandwidth, compute hours).
+    For a small prototype like this you won't come close to those limits — but get into the habit of
+    checking a service's pricing tier before you create it, and delete resources you are no longer
+    using. This is exactly the kind of cost-awareness the AZ-900 exam expects you to understand.
+  </div>
+
+  <div class="callout warning">
+    <div class="callout-title">⚠️ Document your security settings</div>
+    Before you move on, note down the security choices Azure already made for you and any you made
+    yourself — you will need them for the documentation page. At minimum, check: is
+    <strong>HTTPS enforced</strong> (Azure Storage and App Service both enable this by default), and
+    have you made sure your <strong>storage account access keys or connection strings are not
+    shared publicly</strong> (never paste them into a public GitHub repo or hand them in as part of
+    your homework)?
+  </div>
+
+  <div class="page-footer-nav">
+    <a class="nav-link" href="01-planning-your-prototype.html"><span class="dir">&larr; Previous</span><span class="lbl">Planning Your Prototype</span></a>
+    <a class="nav-link next" href="03-documenting-architecture-cost-security.html"><span class="dir">Next &rarr;</span><span class="lbl">Documenting Architecture, Cost &amp; Security</span></a>
+  </div>
+</main>
+
+<footer class="course-footer">
+  ROC van Amsterdam · Cloud &amp; Azure — Verdieping Software · Docent H.D. Lal
+</footer>
+
+<script src="../shared/scorm-api.js"></script>
+</body>
+</html>

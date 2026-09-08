@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cloud service- en implementatiemodellen</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body>
+
+<header class="course-header">
+  <div class="container">
+    <div class="brand">
+      <img src="../shared/assets/roc-logo.png" alt="ROC van Amsterdam" class="logo-img">
+      <div class="brand-text">
+        <div class="school">ROC van Amsterdam</div>
+        <div class="course-title">Cloud &amp; Azure — Verdieping Software (D1-K1)</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span class="period-tag">Periode 1 · Nederlands</span><br>
+      Docent: H.D. Lal
+    </div>
+  </div>
+</header>
+
+<nav class="breadcrumb">
+  <div class="container">
+    <a href="../index.html">Cursusoverzicht</a> <span class="sep">/</span>
+    <a href="00-overzicht.html">Opdracht 1</a> <span class="sep">/</span>
+    Cloud service- en implementatiemodellen
+  </div>
+</nav>
+
+<main class="container">
+  <span class="page-kicker">Les 2 van 3</span>
+  <h1>Cloud service- en implementatiemodellen</h1>
+  <p class="page-intro">
+    Naast de drie cloudmodellen (public, private, hybrid) bestaan er ook drie manieren wáárvoor je de
+    cloud kunt gebruiken: IaaS, PaaS en SaaS. Dit onderscheid helpt je straks bij Opdracht 1 om
+    software-categorieën te herkennen.
+  </p>
+
+  <h2>IaaS, PaaS en SaaS</h2>
+  <p>
+    Deze drie afkortingen beschrijven hoeveel een cloudprovider voor je regelt, en hoeveel je zelf
+    moet beheren. Hoe verder je "omhoog" gaat in dit rijtje, hoe minder technisch beheer jij zelf
+    doet — en hoe meer de provider voor zijn rekening neemt.
+  </p>
+
+  <table>
+    <thead><tr><th>Model</th><th>Wat het is</th><th>Voorbeeld</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>IaaS</strong><br>Infrastructure as a Service</td>
+        <td>Je huurt losse bouwstenen: servers, virtuele machines, opslag, netwerken en besturingssystemen — pay-as-you-go. Jij beheert nog steeds het besturingssysteem en de software erop.</td>
+        <td>Een virtuele machine in Azure waarop jij zelf Windows of Linux installeert.</td>
+      </tr>
+      <tr>
+        <td><strong>PaaS</strong><br>Platform as a Service</td>
+        <td>Je krijgt een kant-en-klaar platform om applicaties te bouwen, testen en publiceren, zonder dat je je zorgen hoeft te maken over de onderliggende infrastructuur.</td>
+        <td>Azure App Service, waarop een ontwikkelaar direct een website kan draaien zonder een server te beheren.</td>
+      </tr>
+      <tr>
+        <td><strong>SaaS</strong><br>Software as a Service</td>
+        <td>Je gebruikt kant-en-klare software via internet, meestal met een abonnement — geen installatie, geen beheer.</td>
+        <td>Microsoft 365 (Outlook, Teams, Word online).</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout tip">
+    <div class="callout-title">💡 Ezelsbruggetje</div>
+    Denk aan pizza bestellen: <strong>IaaS</strong> is zelf koken in een gehuurde keuken (jij doet
+    bijna alles), <strong>PaaS</strong> is een pizza afhalen en zelf opwarmen (het platform is klaar,
+    jij voegt je eigen "toppings" toe), en <strong>SaaS</strong> is een pizza laten bezorgen (alles
+    is al voor je geregeld — jij consumeert alleen).
+  </div>
+
+  <h2>Waarom dit onderscheid handig is voor je onderzoek</h2>
+  <p>
+    Bij Opdracht 1 maak je een overzicht van softwarepakketten die relevant zijn voor jouw
+    toekomstige beroep. Door te herkennen of iets IaaS, PaaS of SaaS is, kun je beter uitleggen
+    <em>waarom</em> een softwarepakket voor jou relevant is: gebruik je het kant-en-klaar (SaaS), of
+    ga je er zelf dingen op bouwen of beheren (PaaS/IaaS)?
+  </p>
+
+  <div class="quiz-block" id="quiz-2"></div>
+
+  <div class="page-footer-nav">
+    <a class="nav-link" href="01-wat-is-cloud-computing.html"><span class="dir">&larr; Vorige</span><span class="lbl">Wat is cloud computing?</span></a>
+    <a class="nav-link next" href="03-azure-en-de-arbeidsmarkt.html"><span class="dir">Volgende &rarr;</span><span class="lbl">Azure en de arbeidsmarkt</span></a>
+  </div>
+</main>
+
+<footer class="course-footer">
+  ROC van Amsterdam · Cloud &amp; Azure — Verdieping Software · Docent H.D. Lal
+</footer>
+
+<script src="../shared/scorm-api.js"></script>
+<script src="../shared/quiz-engine.js"></script>
+<script>
+ROCQuiz.render("quiz-2", {
+  title: "Check je begrip",
+  checkLabel: "Controleer antwoorden",
+  resetLabel: "Opnieuw proberen",
+  passLabel: "Goed gedaan! Je herkent de servicemodellen.",
+  retryLabel: "Bekijk de tabel hierboven nog eens en probeer het opnieuw.",
+  incompleteLabel: "Beantwoord eerst alle vragen.",
+  questions: [
+    {
+      text: "Je gebruikt Microsoft Outlook via internet, zonder iets te installeren. Welk model is dit?",
+      options: ["IaaS", "PaaS", "SaaS"],
+      correct: 2,
+      explanation: "Kant-en-klare software die je via internet gebruikt, meestal via abonnement, is SaaS (Software as a Service)."
+    },
+    {
+      text: "Een ontwikkelaar publiceert een website op Azure App Service, zonder zelf een server te hoeven beheren. Welk model is dit?",
+      options: ["IaaS", "PaaS", "SaaS"],
+      correct: 1,
+      explanation: "Een kant-en-klaar platform om applicaties op te bouwen en te draaien, zonder de infrastructuur te beheren, is PaaS (Platform as a Service)."
+    },
+    {
+      text: "Je huurt een virtuele machine en installeert zelf het besturingssysteem en de software. Welk model is dit?",
+      options: ["IaaS", "PaaS", "SaaS"],
+      correct: 0,
+      explanation: "Losse infrastructuur-bouwstenen huren, waarbij jij het besturingssysteem en de software beheert, is IaaS (Infrastructure as a Service)."
+    },
+    {
+      text: "Welke uitspraak klopt?",
+      options: [
+        "Hoe hoger in IaaS/PaaS/SaaS, hoe méér beheer jij zelf doet",
+        "Hoe hoger in IaaS/PaaS/SaaS, hoe minder beheer jij zelf doet",
+        "IaaS, PaaS en SaaS hebben allemaal evenveel beheer nodig"
+      ],
+      correct: 1,
+      explanation: "Van IaaS naar PaaS naar SaaS neemt de cloudprovider steeds meer beheertaken van je over."
+    }
+  ]
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Review: Management and Governance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body>
+
+<header class="course-header">
+  <div class="container">
+    <div class="brand">
+      <img src="../shared/assets/roc-logo.png" alt="ROC van Amsterdam" class="logo-img">
+      <div class="brand-text">
+        <div class="school">ROC van Amsterdam</div>
+        <div class="course-title">Cloud &amp; Azure — Verdieping Software (D1-K1)</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span class="period-tag">Periode 2 · English</span><br>
+      Docent: H.D. Lal
+    </div>
+  </div>
+</header>
+
+<nav class="breadcrumb">
+  <div class="container">
+    <a href="../index.html">Course overview</a> <span class="sep">/</span>
+    <a href="00-overview.html">Exam Prep</a> <span class="sep">/</span>
+    Review: Management and Governance
+  </div>
+</nav>
+
+<main class="container">
+  <span class="page-kicker">Exam domain 3 of 3</span>
+  <h1>Review: Management and Governance</h1>
+  <p class="page-intro">
+    A compact reference covering how you keep control of cost, compliance, and operations once you have
+    resources running in Azure. This maps to Microsoft's
+    <strong>"Describe Azure management and governance"</strong> exam domain.
+  </p>
+
+  <h2>Cost management</h2>
+  <table>
+    <thead><tr><th>Tool</th><th>Purpose</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Pricing Calculator</strong></td><td>Estimates the cost of Azure products before you buy — configure region, tier, billing and support options. Gives estimates, not exact quotes.</td></tr>
+      <tr><td><strong>Total Cost of Ownership (TCO) Calculator</strong></td><td>Estimates the savings of moving an existing on-premises workload to Azure, by comparing on-premises costs against equivalent Azure costs.</td></tr>
+      <tr><td><strong>Azure Cost Management</strong></td><td>Reporting, budgets, alerts, and recommendations for controlling ongoing Azure spend.</td></tr>
+      <tr><td><strong>Tags</strong></td><td>Name-value metadata pairs attached to resources, used to organize resources and roll up billing information (e.g. by department or project).</td></tr>
+    </tbody>
+  </table>
+  <p>
+    Factors that affect Azure cost include: resource type, consumption (usage), maintenance, geography,
+    network traffic (outbound data is billed; most inbound is free), and subscription type.
+  </p>
+
+  <h2>Governance and compliance</h2>
+  <table>
+    <thead><tr><th>Tool</th><th>Purpose</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Azure Policy</strong></td><td>Enforces organizational rules and assesses compliance at scale — evaluates resources and flags ones that don't comply (e.g. requiring a specific region or VM size).</td></tr>
+      <tr><td><strong>Azure Blueprints</strong></td><td>Lets teams rapidly provision governed environments, bundling role assignments, policy assignments, ARM templates, and resource groups into one repeatable package.</td></tr>
+      <tr><td><strong>Resource locks</strong></td><td>Prevent accidental deletion or modification of resources. <strong>CanNotDelete</strong> (Delete lock) allows reads/updates but blocks deletion; <strong>ReadOnly</strong> allows reads only.</td></tr>
+      <tr><td><strong>Service Trust portal</strong></td><td>Provides Microsoft's compliance reports, audits, and information about how Microsoft secures and handles customer data.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout tip">
+    <div class="callout-title">💡 Exam tip</div>
+    Azure Policy controls <em>what configurations are allowed</em> (compliance). Azure RBAC controls
+    <em>who can do what</em> (access). They solve different problems and are often tested together.
+  </div>
+
+  <h2>Management and deployment tools</h2>
+  <table>
+    <thead><tr><th>Tool</th><th>Purpose</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Azure Resource Manager (ARM)</strong></td><td>The management layer behind every way of interacting with Azure (Portal, CLI, PowerShell, SDKs). Lets you create, update, organize, and delete resources and resource groups consistently.</td></tr>
+      <tr><td><strong>ARM templates</strong></td><td>JSON files that declaratively define the infrastructure to deploy — repeatable, modular, and version-controllable "infrastructure as code."</td></tr>
+      <tr><td><strong>Azure Arc</strong></td><td>Extends Azure management to resources outside Azure — on-premises servers, other clouds, and Kubernetes clusters — so they can be managed and governed like native Azure resources.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Monitoring tools</h2>
+  <table>
+    <thead><tr><th>Tool</th><th>Purpose</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Azure Advisor</strong></td><td>Analyzes your deployed resources and gives personalized recommendations across reliability, security, performance, cost, and operational excellence.</td></tr>
+      <tr><td><strong>Azure Service Health</strong></td><td>Three related views: <em>Azure Status</em> (global health of all Azure services), <em>Service Health</em> (only the services/regions you use), and <em>Resource Health</em> (the health of your specific resources).</td></tr>
+      <tr><td><strong>Azure Monitor</strong></td><td>Collects, analyzes, and acts on telemetry from cloud and on-premises environments — includes Application Insights, Log Analytics, alerts, and dashboards.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="quiz-block" id="quiz-3"></div>
+
+  <div class="page-footer-nav">
+    <a class="nav-link" href="02-review-architecture-and-services.html"><span class="dir">&larr; Back</span><span class="lbl">Review: Azure Architecture and Services</span></a>
+    <a class="nav-link next" href="04-flashcards-exam-review.html"><span class="dir">Next &rarr;</span><span class="lbl">Flashcards: Exam Review</span></a>
+  </div>
+</main>
+
+<footer class="course-footer">
+  ROC van Amsterdam · Cloud &amp; Azure — Verdieping Software · Docent H.D. Lal
+</footer>
+
+<script src="../shared/scorm-api.js"></script>
+<script src="../shared/quiz-engine.js"></script>
+<script>
+ROCQuiz.render("quiz-3", {
+  title: "Check your understanding",
+  checkLabel: "Check answers",
+  resetLabel: "Try again",
+  passLabel: "Nice work! You know Azure's management and governance tools.",
+  retryLabel: "Review the summary above and try again.",
+  incompleteLabel: "Please answer every question first.",
+  questions: [
+    {
+      text: "A company wants to estimate the potential cost savings of moving their on-premises servers to Azure. Which tool should they use?",
+      options: ["Pricing Calculator", "Total Cost of Ownership (TCO) Calculator", "Azure Advisor"],
+      correct: 1,
+      explanation: "The TCO Calculator compares the cost of an existing on-premises infrastructure with the cost of running equivalent services in Azure."
+    },
+    {
+      text: "What is the main purpose of tags in Azure?",
+      options: [
+        "To enforce which regions resources can be deployed to",
+        "To provide name-value metadata that helps organize resources and roll up billing information",
+        "To grant users role-based access to resources"
+      ],
+      correct: 1,
+      explanation: "Tags are name-value pairs attached to resources for organization and reporting, especially useful for grouping costs by project, department, or environment."
+    },
+    {
+      text: "Which tool would you use to prevent a critical production resource from being accidentally deleted, while still allowing normal updates?",
+      options: ["A ReadOnly resource lock", "A CanNotDelete (Delete) resource lock", "Azure Policy"],
+      correct: 1,
+      explanation: "A CanNotDelete (Delete) lock blocks deletion but still allows reads and updates — exactly what's needed to protect a resource from accidental removal without freezing it entirely."
+    },
+    {
+      text: "What is the key difference between Azure Policy and Azure RBAC?",
+      options: [
+        "Azure Policy controls costs, while RBAC controls performance",
+        "Azure Policy enforces rules about resource configuration and compliance, while RBAC controls who has access to do what",
+        "They are two names for the same feature"
+      ],
+      correct: 1,
+      explanation: "Azure Policy is about compliance and configuration rules (e.g. \"VMs must be in West Europe\"), while RBAC is about access control (who can perform which actions)."
+    },
+    {
+      text: "A company wants to manage a mix of on-premises servers, Azure VMs, and Kubernetes clusters running in another cloud provider, all from a single control plane. Which Azure service enables this?",
+      options: ["Azure Arc", "Azure Blueprints", "Azure Resource Manager"],
+      correct: 0,
+      explanation: "Azure Arc extends Azure's management capabilities to resources outside Azure, including on-premises servers, other clouds, and Kubernetes clusters."
+    },
+    {
+      text: "What format are Azure Resource Manager (ARM) templates written in?",
+      options: ["XML", "YAML", "JSON"],
+      correct: 2,
+      explanation: "ARM templates are JSON files that declaratively describe the infrastructure to deploy, enabling repeatable, consistent deployments."
+    },
+    {
+      text: "Which Azure Service Health view would tell you specifically whether an Azure service outage in a region you use is affecting your own resources right now?",
+      options: ["Azure Status", "Service Health", "Resource Health"],
+      correct: 2,
+      explanation: "Resource Health gives a tailored view of the health of your individual, specific resources — Azure Status is global, and Service Health is scoped to services/regions you use but not to your individual resources."
+    },
+    {
+      text: "A team wants proactive, personalized recommendations to improve the security, performance, and cost-efficiency of their existing Azure deployment. Which tool should they use?",
+      options: ["Azure Advisor", "Azure Blueprints", "Service Trust portal"],
+      correct: 0,
+      explanation: "Azure Advisor analyzes your deployed resources and provides best-practice recommendations across reliability, security, performance, cost, and operational excellence."
+    }
+  ]
+});
+</script>
+</body>
+</html>

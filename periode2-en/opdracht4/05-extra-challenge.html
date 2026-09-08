@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Extra Challenge: Level Up Your Prototype</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body>
+
+<header class="course-header">
+  <div class="container">
+    <div class="brand">
+      <img src="../shared/assets/roc-logo.png" alt="ROC van Amsterdam" class="logo-img">
+      <div class="brand-text">
+        <div class="school">ROC van Amsterdam</div>
+        <div class="course-title">Cloud &amp; Azure — Verdieping Software (D1-K1)</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span class="period-tag">Periode 2 · English</span><br>
+      Docent: H.D. Lal
+    </div>
+  </div>
+</header>
+
+<nav class="breadcrumb">
+  <div class="container">
+    <a href="../index.html">Course overview</a> <span class="sep">/</span>
+    <a href="00-overview.html">Assignment 4</a> <span class="sep">/</span>
+    Extra Challenge
+  </div>
+</nav>
+
+<main class="container">
+  <span class="page-kicker extra">★ Extra — not required</span>
+  <h1>Extra Challenge: Level Up Your Prototype</h1>
+  <p class="page-intro">
+    This page is not required and does not count towards your exam portfolio. Try it if your basic
+    prototype is already working and you want to push it further, or simply want to explore what else
+    Azure can do.
+  </p>
+
+  <div class="callout extra">
+    <div class="callout-title">★ Bonus assignment</div>
+    Pick one (or more) of the stretch goals below and add it to your working prototype. Document what
+    you added the same way you documented the rest — a short description is enough.
+  </div>
+
+  <h2>Stretch goals</h2>
+  <ol class="step-list">
+    <li>
+      <strong>Add a custom domain and Azure CDN.</strong> Instead of the default
+      <code>*.z13.web.core.windows.net</code> style URL, point a custom domain at your static
+      website, and put Azure CDN (or Azure Front Door) in front of it to cache your content closer to
+      visitors and add HTTPS on your own domain name.
+    </li>
+    <li>
+      <strong>Connect a simple database to make your site dynamic.</strong> Add
+      <strong>Azure Table Storage</strong> or the <strong>Cosmos DB free tier</strong> and use it to
+      store something simple — a guestbook, a visitor counter, a list of items — that your page reads
+      or writes to. This turns a static site into a small dynamic application.
+    </li>
+    <li>
+      <strong>Set up basic CI/CD.</strong> If you used (or switch to) <strong>Azure Static Web
+      Apps</strong>, it comes with a genuinely simple built-in GitHub Actions workflow: connect your
+      GitHub repository once, and every push to your main branch automatically rebuilds and
+      redeploys your site — no manual upload needed. This is a small taste of how real-world teams
+      ship code continuously.
+    </li>
+  </ol>
+
+  <div class="callout tip">
+    <div class="callout-title">💡 Why this is worth doing</div>
+    Employers value people who look beyond the minimum requirement. Even a small extra feature — a
+    custom domain, a bit of dynamic data, or an automated deployment — shows you understand how these
+    Azure services fit together, and gives you something concrete to talk about in a job interview.
+  </div>
+
+  <div class="page-footer-nav">
+    <a class="nav-link" href="04-worksheet-logbook-and-proposal.html"><span class="dir">&larr; Previous</span><span class="lbl">Worksheet: Build Logbook</span></a>
+    <a class="nav-link next" href="../examprep/00-overview.html"><span class="dir">Next &rarr;</span><span class="lbl">AZ-900 Exam Prep</span></a>
+  </div>
+</main>
+
+<footer class="course-footer">
+  ROC van Amsterdam · Cloud &amp; Azure — Verdieping Software · Docent H.D. Lal
+</footer>
+
+<script src="../shared/scorm-api.js"></script>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Extra Challenge Questions</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body>
+
+<header class="course-header">
+  <div class="container">
+    <div class="brand">
+      <img src="../shared/assets/roc-logo.png" alt="ROC van Amsterdam" class="logo-img">
+      <div class="brand-text">
+        <div class="school">ROC van Amsterdam</div>
+        <div class="course-title">Cloud &amp; Azure — Verdieping Software (D1-K1)</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span class="period-tag">Periode 2 · English</span><br>
+      Docent: H.D. Lal
+    </div>
+  </div>
+</header>
+
+<nav class="breadcrumb">
+  <div class="container">
+    <a href="../index.html">Course overview</a> <span class="sep">/</span>
+    <a href="00-overview.html">Exam Prep</a> <span class="sep">/</span>
+    Extra: Challenge Questions
+  </div>
+</nav>
+
+<main class="container">
+  <span class="page-kicker extra">★ Extra — not required</span>
+  <h1>Extra Challenge Questions</h1>
+  <p class="page-intro">
+    This bonus page is not required and does not count toward your portfolio. It offers harder,
+    scenario-based questions that require combining multiple AZ-900 concepts at once — good practice
+    if you want to stretch beyond the standard review material.
+  </p>
+
+  <div class="callout extra">
+    <div class="callout-title">★ Bonus challenge</div>
+    These questions are still within AZ-900 scope, but each one asks you to weigh a real trade-off —
+    the kind of thinking the real exam sometimes tests through short scenarios.
+  </div>
+
+  <div class="quiz-block" id="quiz-extra"></div>
+
+  <div class="page-footer-nav">
+    <a class="nav-link" href="06-exam-day-tips.html"><span class="dir">&larr; Back</span><span class="lbl">Exam Day: What to Expect</span></a>
+    <a class="nav-link next" href="../resources/bijlage-eindgesprek.html"><span class="dir">Next &rarr;</span><span class="lbl">Appendix: Final Interview</span></a>
+  </div>
+</main>
+
+<footer class="course-footer">
+  ROC van Amsterdam · Cloud &amp; Azure — Verdieping Software · Docent H.D. Lal
+</footer>
+
+<script src="../shared/scorm-api.js"></script>
+<script src="../shared/quiz-engine.js"></script>
+<script>
+ROCQuiz.render("quiz-extra", {
+  title: "Challenge yourself",
+  checkLabel: "Check answers",
+  resetLabel: "Try again",
+  passLabel: "Excellent! You can apply AZ-900 concepts to real scenarios, not just recall definitions.",
+  retryLabel: "These are tough on purpose — review the explanations and try again.",
+  incompleteLabel: "Please answer every question first.",
+  questions: [
+    {
+      text: "A company runs a legacy Windows application that needs full OS-level control and cannot be easily containerized, but they also want Azure to handle load balancing and automatic scaling as traffic grows. Which combination is the best fit?",
+      options: [
+        "A single Virtual Machine with manual monitoring",
+        "A Virtual Machine Scale Set behind a load balancer",
+        "Azure Functions triggered by HTTP requests"
+      ],
+      correct: 1,
+      explanation: "A VM Scale Set gives you full VM-level (IaaS) control while automatically scaling a load-balanced group of identical VMs in and out based on demand — exactly what's needed here, unlike a single VM (no auto-scaling) or Functions (not suited to a stateful legacy Windows app)."
+    },
+    {
+      text: "A financial services company must keep a copy of critical data available even if an entire Azure region becomes unavailable, but does not need protection against a single datacenter failure within a region. Which redundancy option meets this requirement at the LOWEST cost?",
+      options: ["LRS", "ZRS", "GRS"],
+      correct: 2,
+      explanation: "GRS replicates data to a secondary, geographically distant region, protecting against a full regional outage. ZRS only protects against a datacenter failure within one region, and LRS offers no geographic protection at all — GRS is the minimum option that meets the stated requirement."
+    },
+    {
+      text: "A startup wants to deploy a lightweight microservice that only needs to run for a few seconds whenever a file is uploaded to storage, and wants to avoid paying for idle compute time entirely. Which compute option best fits, and why?",
+      options: [
+        "Azure Virtual Machines, because they offer the most control",
+        "Azure Functions, because it is event-driven and billed only for execution time",
+        "Azure Kubernetes Service, because it is designed for microservices"
+      ],
+      correct: 1,
+      explanation: "Azure Functions is serverless and event-driven — it runs in response to a trigger (like a file upload) and you are billed only while the code executes, with zero cost while idle. AKS is built for orchestrating many long-running containers, which is more infrastructure than this scenario needs."
+    },
+    {
+      text: "An organization has 200 subscriptions across five departments and wants to apply the same set of governance rules — allowed regions, required tags, and resource restrictions — consistently across ALL of them at once, without configuring each subscription individually. What should they use?",
+      options: [
+        "Apply Azure Policy separately to each of the 200 subscriptions",
+        "Assign the policies to a management group containing all five departments' subscriptions",
+        "Add resource locks to each subscription"
+      ],
+      correct: 1,
+      explanation: "Management groups let you apply governance settings — including Azure Policy assignments — once, at a level above subscriptions, so all subscriptions under that management group inherit the rules automatically."
+    },
+    {
+      text: "A company wants developers to self-service new environments that are pre-configured with the correct network setup, required policies, and role assignments already applied — every time, without manual setup. Which Azure capability is designed for exactly this?",
+      options: ["Azure Blueprints", "Azure Advisor", "Azure Cost Management"],
+      correct: 0,
+      explanation: "Azure Blueprints packages resource groups, ARM templates, policy assignments, and role assignments together so teams can repeatedly and rapidly provision compliant, pre-configured environments."
+    },
+    {
+      text: "A hospital system needs to connect its on-premises network to Azure with the lowest possible latency and highest reliability for transmitting large volumes of sensitive imaging data, and cost is a secondary concern. Which networking option should they choose over the alternative?",
+      options: [
+        "VPN Gateway, because it is simpler to set up",
+        "ExpressRoute, because it offers a private, dedicated connection with more predictable performance",
+        "Azure DNS, because it manages domain name resolution"
+      ],
+      correct: 1,
+      explanation: "ExpressRoute provides a private, dedicated connection (not over the public internet) with more predictable latency and higher reliability than a VPN Gateway — the right trade-off when performance matters more than upfront cost."
+    },
+    {
+      text: "A company wants to grant an external contractor temporary access to modify resources in exactly one resource group, without giving them access to anything else in the subscription, and without creating a new Azure AD account structure. Which combination of Azure capabilities addresses this most precisely?",
+      options: [
+        "Grant Owner access at the subscription level",
+        "Assign an Azure RBAC role scoped to just that one resource group",
+        "Apply a ReadOnly resource lock to the subscription"
+      ],
+      correct: 1,
+      explanation: "Azure RBAC roles can be scoped to a specific resource group, granting exactly the access needed there without exposing the rest of the subscription — resource locks control deletion/modification, not who can access what, so they don't solve this problem."
+    },
+    {
+      text: "An e-commerce company wants insight into whether an ongoing Azure service issue in the specific region they use is currently affecting their own deployed virtual machines, not just Azure globally. Which tool answers that question most directly?",
+      options: ["Azure Status", "Resource Health (part of Azure Service Health)", "Azure Pricing Calculator"],
+      correct: 1,
+      explanation: "Resource Health gives a tailored view of the health of your own specific resources. Azure Status shows the health of all Azure services globally, which is too broad to answer whether their own VMs are affected."
+    }
+  ]
+});
+</script>
+</body>
+</html>

@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Governance en compliance</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body>
+
+<header class="course-header">
+  <div class="container">
+    <div class="brand">
+      <img src="../shared/assets/roc-logo.png" alt="ROC van Amsterdam" class="logo-img">
+      <div class="brand-text">
+        <div class="school">ROC van Amsterdam</div>
+        <div class="course-title">Cloud &amp; Azure — Verdieping Software (D1-K1)</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span class="period-tag">Periode 1 · Nederlands</span><br>
+      Docent: H.D. Lal
+    </div>
+  </div>
+</header>
+
+<nav class="breadcrumb">
+  <div class="container">
+    <a href="../index.html">Cursusoverzicht</a> <span class="sep">/</span>
+    <a href="00-overzicht.html">Opdracht 3</a> <span class="sep">/</span>
+    Governance en compliance
+  </div>
+</nav>
+
+<main class="container">
+  <span class="page-kicker">Les 7 van 8</span>
+  <h1>Governance en compliance</h1>
+  <p class="page-intro">
+    Hoe zorg je dat honderden of duizenden Azure-resources zich blijven houden aan de regels van je
+    organisatie — en aan wet- en regelgeving? Deze les behandelt de vier belangrijkste
+    governance-tools van Azure.
+  </p>
+
+  <h2>Azure Policy</h2>
+  <p>
+    <strong>Azure Policy</strong> helpt organisatiestandaarden af te dwingen en compliance op grote
+    schaal te beoordelen. Het biedt governance en consistentie op het gebied van regelgeving,
+    beveiliging, kosten en beheer.
+  </p>
+  <ul>
+    <li>Evalueert en signaleert Azure-resources die niet aan jouw beleid voldoen.</li>
+    <li>Biedt ingebouwde beleids- en initiatiefdefinities, ingedeeld in categorieën zoals opslag, netwerken, compute, security en monitoring.</li>
+  </ul>
+  <p>
+    Voorbeeld: een beleid dat afdwingt dat alle nieuwe storage accounts versleuteld moeten zijn —
+    Azure Policy signaleert (of blokkeert) automatisch elke resource die daar niet aan voldoet.
+  </p>
+
+  <h2>Azure Blueprints</h2>
+  <p>
+    <strong>Azure Blueprints</strong> maakt het mogelijk voor ontwikkelteams om snel nieuwe, volledig
+    ingerichte omgevingen op te zetten die al voldoen aan de organisatorische compliance-eisen. Een
+    blueprint kan bestaan uit een combinatie van:
+  </p>
+  <ul>
+    <li>Roltoewijzingen (role assignments),</li>
+    <li>Beleidstoewijzingen (policy assignments),</li>
+    <li>Azure Resource Manager-templates, en</li>
+    <li>Resource groups.</li>
+  </ul>
+  <p>
+    Zo bouwen teams sneller vertrouwen op, omdat de nieuwe omgeving vanaf het begin al voldoet aan
+    de vastgestelde standaarden — in plaats van dat compliance achteraf gecontroleerd moet worden.
+  </p>
+
+  <div class="callout tip">
+    <div class="callout-title">💡 Policy versus Blueprints</div>
+    <strong>Azure Policy</strong> controleert doorlopend of bestaande en nieuwe resources aan de
+    regels voldoen. <strong>Azure Blueprints</strong> zorgt dat een hele nieuwe omgeving vanaf het
+    begin al correct is opgezet — inclusief eventueel Policy-toewijzingen als onderdeel van de
+    blueprint zelf.
+  </div>
+
+  <h2>Resource locks</h2>
+  <p>
+    Een <strong>resource lock</strong> beschermt je Azure-resources tegen onbedoelde verwijdering of
+    aanpassing. Je kunt locks beheren op het niveau van de subscription, de resource group, of een
+    individuele resource, via de Azure-portal.
+  </p>
+  <table>
+    <thead><tr><th>Type lock</th><th>Lezen</th><th>Aanpassen</th><th>Verwijderen</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Delete</strong></td><td>Ja</td><td>Ja</td><td>Nee</td></tr>
+      <tr><td><strong>ReadOnly</strong></td><td>Ja</td><td>Nee</td><td>Nee</td></tr>
+    </tbody>
+  </table>
+  <p>
+    Een <strong>Delete-lock</strong> staat lezen en aanpassen toe, maar voorkomt verwijdering. Een
+    <strong>ReadOnly-lock</strong> is strenger: die staat alleen lezen toe, en blokkeert zowel
+    aanpassen als verwijderen.
+  </p>
+
+  <h2>Service Trust Portal</h2>
+  <p>
+    Het <strong>Service Trust Portal</strong> is Microsofts centrale plek voor
+    compliance-documentatie: hier vind je auditrapporten, nalevingsverklaringen en andere informatie
+    waarmee je kunt aantonen dat Microsofts clouddiensten voldoen aan relevante wet- en regelgeving
+    (bijvoorbeeld ISO-certificeringen of AVG/GDPR-gerelateerde documentatie). Handig wanneer jouw
+    organisatie moet aantonen dat het gebruik van Azure voldoet aan externe compliance-eisen.
+  </p>
+
+  <div class="quiz-block" id="quiz-7"></div>
+
+  <div class="page-footer-nav">
+    <a class="nav-link" href="08-kosten-beheren.html"><span class="dir">&larr; Vorige</span><span class="lbl">Kosten beheren</span></a>
+    <a class="nav-link next" href="10-monitoring-en-tools.html"><span class="dir">Volgende &rarr;</span><span class="lbl">Monitoring en tools</span></a>
+  </div>
+</main>
+
+<footer class="course-footer">
+  ROC van Amsterdam · Cloud &amp; Azure — Verdieping Software · Docent H.D. Lal
+</footer>
+
+<script src="../shared/scorm-api.js"></script>
+<script src="../shared/quiz-engine.js"></script>
+<script>
+ROCQuiz.render("quiz-7", {
+  title: "Check je begrip",
+  checkLabel: "Controleer antwoorden",
+  resetLabel: "Opnieuw proberen",
+  passLabel: "Goed gedaan! Je kent de governance- en compliance-tools van Azure.",
+  retryLabel: "Bekijk de uitleg hierboven nog eens en probeer het opnieuw.",
+  incompleteLabel: "Beantwoord eerst alle vragen.",
+  questions: [
+    {
+      text: "Wat doet Azure Policy?",
+      options: [
+        "Het versleutelt automatisch alle data in een storage account",
+        "Het dwingt organisatiestandaarden af en beoordeelt of resources voldoen aan het ingestelde beleid",
+        "Het maakt automatisch back-ups van virtuele machines"
+      ],
+      correct: 1,
+      explanation: "Azure Policy evalueert en signaleert resources die niet voldoen aan het ingestelde beleid, en helpt zo organisatiestandaarden en compliance af te dwingen."
+    },
+    {
+      text: "Waarvoor gebruik je Azure Blueprints?",
+      options: [
+        "Om snel nieuwe, compliant ingerichte omgevingen op te zetten met roltoewijzingen, policy's, ARM-templates en resource groups",
+        "Om de kosten van een Azure-resource te schatten",
+        "Om DNS-records te beheren"
+      ],
+      correct: 0,
+      explanation: "Azure Blueprints laat ontwikkelteams snel nieuwe omgevingen opzetten die al voldoen aan organisatorische compliance-standaarden, via een combinatie van roltoewijzingen, policy's, ARM-templates en resource groups."
+    },
+    {
+      text: "Je wilt voorkomen dat een resource per ongeluk wordt verwijderd, maar collega's moeten de instellingen nog wel kunnen aanpassen. Welke lock past hierbij?",
+      options: ["ReadOnly-lock", "Delete-lock", "Geen enkele lock kan dit"],
+      correct: 1,
+      explanation: "Een Delete-lock staat lezen en aanpassen toe, maar blokkeert verwijdering. Een ReadOnly-lock zou ook aanpassen blokkeren, wat hier niet gewenst is."
+    },
+    {
+      text: "Waarvoor gebruik je het Service Trust Portal?",
+      options: [
+        "Om virtuele machines te maken",
+        "Om Microsofts compliance-documentatie en auditrapporten te raadplegen",
+        "Om resource groups te verplaatsen tussen subscriptions"
+      ],
+      correct: 1,
+      explanation: "Het Service Trust Portal is de plek waar Microsoft compliance-documentatie en auditrapporten publiceert, zodat organisaties kunnen aantonen dat hun gebruik van Azure aan regelgeving voldoet."
+    }
+  ]
+});
+</script>
+</body>
+</html>

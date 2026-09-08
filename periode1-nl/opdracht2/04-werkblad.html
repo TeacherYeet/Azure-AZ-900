@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Werkblad Opdracht 2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body>
+
+<header class="course-header">
+  <div class="container">
+    <div class="brand">
+      <img src="../shared/assets/roc-logo.png" alt="ROC van Amsterdam" class="logo-img">
+      <div class="brand-text">
+        <div class="school">ROC van Amsterdam</div>
+        <div class="course-title">Cloud &amp; Azure — Verdieping Software (D1-K1)</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span class="period-tag">Periode 1 · Nederlands</span><br>
+      Docent: H.D. Lal
+    </div>
+  </div>
+</header>
+
+<nav class="breadcrumb">
+  <div class="container">
+    <a href="../index.html">Cursusoverzicht</a> <span class="sep">/</span>
+    <a href="00-overzicht.html">Opdracht 2</a> <span class="sep">/</span>
+    Werkblad
+  </div>
+</nav>
+
+<main class="container">
+  <span class="page-kicker">Bewijsstuk</span>
+  <h1>Werkblad Opdracht 2: Onderbouwing keuze software</h1>
+  <p class="page-intro">
+    Vul onderstaande velden in ter voorbereiding op je gesprek met je opdrachtgever of
+    leidinggevende. Je antwoorden worden automatisch bewaard in deze browser terwijl je werkt.
+    Gebruik de downloadknop onderaan om je antwoorden als bestand te bewaren en toe te voegen aan je
+    examenportfolio, samen met je filmpje, audio-opname of gespreksverslag.
+  </p>
+
+  <div class="callout warning">
+    <div class="callout-title">⚠️ Let op</div>
+    Dit werkblad bewaart je tekst alleen lokaal in déze browser, op déze computer. Download je
+    antwoorden regelmatig zodat je niets kwijtraakt, en lever het gedownloade bestand in als
+    bewijsstuk. Vergeet ook het eigenlijke bewijsstuk niet: een filmpje, audio-opname of
+    gespreksverslag van het gesprek zelf.
+  </div>
+
+  <form id="worksheet-form">
+    <div class="worksheet-field">
+      <label for="f1">1. Welke software kies je?</label>
+      <div class="hint">Geef aan in welke software je je gaat verdiepen.</div>
+      <textarea id="f1" rows="3" placeholder="Ik ga me verdiepen in..."></textarea>
+    </div>
+
+    <div class="worksheet-field">
+      <label for="f2">2. Onderbouwing met argumenten</label>
+      <div class="hint">Onderbouw je keuze voor dit softwarepakket met argumenten. Gebruik bijvoorbeeld CapEx vs. OpEx en de cloudvoordelen (high availability, scalability, reliability, predictability, security, governance, manageability, elasticity) uit de les.</div>
+      <textarea id="f2" rows="6" placeholder="Mijn belangrijkste argumenten zijn..."></textarea>
+    </div>
+
+    <div class="worksheet-field">
+      <label for="f3">3. Stapsgewijs proces</label>
+      <div class="hint">Beschrijf stapsgewijs hoe je tot deze keuze bent gekomen (bijvoorbeeld: onderzoek in Opdracht 1, vergelijking met andere software, gesprekken met anderen).</div>
+      <textarea id="f3" rows="6" placeholder="Stap 1: ...&#10;Stap 2: ...&#10;Stap 3: ..."></textarea>
+    </div>
+
+    <div class="worksheet-field">
+      <label for="f4">4. Gespreksverslag / hoe overtuig je je opdrachtgever?</label>
+      <div class="hint">Beschrijf hoe je het gesprek hebt gevoerd of gaat voeren: hoe open je het gesprek, welke argumenten gebruik je, en hoe ga je om met eventuele tegenvragen? Dit vormt de basis voor je bewijsstuk (filmpje, audio-opname of gespreksverslag).</div>
+      <textarea id="f4" rows="7" placeholder="Ik open het gesprek met... Mijn belangrijkste argumenten breng ik als volgt naar voren... Als mijn opdrachtgever twijfelt, reageer ik met..."></textarea>
+    </div>
+
+    <div class="worksheet-actions">
+      <button type="button" class="btn btn-primary" id="save-btn">Opslaan (in browser)</button>
+      <button type="button" class="btn btn-secondary" id="download-btn">Download als bestand</button>
+    </div>
+    <div class="completion-note" data-completion-note hidden>✓ Voortgang bewaard</div>
+  </form>
+
+  <div class="page-footer-nav">
+    <a class="nav-link" href="03-flashcards.html"><span class="dir">&larr; Vorige</span><span class="lbl">Flashcards</span></a>
+    <a class="nav-link next" href="05-extra-voor-wie-meer-wil.html"><span class="dir">Volgende &rarr;</span><span class="lbl">Extra: voor wie meer wil</span></a>
+  </div>
+</main>
+
+<footer class="course-footer">
+  ROC van Amsterdam · Cloud &amp; Azure — Verdieping Software · Docent H.D. Lal
+</footer>
+
+<script src="../shared/scorm-api.js"></script>
+<script>
+(function () {
+  var STORAGE_KEY = "roc-azure-opdracht2-werkblad";
+  var fields = ["f1", "f2", "f3", "f4"];
+
+  function loadDraft() {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return;
+      var data = JSON.parse(raw);
+      fields.forEach(function (id) {
+        if (data[id]) document.getElementById(id).value = data[id];
+      });
+    } catch (e) { /* localStorage unavailable — form still works, just without autosave */ }
+  }
+
+  function saveDraft() {
+    var data = {};
+    fields.forEach(function (id) { data[id] = document.getElementById(id).value; });
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch (e) { /* ignore */ }
+    if (window.ROCScorm) window.ROCScorm.markComplete();
+    var note = document.querySelector("[data-completion-note]");
+    if (note) note.hidden = false;
+  }
+
+  function downloadAnswers() {
+    var labels = {
+      f1: "1. Welke software kies je?",
+      f2: "2. Onderbouwing met argumenten",
+      f3: "3. Stapsgewijs proces",
+      f4: "4. Gespreksverslag / hoe overtuig je je opdrachtgever?"
+    };
+    var lines = ["Opdracht 2: Onderbouwing keuze software", "ROC van Amsterdam — Cloud & Azure, Verdieping Software", ""];
+    fields.forEach(function (id) {
+      lines.push(labels[id]);
+      lines.push(document.getElementById(id).value || "(nog niet ingevuld)");
+      lines.push("");
+    });
+    var blob = new Blob([lines.join("\n")], { type: "text/plain;charset=utf-8" });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = "opdracht2-onderbouwing-keuze-software.txt";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+    saveDraft();
+  }
+
+  document.getElementById("save-btn").addEventListener("click", saveDraft);
+  document.getElementById("download-btn").addEventListener("click", downloadAnswers);
+  loadDraft();
+})();
+</script>
+</body>
+</html>

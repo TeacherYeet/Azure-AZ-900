@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Review: Azure Architecture and Services</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body>
+
+<header class="course-header">
+  <div class="container">
+    <div class="brand">
+      <img src="../shared/assets/roc-logo.png" alt="ROC van Amsterdam" class="logo-img">
+      <div class="brand-text">
+        <div class="school">ROC van Amsterdam</div>
+        <div class="course-title">Cloud &amp; Azure — Verdieping Software (D1-K1)</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span class="period-tag">Periode 2 · English</span><br>
+      Docent: H.D. Lal
+    </div>
+  </div>
+</header>
+
+<nav class="breadcrumb">
+  <div class="container">
+    <a href="../index.html">Course overview</a> <span class="sep">/</span>
+    <a href="00-overview.html">Exam Prep</a> <span class="sep">/</span>
+    Review: Azure Architecture and Services
+  </div>
+</nav>
+
+<main class="container">
+  <span class="page-kicker">Exam domain 2 of 3</span>
+  <h1>Review: Azure Architecture and Services</h1>
+  <p class="page-intro">
+    A compact reference covering Azure's physical/management structure and its core service
+    categories: compute, networking, storage, and identity &amp; security. This maps to Microsoft's
+    <strong>"Describe Azure architecture and services"</strong> exam domain.
+  </p>
+
+  <h2>Physical and logical structure</h2>
+  <table>
+    <thead><tr><th>Concept</th><th>What it is</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Region</strong></td><td>A set of datacenters in close proximity, deployed within a defined latency perimeter. Azure has 60+ regions worldwide.</td></tr>
+      <tr><td><strong>Availability zone</strong></td><td>A physically separate datacenter within a region, with independent power, cooling, and networking. Using multiple zones protects against datacenter-level failure.</td></tr>
+      <tr><td><strong>Region pair</strong></td><td>Each region is paired with another region at least 300 miles away. Some services replicate automatically to the pair; updates roll out sequentially across pairs to reduce downtime.</td></tr>
+      <tr><td><strong>Resource group</strong></td><td>A container that groups related resources sharing the same lifecycle. Every resource belongs to exactly one resource group.</td></tr>
+      <tr><td><strong>Subscription</strong></td><td>A billing boundary and an access-control boundary — it groups resource groups and controls who can provision what.</td></tr>
+      <tr><td><strong>Management group</strong></td><td>A container above subscriptions, used to apply governance conditions across multiple subscriptions at once. Up to six levels deep.</td></tr>
+    </tbody>
+  </table>
+  <p>
+    Hierarchy, top to bottom: <strong>management groups → subscriptions → resource groups → resources.</strong>
+  </p>
+
+  <h2>Compute options</h2>
+  <table>
+    <thead><tr><th>Service</th><th>Best for</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Virtual Machines (VMs)</strong></td><td>IaaS. Full control over the OS. Good for lift-and-shift and dev/test.</td></tr>
+      <tr><td><strong>VM scale sets</strong></td><td>Automatically scale a group of load-balanced, identical VMs out (add) or in (remove) based on demand.</td></tr>
+      <tr><td><strong>Azure App Service</strong></td><td>PaaS for hosting web apps and APIs (.NET, Node.js, Java, Python, PHP) without managing servers.</td></tr>
+      <tr><td><strong>Containers</strong> (Container Instances / AKS)</td><td>Lightweight, no OS to manage. Azure Container Instances runs single containers; Azure Kubernetes Service (AKS) orchestrates containers at scale.</td></tr>
+      <tr><td><strong>Azure Functions</strong></td><td>Serverless, event-driven code — you focus purely on your logic, not infrastructure. Pay only when the function runs.</td></tr>
+      <tr><td><strong>Azure Virtual Desktop</strong></td><td>A full desktop virtualization experience delivered from the cloud, with true multi-session support.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Networking</h2>
+  <ul>
+    <li><strong>Virtual Network (VNet)</strong> — lets Azure resources communicate with each other, the internet, and on-premises networks.</li>
+    <li><strong>Load balancing</strong> — distributes traffic across multiple instances (e.g. a VM scale set) to keep applications available and responsive.</li>
+    <li><strong>VPN Gateway</strong> — sends encrypted traffic between an Azure VNet and an on-premises location over the public internet.</li>
+    <li><strong>ExpressRoute</strong> — extends an on-premises network into Azure over a private connection (not over the public internet), via a connectivity provider.</li>
+    <li><strong>Azure DNS</strong> — hosts DNS domains and provides name resolution using Microsoft's global network of name servers.</li>
+  </ul>
+
+  <div class="callout tip">
+    <div class="callout-title">💡 Exam tip</div>
+    VPN Gateway uses the public internet (encrypted); ExpressRoute uses a private, dedicated
+    connection. ExpressRoute is generally faster and more reliable, but also more expensive to set up.
+  </div>
+
+  <h2>Storage</h2>
+  <p>Every storage account needs a globally unique name. Key storage services:</p>
+  <ul>
+    <li><strong>Blob storage</strong> — massive amounts of unstructured data (text, binary, images, video).</li>
+    <li><strong>Disk storage</strong> — disks used by virtual machines.</li>
+    <li><strong>Azure Files</strong> — highly available network file shares accessed via the SMB protocol.</li>
+  </ul>
+  <p><strong>Access tiers</strong> (for blob data, switchable at any time):</p>
+  <table>
+    <thead><tr><th>Tier</th><th>Use case</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Hot</strong></td><td>Data accessed frequently.</td></tr>
+      <tr><td><strong>Cool</strong></td><td>Data accessed infrequently, stored for at least 30 days.</td></tr>
+      <tr><td><strong>Archive</strong></td><td>Data rarely accessed, stored for at least 180 days, higher retrieval latency.</td></tr>
+    </tbody>
+  </table>
+  <p><strong>Redundancy options</strong> (higher durability = more copies, in more places):</p>
+  <table>
+    <thead><tr><th>Option</th><th>How data is replicated</th></tr></thead>
+    <tbody>
+      <tr><td><strong>LRS</strong> (Locally redundant storage)</td><td>Three copies within a single datacenter in the primary region.</td></tr>
+      <tr><td><strong>ZRS</strong> (Zone-redundant storage)</td><td>Copies spread across three availability zones in the primary region.</td></tr>
+      <tr><td><strong>GRS</strong> (Geo-redundant storage)</td><td>LRS in the primary region, plus asynchronous replication to a secondary region.</td></tr>
+      <tr><td><strong>GZRS</strong> (Geo-zone-redundant storage)</td><td>ZRS in the primary region, plus replication to a secondary region — the highest durability.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Identity, access, and security</h2>
+  <ul>
+    <li><strong>Microsoft Entra ID</strong> (formerly Azure Active Directory) — Azure's cloud-based identity and access management service: authentication, single sign-on (SSO), and device/application management.</li>
+    <li><strong>Multi-factor authentication (MFA)</strong> — requires two or more of: something you know (password), something you possess (a phone/token), something you are (biometrics).</li>
+    <li><strong>Azure RBAC (Role-Based Access Control)</strong> — fine-grained access management: grant users only the access they need, scoped to a management group, subscription, resource group, or resource.</li>
+    <li><strong>Zero Trust</strong> — a security model built on "never trust, always verify": explicitly verify every request, use least-privilege access, and assume breach.</li>
+    <li><strong>Defense in depth</strong> — a layered security approach (physical, identity, perimeter, network, compute, application, data) so a breach of one layer doesn't compromise the rest.</li>
+    <li><strong>Microsoft Defender for Cloud</strong> — a monitoring service providing threat protection, security recommendations, and a secure score across Azure and on-premises resources.</li>
+  </ul>
+
+  <div class="quiz-block" id="quiz-2"></div>
+
+  <div class="page-footer-nav">
+    <a class="nav-link" href="01-review-cloud-concepts.html"><span class="dir">&larr; Back</span><span class="lbl">Review: Cloud Concepts</span></a>
+    <a class="nav-link next" href="03-review-management-and-governance.html"><span class="dir">Next &rarr;</span><span class="lbl">Review: Management and Governance</span></a>
+  </div>
+</main>
+
+<footer class="course-footer">
+  ROC van Amsterdam · Cloud &amp; Azure — Verdieping Software · Docent H.D. Lal
+</footer>
+
+<script src="../shared/scorm-api.js"></script>
+<script src="../shared/quiz-engine.js"></script>
+<script>
+ROCQuiz.render("quiz-2", {
+  title: "Check your understanding",
+  checkLabel: "Check answers",
+  resetLabel: "Try again",
+  passLabel: "Nice work! You know your way around Azure's architecture.",
+  retryLabel: "Review the summary above and try again.",
+  incompleteLabel: "Please answer every question first.",
+  questions: [
+    {
+      text: "What is an Azure availability zone?",
+      options: [
+        "A separate Azure subscription used for testing",
+        "A physically separate datacenter within a region, with independent power, cooling, and networking",
+        "A group of regions located on the same continent"
+      ],
+      correct: 1,
+      explanation: "An availability zone is one or more datacenters within a region, physically separated with independent power, cooling, and networking, so a failure in one zone doesn't take down the others."
+    },
+    {
+      text: "Which statement about resource groups is correct?",
+      options: [
+        "A resource can belong to multiple resource groups at once",
+        "Every Azure resource must belong to exactly one resource group",
+        "Resource groups can only contain resources from a single region"
+      ],
+      correct: 1,
+      explanation: "Every Azure resource must exist in exactly one resource group, though resources in a group can span multiple regions."
+    },
+    {
+      text: "A company needs to run short bursts of event-driven code — for example, resizing an image whenever one is uploaded — and wants to pay only while that code is running. Which compute option fits best?",
+      options: ["Virtual Machines", "Azure Functions", "Azure Virtual Desktop"],
+      correct: 1,
+      explanation: "Azure Functions is a serverless, event-driven compute option: code runs in response to triggers, and you're billed only for the time it actually runs."
+    },
+    {
+      text: "Which Azure networking service provides a private, dedicated connection between an on-premises network and Azure, without traversing the public internet?",
+      options: ["VPN Gateway", "Azure DNS", "ExpressRoute"],
+      correct: 2,
+      explanation: "ExpressRoute extends an on-premises network into Azure through a private connection facilitated by a connectivity provider, rather than over the public internet."
+    },
+    {
+      text: "A company needs its data replicated across three availability zones in its primary region for the highest resilience within a single region, without needing a secondary region. Which storage redundancy option should they choose?",
+      options: ["LRS", "ZRS", "GRS"],
+      correct: 1,
+      explanation: "Zone-redundant storage (ZRS) replicates data synchronously across three availability zones within the primary region — no secondary region involved."
+    },
+    {
+      text: "Which access tier is most appropriate for data that is rarely accessed and can tolerate several hours of retrieval latency?",
+      options: ["Hot", "Cool", "Archive"],
+      correct: 2,
+      explanation: "The Archive tier is optimized for data that is rarely accessed and stored for at least 180 days, and accepts higher retrieval latency in exchange for the lowest storage cost."
+    },
+    {
+      text: "What does Multi-Factor Authentication (MFA) require?",
+      options: [
+        "Only a strong, complex password",
+        "Two or more independent forms of verification, such as a password plus a code from a phone",
+        "A different password for every Azure resource"
+      ],
+      correct: 1,
+      explanation: "MFA requires two or more of: something you know, something you possess, and something you are, adding security beyond a password alone."
+    },
+    {
+      text: "What is the core principle of the Zero Trust security model?",
+      options: [
+        "Trust any request that originates from inside the corporate network",
+        "Never trust, always verify — explicitly validate every request regardless of where it comes from",
+        "Rely on a single strong perimeter firewall as the main line of defense"
+      ],
+      correct: 1,
+      explanation: "Zero Trust assumes no request should be trusted by default, even from inside the network — every request is explicitly verified, using least-privilege access and assuming breach."
+    }
+  ]
+});
+</script>
+</body>
+</html>

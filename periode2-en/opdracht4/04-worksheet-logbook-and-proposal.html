@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Worksheet: Build Logbook</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body>
+
+<header class="course-header">
+  <div class="container">
+    <div class="brand">
+      <img src="../shared/assets/roc-logo.png" alt="ROC van Amsterdam" class="logo-img">
+      <div class="brand-text">
+        <div class="school">ROC van Amsterdam</div>
+        <div class="course-title">Cloud &amp; Azure — Verdieping Software (D1-K1)</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span class="period-tag">Periode 2 · English</span><br>
+      Docent: H.D. Lal
+    </div>
+  </div>
+</header>
+
+<nav class="breadcrumb">
+  <div class="container">
+    <a href="../index.html">Course overview</a> <span class="sep">/</span>
+    <a href="00-overview.html">Assignment 4</a> <span class="sep">/</span>
+    Worksheet: Build Logbook
+  </div>
+</nav>
+
+<main class="container">
+  <span class="page-kicker">Evidence</span>
+  <h1>Worksheet: Build Logbook</h1>
+  <p class="page-intro">
+    Keep this logbook up to date while you build your prototype. A short entry every week is enough —
+    the point is to show how your work actually progressed, including anything that didn't go to
+    plan. Your answers are saved automatically in this browser as you work. Use the download button
+    at the bottom to save your logbook as a file and hand it in.
+  </p>
+
+  <div class="callout warning">
+    <div class="callout-title">⚠️ Note</div>
+    This worksheet only saves your text locally, in this browser, on this computer. Download your
+    answers regularly so you don't lose anything, and submit the downloaded file as your evidence.
+  </div>
+
+  <div class="callout tip">
+    <div class="callout-title">💡 Changed your plan?</div>
+    It's completely normal for a plan to change once you start building. The important part is that
+    you discuss any significant change with your supervisor (your teacher, acting as your
+    "opdrachtgever") <strong>before</strong> you run with it — and that you write down that you did so.
+  </div>
+
+  <form id="worksheet-form">
+    <div class="worksheet-field">
+      <label for="f1">Week 1</label>
+      <div class="hint">What did you do? Does it match your plan? Any changes discussed with your supervisor?</div>
+      <textarea id="f1" rows="4" placeholder="This week I..."></textarea>
+    </div>
+
+    <div class="worksheet-field">
+      <label for="f2">Week 2</label>
+      <div class="hint">What did you do? Does it match your plan? Any changes discussed with your supervisor?</div>
+      <textarea id="f2" rows="4" placeholder="This week I..."></textarea>
+    </div>
+
+    <div class="worksheet-field">
+      <label for="f3">Week 3</label>
+      <div class="hint">What did you do? Does it match your plan? Any changes discussed with your supervisor?</div>
+      <textarea id="f3" rows="4" placeholder="This week I..."></textarea>
+    </div>
+
+    <div class="worksheet-field">
+      <label for="f4">Week 4</label>
+      <div class="hint">What did you do? Does it match your plan? Any changes discussed with your supervisor?</div>
+      <textarea id="f4" rows="4" placeholder="This week I..."></textarea>
+    </div>
+
+    <div class="worksheet-field">
+      <label for="f5">Week 5</label>
+      <div class="hint">What did you do? Does it match your plan? Any changes discussed with your supervisor?</div>
+      <textarea id="f5" rows="4" placeholder="This week I..."></textarea>
+    </div>
+
+    <div class="worksheet-field">
+      <label for="f6">Week 6</label>
+      <div class="hint">What did you do? Does it match your plan? Any changes discussed with your supervisor?</div>
+      <textarea id="f6" rows="4" placeholder="This week I..."></textarea>
+    </div>
+
+    <div class="worksheet-field">
+      <label for="f7">Final result</label>
+      <div class="hint">Link to your deployed prototype, and a short summary of the final functionality.</div>
+      <textarea id="f7" rows="4" placeholder="My prototype is live at https://... and currently supports..."></textarea>
+    </div>
+
+    <div class="worksheet-actions">
+      <button type="button" class="btn btn-primary" id="save-btn">Save (in browser)</button>
+      <button type="button" class="btn btn-secondary" id="download-btn">Download as file</button>
+    </div>
+    <div class="completion-note" data-completion-note hidden>✓ Progress saved</div>
+  </form>
+
+  <div class="page-footer-nav">
+    <a class="nav-link" href="03-documenting-architecture-cost-security.html"><span class="dir">&larr; Previous</span><span class="lbl">Documenting Architecture, Cost &amp; Security</span></a>
+    <a class="nav-link next" href="05-extra-challenge.html"><span class="dir">Next &rarr;</span><span class="lbl">Extra Challenge</span></a>
+  </div>
+</main>
+
+<footer class="course-footer">
+  ROC van Amsterdam · Cloud &amp; Azure — Verdieping Software · Docent H.D. Lal
+</footer>
+
+<script src="../shared/scorm-api.js"></script>
+<script>
+(function () {
+  var STORAGE_KEY = "roc-azure-opdracht4-logbook";
+  var fields = ["f1", "f2", "f3", "f4", "f5", "f6", "f7"];
+
+  function loadDraft() {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return;
+      var data = JSON.parse(raw);
+      fields.forEach(function (id) {
+        if (data[id]) document.getElementById(id).value = data[id];
+      });
+    } catch (e) { /* localStorage unavailable — form still works, just without autosave */ }
+  }
+
+  function saveDraft() {
+    var data = {};
+    fields.forEach(function (id) { data[id] = document.getElementById(id).value; });
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch (e) { /* ignore */ }
+    if (window.ROCScorm) window.ROCScorm.markComplete();
+    var note = document.querySelector("[data-completion-note]");
+    if (note) note.hidden = false;
+  }
+
+  function downloadAnswers() {
+    var labels = {
+      f1: "Week 1",
+      f2: "Week 2",
+      f3: "Week 3",
+      f4: "Week 4",
+      f5: "Week 5",
+      f6: "Week 6",
+      f7: "Final result"
+    };
+    var lines = ["Assignment 4: Prototype — Build Logbook", "ROC van Amsterdam — Cloud & Azure, Verdieping Software", ""];
+    fields.forEach(function (id) {
+      lines.push(labels[id]);
+      lines.push(document.getElementById(id).value || "(not filled in yet)");
+      lines.push("");
+    });
+    var blob = new Blob([lines.join("\n")], { type: "text/plain;charset=utf-8" });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = "assignment4-logbook.txt";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+    saveDraft();
+  }
+
+  document.getElementById("save-btn").addEventListener("click", saveDraft);
+  document.getElementById("download-btn").addEventListener("click", downloadAnswers);
+  loadDraft();
+})();
+</script>
+</body>
+</html>

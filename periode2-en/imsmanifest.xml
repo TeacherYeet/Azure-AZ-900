@@ -1,0 +1,46 @@
+<?xml version="1.0" standalone="no" ?>
+<manifest identifier="COM.ROCVANAMSTERDAM.CLOUDAZURE.PERIODE2" version="1"
+  xmlns="http://www.imsproject.org/xsd/imscp_rootv1p1p2"
+  xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_rootv1p2"
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://www.imsproject.org/xsd/imscp_rootv1p1p2 imscp_rootv1p1p2.xsd
+                      http://www.adlnet.org/xsd/adlcp_rootv1p2 adlcp_rootv1p2.xsd">
+  <metadata>
+    <schema>ADL SCORM</schema>
+    <schemaversion>1.2</schemaversion>
+  </metadata>
+  <organizations default="ROC_AZURE_ORG">
+    <organization identifier="ROC_AZURE_ORG">
+      <title>Cloud &amp; Azure - Verdieping Software - Period 2 (Assignment 4 + AZ-900 Exam Prep)</title>
+      <item identifier="ITEM_1" identifierref="RES_1" isvisible="true">
+        <title>Cloud &amp; Azure - Verdieping Software - Period 2 (Assignment 4 + AZ-900 Exam Prep)</title>
+      </item>
+    </organization>
+  </organizations>
+  <resources>
+    <resource identifier="RES_1" type="webcontent" adlcp:scormtype="sco" href="index.html">
+      <file href="examprep/00-overview.html"/>
+      <file href="examprep/01-review-cloud-concepts.html"/>
+      <file href="examprep/02-review-architecture-and-services.html"/>
+      <file href="examprep/03-review-management-and-governance.html"/>
+      <file href="examprep/04-flashcards-exam-review.html"/>
+      <file href="examprep/05-mock-exam.html"/>
+      <file href="examprep/06-exam-day-tips.html"/>
+      <file href="examprep/07-extra-challenge-questions.html"/>
+      <file href="index.html"/>
+      <file href="opdracht4/00-overview.html"/>
+      <file href="opdracht4/01-planning-your-prototype.html"/>
+      <file href="opdracht4/02-building-a-simple-azure-architecture.html"/>
+      <file href="opdracht4/03-documenting-architecture-cost-security.html"/>
+      <file href="opdracht4/04-worksheet-logbook-and-proposal.html"/>
+      <file href="opdracht4/05-extra-challenge.html"/>
+      <file href="resources/bijlage-eindgesprek.html"/>
+      <file href="shared/assets/roc-logo.png"/>
+      <file href="shared/exam-timer.js"/>
+      <file href="shared/flashcards.js"/>
+      <file href="shared/quiz-engine.js"/>
+      <file href="shared/scorm-api.js"/>
+      <file href="shared/styles.css"/>
+    </resource>
+  </resources>
+</manifest>

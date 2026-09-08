@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Werkblad Opdracht 1</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body>
+
+<header class="course-header">
+  <div class="container">
+    <div class="brand">
+      <img src="../shared/assets/roc-logo.png" alt="ROC van Amsterdam" class="logo-img">
+      <div class="brand-text">
+        <div class="school">ROC van Amsterdam</div>
+        <div class="course-title">Cloud &amp; Azure — Verdieping Software (D1-K1)</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span class="period-tag">Periode 1 · Nederlands</span><br>
+      Docent: H.D. Lal
+    </div>
+  </div>
+</header>
+
+<nav class="breadcrumb">
+  <div class="container">
+    <a href="../index.html">Cursusoverzicht</a> <span class="sep">/</span>
+    <a href="00-overzicht.html">Opdracht 1</a> <span class="sep">/</span>
+    Werkblad
+  </div>
+</nav>
+
+<main class="container">
+  <span class="page-kicker">Bewijsstuk</span>
+  <h1>Werkblad Opdracht 1: Onderzoek softwarepakketten</h1>
+  <p class="page-intro">
+    Vul onderstaande velden in. Je antwoorden worden automatisch bewaard in deze browser terwijl je
+    werkt. Gebruik de downloadknop onderaan om je antwoorden als bestand te bewaren en toe te voegen
+    aan je examenportfolio.
+  </p>
+
+  <div class="callout warning">
+    <div class="callout-title">⚠️ Let op</div>
+    Dit werkblad bewaart je tekst alleen lokaal in déze browser, op déze computer. Download je
+    antwoorden regelmatig zodat je niets kwijtraakt, en lever het gedownloade bestand in als
+    bewijsstuk.
+  </div>
+
+  <form id="worksheet-form">
+    <div class="worksheet-field">
+      <label for="f1">1. Beschrijving van je toekomstige beroep</label>
+      <div class="hint">Beschrijf kort jouw beeld van de werkzaamheden van je toekomstige beroep.</div>
+      <textarea id="f1" rows="4" placeholder="Bijvoorbeeld: als [beroep] ga ik werken met..."></textarea>
+    </div>
+
+    <div class="worksheet-field">
+      <label for="f2">2. Criteria voor je software-keuze</label>
+      <div class="hint">Op basis waarvan ga je een keuze maken voor de software waarin je je verdiept?</div>
+      <textarea id="f2" rows="4" placeholder="Bijvoorbeeld: relevantie voor de functie, hoe vaak het in vacatures voorkomt, mijn eigen interesse..."></textarea>
+    </div>
+
+    <div class="worksheet-field">
+      <label for="f3">3. Overzicht van relevante softwarepakketten</label>
+      <div class="hint">Maak een overzicht van softwarepakketten waarmee je in aanraking kunt komen. Gebruik vacatures, sociale-mediaprofielen en blogs/tijdschriften als bron.</div>
+      <textarea id="f3" rows="6" placeholder="1. ...&#10;2. ...&#10;3. ..."></textarea>
+    </div>
+
+    <div class="worksheet-field">
+      <label for="f4">4. Beargumenteerde keuze</label>
+      <div class="hint">Welke software kies je om je in te verdiepen (bijv. Microsoft Azure), en waarom?</div>
+      <textarea id="f4" rows="5" placeholder="Ik kies voor... omdat..."></textarea>
+    </div>
+
+    <div class="worksheet-actions">
+      <button type="button" class="btn btn-primary" id="save-btn">Opslaan (in browser)</button>
+      <button type="button" class="btn btn-secondary" id="download-btn">Download als bestand</button>
+    </div>
+    <div class="completion-note" data-completion-note hidden>✓ Voortgang bewaard</div>
+  </form>
+
+  <div class="page-footer-nav">
+    <a class="nav-link" href="04-flashcards.html"><span class="dir">&larr; Vorige</span><span class="lbl">Flashcards</span></a>
+    <a class="nav-link next" href="06-extra-voor-wie-meer-wil.html"><span class="dir">Volgende &rarr;</span><span class="lbl">Extra: voor wie meer wil</span></a>
+  </div>
+</main>
+
+<footer class="course-footer">
+  ROC van Amsterdam · Cloud &amp; Azure — Verdieping Software · Docent H.D. Lal
+</footer>
+
+<script src="../shared/scorm-api.js"></script>
+<script>
+(function () {
+  var STORAGE_KEY = "roc-azure-opdracht1-werkblad";
+  var fields = ["f1", "f2", "f3", "f4"];
+
+  function loadDraft() {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return;
+      var data = JSON.parse(raw);
+      fields.forEach(function (id) {
+        if (data[id]) document.getElementById(id).value = data[id];
+      });
+    } catch (e) { /* localStorage unavailable — form still works, just without autosave */ }
+  }
+
+  function saveDraft() {
+    var data = {};
+    fields.forEach(function (id) { data[id] = document.getElementById(id).value; });
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch (e) { /* ignore */ }
+    if (window.ROCScorm) window.ROCScorm.markComplete();
+    var note = document.querySelector("[data-completion-note]");
+    if (note) note.hidden = false;
+  }
+
+  function downloadAnswers() {
+    var labels = {
+      f1: "1. Beschrijving van je toekomstige beroep",
+      f2: "2. Criteria voor je software-keuze",
+      f3: "3. Overzicht van relevante softwarepakketten",
+      f4: "4. Beargumenteerde keuze"
+    };
+    var lines = ["Opdracht 1: Onderzoek softwarepakketten", "ROC van Amsterdam — Cloud & Azure, Verdieping Software", ""];
+    fields.forEach(function (id) {
+      lines.push(labels[id]);
+      lines.push(document.getElementById(id).value || "(nog niet ingevuld)");
+      lines.push("");
+    });
+    var blob = new Blob([lines.join("\n")], { type: "text/plain;charset=utf-8" });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = "opdracht1-onderzoek-softwarepakketten.txt";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+    saveDraft();
+  }
+
+  document.getElementById("save-btn").addEventListener("click", saveDraft);
+  document.getElementById("download-btn").addEventListener("click", downloadAnswers);
+  loadDraft();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Monitoring en tools</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body>
+
+<header class="course-header">
+  <div class="container">
+    <div class="brand">
+      <img src="../shared/assets/roc-logo.png" alt="ROC van Amsterdam" class="logo-img">
+      <div class="brand-text">
+        <div class="school">ROC van Amsterdam</div>
+        <div class="course-title">Cloud &amp; Azure — Verdieping Software (D1-K1)</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span class="period-tag">Periode 1 · Nederlands</span><br>
+      Docent: H.D. Lal
+    </div>
+  </div>
+</header>
+
+<nav class="breadcrumb">
+  <div class="container">
+    <a href="../index.html">Cursusoverzicht</a> <span class="sep">/</span>
+    <a href="00-overzicht.html">Opdracht 3</a> <span class="sep">/</span>
+    Monitoring en tools
+  </div>
+</nav>
+
+<main class="container">
+  <span class="page-kicker">Les 8 van 8</span>
+  <h1>Monitoring en tools</h1>
+  <p class="page-intro">
+    De laatste les van deze opdracht gaat over hoe je met Azure werkt (interfaces en
+    infrastructure-as-code) en hoe je in de gaten houdt of alles goed blijft draaien.
+  </p>
+
+  <h2>Manieren om met Azure te werken</h2>
+  <p>Er zijn meerdere manieren om Azure-resources te beheren, elk geschikt voor een ander doel:</p>
+  <ul>
+    <li><strong>Azure Portal</strong> — de grafische webinterface, ideaal om resources visueel te verkennen en te beheren.</li>
+    <li><strong>Azure Cloud Shell</strong> — een browsergebaseerde command line, met daarin twee opties:
+      <ul>
+        <li><strong>Azure CLI</strong> — een opdrachtregel-tool voor het beheren van Azure-resources met commando's.</li>
+        <li><strong>Azure PowerShell</strong> — vergelijkbaar, maar gebaseerd op PowerShell-scripting.</li>
+      </ul>
+    </li>
+    <li><strong>Azure Arc</strong> — breidt Azure-beheer uit naar resources buiten Azure, zoals on-premises servers of resources bij andere cloudproviders, zodat je alles vanuit één plek kunt beheren.</li>
+  </ul>
+
+  <h2>Azure Resource Manager (ARM)</h2>
+  <p>
+    <strong>Azure Resource Manager (ARM)</strong> is de beheerlaag van Azure: het stelt je in staat om
+    resources binnen je subscription aan te maken, aan te passen en te verwijderen. Alles wat je doet
+    via de portal, CLI, PowerShell of een SDK, gaat uiteindelijk via ARM. ARM zorgt voor:
+  </p>
+  <ul>
+    <li>Het aanmaken, configureren, beheren en verwijderen van resources en resource groups.</li>
+    <li>Het organiseren van resources.</li>
+    <li>Het controleren van toegang tot resources (via RBAC).</li>
+    <li>Automatisering via verschillende tools en SDK's.</li>
+    <li>Het opslaan van omgevingslay-outs in JSON-bestanden.</li>
+  </ul>
+
+  <h3>ARM-templates</h3>
+  <p>
+    Een <strong>ARM-template</strong> is een JSON-bestand waarmee je Azure-infrastructuur kunt
+    aanmaken en uitrollen zonder handmatige stap-voor-stap commando's te hoeven schrijven — dit heet
+    <strong>infrastructure as code</strong>. Kenmerken:
+  </p>
+  <ul>
+    <li><strong>Declaratieve syntax</strong> — je beschrijft wát je wilt hebben, niet hóe het stap voor stap gebouwd moet worden.</li>
+    <li><strong>Herhaalbare resultaten</strong> — dezelfde template levert steeds dezelfde, consistente omgeving op.</li>
+    <li><strong>Orchestratie</strong> — ARM regelt zelf de juiste volgorde en afhankelijkheden.</li>
+    <li><strong>Modulaire bestanden</strong> — templates kun je opsplitsen en hergebruiken.</li>
+    <li><strong>Ingebouwde validatie</strong> — fouten worden vóór het uitrollen gesignaleerd.</li>
+    <li><strong>Exporteerbare code</strong> — je kunt de configuratie van bestaande resources exporteren als template.</li>
+  </ul>
+
+  <div class="callout tip">
+    <div class="callout-title">💡 Waarom infrastructure as code handig is</div>
+    Met een ARM-template beschrijf je bijvoorbeeld eenmalig "een webapp + database + netwerk", en kun
+    je die exact dezelfde omgeving daarna herhaaldelijk en foutloos opnieuw uitrollen — voor test,
+    staging én productie. Geen risico meer op vergeten instellingen door handmatig werk.
+  </div>
+
+  <h2>De drie belangrijkste monitoringtools</h2>
+
+  <h3>Azure Advisor</h3>
+  <p>
+    <strong>Azure Advisor</strong> analyseert je bestaande Azure-resources en geeft persoonlijke,
+    proactieve aanbevelingen op basis van best practices, verdeeld over vijf categorieën:
+    <strong>betrouwbaarheid</strong>, <strong>beveiliging</strong>, <strong>prestaties</strong>,
+    <strong>kosten</strong> en <strong>operational excellence</strong>.
+  </p>
+
+  <h3>Azure Service Health</h3>
+  <p>
+    <strong>Azure Service Health</strong> is een verzameling diensten die je op de hoogte houdt van
+    de status van Azure, op drie niveaus:
+  </p>
+  <ul>
+    <li><strong>Azure Status</strong> — een globaal overzicht van de gezondheid van alle Azure-diensten in alle regio's.</li>
+    <li><strong>Service Health</strong> — een gericht overzicht van alleen de diensten en regio's die jíj gebruikt. Een storing in een dienst die jij niet gebruikt, zie je hier niet.</li>
+    <li><strong>Resource Health</strong> — een overzicht op maat van je eigen, specifieke cloudresources.</li>
+  </ul>
+
+  <h3>Azure Monitor</h3>
+  <p>
+    <strong>Azure Monitor</strong> maximaliseert de beschikbaarheid en prestaties van applicaties en
+    diensten door telemetrie te verzamelen, te analyseren en erop te reageren — zowel uit cloud- als
+    on-premises omgevingen. Onderdelen zijn onder andere:
+  </p>
+  <ul>
+    <li><strong>Application Insights</strong> — inzicht in het gedrag en de prestaties van applicaties.</li>
+    <li><strong>Log Analytics</strong> — logdata doorzoeken en analyseren.</li>
+    <li><strong>Smart Alerts</strong> — slimme meldingen bij afwijkingen.</li>
+    <li><strong>Automation Actions</strong> — automatisch reageren op gebeurtenissen.</li>
+    <li><strong>Aangepaste dashboards</strong> — de belangrijkste gegevens overzichtelijk bij elkaar.</li>
+  </ul>
+
+  <div class="callout tip">
+    <div class="callout-title">💡 Advisor, Service Health of Monitor?</div>
+    Vraag je af: wil ik weten <em>hoe ik het beter kan doen</em>? Dan is dat <strong>Advisor</strong>.
+    Wil ik weten <em>of Azure zelf een storing heeft</em>? Dan is dat <strong>Service Health</strong>.
+    Wil ik <em>continu telemetrie verzamelen en analyseren</em> uit mijn eigen applicaties en
+    resources? Dan is dat <strong>Azure Monitor</strong>.
+  </div>
+
+  <div class="quiz-block" id="quiz-8"></div>
+
+  <div class="page-footer-nav">
+    <a class="nav-link" href="09-governance-en-compliance.html"><span class="dir">&larr; Vorige</span><span class="lbl">Governance en compliance</span></a>
+    <a class="nav-link next" href="11-flashcards-azure-services.html"><span class="dir">Volgende &rarr;</span><span class="lbl">Flashcards Azure-diensten</span></a>
+  </div>
+</main>
+
+<footer class="course-footer">
+  ROC van Amsterdam · Cloud &amp; Azure — Verdieping Software · Docent H.D. Lal
+</footer>
+
+<script src="../shared/scorm-api.js"></script>
+<script src="../shared/quiz-engine.js"></script>
+<script>
+ROCQuiz.render("quiz-8", {
+  title: "Check je begrip",
+  checkLabel: "Controleer antwoorden",
+  resetLabel: "Opnieuw proberen",
+  passLabel: "Goed gedaan! Je kent de belangrijkste beheer- en monitoringtools van Azure.",
+  retryLabel: "Bekijk de uitleg hierboven nog eens en probeer het opnieuw.",
+  incompleteLabel: "Beantwoord eerst alle vragen.",
+  questions: [
+    {
+      text: "Wat is de rol van Azure Resource Manager (ARM)?",
+      options: [
+        "Het is de beheerlaag waarmee resources in je subscription worden aangemaakt, aangepast en verwijderd",
+        "Het is een grafische tool om alleen virtuele machines te bekijken",
+        "Het is een dienst die alleen facturatie afhandelt"
+      ],
+      correct: 0,
+      explanation: "ARM is de management-laag van Azure: alle acties via de portal, CLI, PowerShell of SDK's lopen hier uiteindelijk doorheen om resources te maken, wijzigen of verwijderen."
+    },
+    {
+      text: "Wat is een kenmerk van een ARM-template?",
+      options: [
+        "Het is een JSON-bestand met declaratieve syntax waarmee je infrastructuur herhaalbaar en consistent kunt uitrollen",
+        "Het is een Word-document met stap-voor-stap instructies voor de helpdesk",
+        "Het kan alleen gebruikt worden voor het aanmaken van storage accounts"
+      ],
+      correct: 0,
+      explanation: "ARM-templates zijn JSON-bestanden die declaratief beschrijven welke infrastructuur je wilt, en zorgen voor herhaalbare, consistente uitrol (infrastructure as code)."
+    },
+    {
+      text: "Je wilt weten of een Azure-dienst in de regio die jij gebruikt op dit moment een storing heeft. Welke tool gebruik je?",
+      options: ["Azure Advisor", "Azure Service Health", "Azure Policy"],
+      correct: 1,
+      explanation: "Azure Service Health geeft een gericht overzicht van de status van de diensten en regio's die jij daadwerkelijk gebruikt."
+    },
+    {
+      text: "Welke tool geeft persoonlijke aanbevelingen op het gebied van betrouwbaarheid, beveiliging, prestaties, kosten en operational excellence?",
+      options: ["Azure Monitor", "Azure Advisor", "Azure Resource Manager"],
+      correct: 1,
+      explanation: "Azure Advisor analyseert je resources en geeft persoonlijke, proactieve aanbevelingen verdeeld over die vijf categorieën."
+    }
+  ]
+});
+</script>
+</body>
+</html>

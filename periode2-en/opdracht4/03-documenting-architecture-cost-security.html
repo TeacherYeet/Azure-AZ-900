@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Documenting Architecture, Cost &amp; Security</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body>
+
+<header class="course-header">
+  <div class="container">
+    <div class="brand">
+      <img src="../shared/assets/roc-logo.png" alt="ROC van Amsterdam" class="logo-img">
+      <div class="brand-text">
+        <div class="school">ROC van Amsterdam</div>
+        <div class="course-title">Cloud &amp; Azure — Verdieping Software (D1-K1)</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span class="period-tag">Periode 2 · English</span><br>
+      Docent: H.D. Lal
+    </div>
+  </div>
+</header>
+
+<nav class="breadcrumb">
+  <div class="container">
+    <a href="../index.html">Course overview</a> <span class="sep">/</span>
+    <a href="00-overview.html">Assignment 4</a> <span class="sep">/</span>
+    Documenting Architecture, Cost &amp; Security
+  </div>
+</nav>
+
+<main class="container">
+  <span class="page-kicker">Evidence · Documentation</span>
+  <h1>Documenting Architecture, Cost &amp; Security</h1>
+  <p class="page-intro">
+    Building a working prototype is only half the job. In a real IT role, other people — colleagues,
+    a manager, a client — need to understand what you built, what it costs, and whether it is safe to
+    run. This page helps you write that documentation.
+  </p>
+
+  <h2>Why documentation matters</h2>
+  <p>
+    A cloud resource that only you understand is a risk: if you leave, get sick, or simply forget the
+    details in six months, nobody can maintain it safely. Professional documentation answers three
+    questions any colleague would ask when they open your resource group for the first time:
+  </p>
+  <ul>
+    <li><strong>Architecture</strong> — what resources exist, and how do they connect?</li>
+    <li><strong>Cost</strong> — what does this cost now, and what would it cost if it grew?</li>
+    <li><strong>Security</strong> — what has been done to keep this safe, and what still needs attention?</li>
+  </ul>
+  <p>
+    These three questions map directly onto skills tested in the AZ-900 exam, so writing this
+    documentation also doubles as exam preparation.
+  </p>
+
+  <div class="callout tip">
+    <div class="callout-title">💡 Use the Azure Pricing Calculator</div>
+    Go to <strong>azure.microsoft.com/pricing/calculator</strong>, search for the service(s) you used
+    (for example "Storage Accounts" or "App Service"), and fill in your configuration and region. On
+    the free tier your actual cost is €0, but the calculator lets you see what the same setup would
+    cost outside the free tier or at a larger scale — which is the number worth documenting.
+  </div>
+
+  <h2>Fill in your documentation</h2>
+  <p>
+    Answer the questions below about the prototype you actually built. Your answers are saved
+    automatically in this browser as you work. Use the download button at the bottom to save your
+    documentation as a file and hand it in.
+  </p>
+
+  <div class="callout warning">
+    <div class="callout-title">⚠️ Note</div>
+    This worksheet only saves your text locally, in this browser, on this computer. Download your
+    answers regularly so you don't lose anything, and submit the downloaded file as your evidence.
+  </div>
+
+  <form id="worksheet-form">
+    <div class="worksheet-field">
+      <label for="f1">1. Describe your architecture</label>
+      <div class="hint">Which Azure resource(s) did you use, and how do they connect? A short diagram description is fine — you don't need drawing software.</div>
+      <textarea id="f1" rows="5" placeholder="My prototype consists of one Storage Account with static website hosting enabled. Visitors reach it via..."></textarea>
+    </div>
+
+    <div class="worksheet-field">
+      <label for="f2">2. Estimated monthly cost</label>
+      <div class="hint">Use the Azure Pricing Calculator. State your actual cost (likely $0 on the free tier) and explain what it would cost at a larger scale (more storage, more traffic, a paid tier).</div>
+      <textarea id="f2" rows="5" placeholder="On the free tier this costs $0/month. According to the pricing calculator, the same setup on a paid tier with X GB storage and Y visitors would cost approximately..."></textarea>
+    </div>
+
+    <div class="worksheet-field">
+      <label for="f3">3. Security considerations</label>
+      <div class="hint">Which security choices did you apply or check? Think about HTTPS enforcement, access control (who can change the resource), and secrets management (access keys, connection strings).</div>
+      <textarea id="f3" rows="5" placeholder="HTTPS is enforced by default on Azure Storage. I made sure my access keys are not shared publicly by..."></textarea>
+    </div>
+
+    <div class="worksheet-actions">
+      <button type="button" class="btn btn-primary" id="save-btn">Save (in browser)</button>
+      <button type="button" class="btn btn-secondary" id="download-btn">Download as file</button>
+    </div>
+    <div class="completion-note" data-completion-note hidden>✓ Progress saved</div>
+  </form>
+
+  <div class="page-footer-nav">
+    <a class="nav-link" href="02-building-a-simple-azure-architecture.html"><span class="dir">&larr; Previous</span><span class="lbl">Building a Simple Azure Architecture</span></a>
+    <a class="nav-link next" href="04-worksheet-logbook-and-proposal.html"><span class="dir">Next &rarr;</span><span class="lbl">Worksheet: Build Logbook</span></a>
+  </div>
+</main>
+
+<footer class="course-footer">
+  ROC van Amsterdam · Cloud &amp; Azure — Verdieping Software · Docent H.D. Lal
+</footer>
+
+<script src="../shared/scorm-api.js"></script>
+<script>
+(function () {
+  var STORAGE_KEY = "roc-azure-opdracht4-documentation";
+  var fields = ["f1", "f2", "f3"];
+
+  function loadDraft() {
+    try {
+      var raw = localStorage.getItem(STORAGE_KEY);
+      if (!raw) return;
+      var data = JSON.parse(raw);
+      fields.forEach(function (id) {
+        if (data[id]) document.getElementById(id).value = data[id];
+      });
+    } catch (e) { /* localStorage unavailable — form still works, just without autosave */ }
+  }
+
+  function saveDraft() {
+    var data = {};
+    fields.forEach(function (id) { data[id] = document.getElementById(id).value; });
+    try { localStorage.setItem(STORAGE_KEY, JSON.stringify(data)); } catch (e) { /* ignore */ }
+    if (window.ROCScorm) window.ROCScorm.markComplete();
+    var note = document.querySelector("[data-completion-note]");
+    if (note) note.hidden = false;
+  }
+
+  function downloadAnswers() {
+    var labels = {
+      f1: "1. Describe your architecture",
+      f2: "2. Estimated monthly cost",
+      f3: "3. Security considerations"
+    };
+    var lines = ["Assignment 4: Prototype — Architecture, Cost & Security Documentation", "ROC van Amsterdam — Cloud & Azure, Verdieping Software", ""];
+    fields.forEach(function (id) {
+      lines.push(labels[id]);
+      lines.push(document.getElementById(id).value || "(not filled in yet)");
+      lines.push("");
+    });
+    var blob = new Blob([lines.join("\n")], { type: "text/plain;charset=utf-8" });
+    var url = URL.createObjectURL(blob);
+    var a = document.createElement("a");
+    a.href = url;
+    a.download = "assignment4-architecture-cost-security.txt";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+    setTimeout(function () { URL.revokeObjectURL(url); }, 1000);
+    saveDraft();
+  }
+
+  document.getElementById("save-btn").addEventListener("click", saveDraft);
+  document.getElementById("download-btn").addEventListener("click", downloadAnswers);
+  loadDraft();
+})();
+</script>
+</body>
+</html>

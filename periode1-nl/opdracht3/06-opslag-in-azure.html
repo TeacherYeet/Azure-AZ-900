@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Opslag in Azure</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body>
+
+<header class="course-header">
+  <div class="container">
+    <div class="brand">
+      <img src="../shared/assets/roc-logo.png" alt="ROC van Amsterdam" class="logo-img">
+      <div class="brand-text">
+        <div class="school">ROC van Amsterdam</div>
+        <div class="course-title">Cloud &amp; Azure — Verdieping Software (D1-K1)</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span class="period-tag">Periode 1 · Nederlands</span><br>
+      Docent: H.D. Lal
+    </div>
+  </div>
+</header>
+
+<nav class="breadcrumb">
+  <div class="container">
+    <a href="../index.html">Cursusoverzicht</a> <span class="sep">/</span>
+    <a href="00-overzicht.html">Opdracht 3</a> <span class="sep">/</span>
+    Opslag in Azure
+  </div>
+</nav>
+
+<main class="container">
+  <span class="page-kicker">Les 4 van 8</span>
+  <h1>Opslag in Azure</h1>
+  <p class="page-intro">
+    Naast rekenkracht en netwerk heb je ook een plek nodig om data op te slaan. Azure biedt hiervoor
+    het <strong>storage account</strong> als basis, met verschillende opslagdiensten,
+    redundantieopties en kostenniveaus. Deze les geeft je het overzicht dat je nodig hebt voor het
+    AZ-900-examen.
+  </p>
+
+  <h2>Wat is een storage account?</h2>
+  <p>
+    Een <strong>storage account</strong> is de container waarin al je Azure-opslag wordt
+    ondergebracht. Belangrijke kenmerken:
+  </p>
+  <ul>
+    <li>Moet een <strong>wereldwijd unieke naam</strong> hebben (deze naam vormt namelijk ook het internetadres van je opslag).</li>
+    <li>Biedt toegang via internet, overal ter wereld.</li>
+    <li>Bepaalt welke opslagdiensten en welke redundantieopties je kunt gebruiken.</li>
+  </ul>
+
+  <h2>De opslagdiensten</h2>
+  <p>Binnen een storage account kun je verschillende typen data opslaan, elk via een eigen dienst en eigen publiek endpoint:</p>
+  <table>
+    <thead><tr><th>Dienst</th><th>Waarvoor?</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Blob Storage</strong></td><td>Geoptimaliseerd voor het opslaan van enorme hoeveelheden ongestructureerde data, zoals tekst- of binaire bestanden (foto's, video's, back-ups).</td></tr>
+      <tr><td><strong>Disk Storage</strong></td><td>Levert de schijven die virtuele machines, applicaties en andere diensten gebruiken.</td></tr>
+      <tr><td><strong>Azure Files</strong></td><td>Hoogbeschikbare netwerk-bestandsshares, te benaderen via het standaard SMB-protocol — vergelijkbaar met een gedeelde netwerkschijf.</td></tr>
+      <tr><td><strong>Queue Storage</strong></td><td>Berichten opslaan die tussen onderdelen van een applicatie worden uitgewisseld.</td></tr>
+      <tr><td><strong>Table Storage</strong></td><td>Opslag van grote hoeveelheden gestructureerde, niet-relationele (NoSQL) data.</td></tr>
+    </tbody>
+  </table>
+
+  <h2>Redundantie: hoe blijft je data veilig?</h2>
+  <p>
+    Redundantie betekent dat Azure meerdere kopieën van je data bewaart, zodat je data behouden
+    blijft ook als er hardware uitvalt. Hoe meer kopieën en hoe verder ze uit elkaar liggen, hoe hoger
+    de <strong>duurzaamheid</strong> (durability) — uitgedrukt in "aantal negens" (bijvoorbeeld 99,999999999% = "11 nines").
+  </p>
+  <table>
+    <thead><tr><th>Redundantie</th><th>Hoe wordt data gekopieerd?</th></tr></thead>
+    <tbody>
+      <tr><td><strong>LRS</strong> (Locally redundant storage)</td><td>Meerdere kopieën binnen één datacenter in de primaire regio.</td></tr>
+      <tr><td><strong>ZRS</strong> (Zone-redundant storage)</td><td>Kopieën verspreid over drie availability zones binnen de primaire regio.</td></tr>
+      <tr><td><strong>GRS</strong> (Geo-redundant storage)</td><td>Kopieën in de primaire regio én in een tweede, gekoppelde regio.</td></tr>
+      <tr><td><strong>GZRS</strong> (Geo-zone-redundant storage)</td><td>Kopieën over drie availability zones in de primaire regio, plús een kopie in de secundaire regio.</td></tr>
+    </tbody>
+  </table>
+  <p>
+    Onthoud het simpel: <strong>LRS</strong> is de basisvariant (één locatie), <strong>ZRS</strong>
+    beschermt tegen uitval van een hele datacenterlocatie, en <strong>GRS/GZRS</strong> beschermen
+    zelfs tegen het uitvallen van een complete regio, omdat er dan ook nog een kopie in een andere
+    regio staat.
+  </p>
+
+  <h2>Toegangsniveaus (access tiers)</h2>
+  <p>
+    Voor Blob Storage kun je kiezen uit drie toegangsniveaus, die bepalen hoe je betaalt voor
+    opslag versus het ophalen van data. Je kunt op elk moment tussen niveaus wisselen.
+  </p>
+  <table>
+    <thead><tr><th>Tier</th><th>Voor welke data?</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Hot</strong></td><td>Data die vaak wordt gebruikt/geraadpleegd. Hogere opslagkosten, lagere ophaalkosten.</td></tr>
+      <tr><td><strong>Cool</strong></td><td>Data die weinig wordt geraadpleegd en minimaal 30 dagen wordt bewaard. Lagere opslagkosten, hogere ophaalkosten.</td></tr>
+      <tr><td><strong>Archive</strong></td><td>Data die zelden wordt geraadpleegd, minimaal 180 dagen bewaard wordt, en waarbij een langere ophaaltijd (latency) acceptabel is. Laagste opslagkosten.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="callout tip">
+    <div class="callout-title">💡 Kostenoptimalisatie in de praktijk</div>
+    Stel je bedrijfsfoto's van vorig jaar op: die raadpleeg je bijna nooit meer, maar je moet ze wel
+    bewaren. Zet ze in de <strong>Archive</strong>-tier voor minimale kosten. Foto's van de huidige
+    campagne die dagelijks gebruikt worden, zet je in <strong>Hot</strong>. Zo betaal je niet meer dan
+    nodig voor opslag die je toch nauwelijks gebruikt.
+  </div>
+
+  <h2>Data migreren naar (en van) Azure</h2>
+  <p>Voor het verplaatsen van bestaande data en systemen naar Azure zijn twee migratie-tools relevant:</p>
+  <ul>
+    <li><strong>Azure Migrate</strong> — een uniform migratieplatform met geïntegreerde en losstaande tools voor het beoordelen (assessment) en daadwerkelijk migreren van omgevingen naar Azure.</li>
+    <li><strong>Azure Data Box</strong> — een fysiek, robuust apparaat waarmee je tot 80 terabyte aan data kunt transporteren. Handig voor het verplaatsen van grote hoeveelheden data vanaf locaties met beperkte of geen internetverbinding, voor disaster-recoverybackups, of om compliance-redenen data juist uit Azure te halen.</li>
+  </ul>
+
+  <h2>Bestanden beheren en synchroniseren</h2>
+  <table>
+    <thead><tr><th>Tool</th><th>Wat het doet</th></tr></thead>
+    <tbody>
+      <tr><td><strong>AzCopy</strong></td><td>Command-line tool om blobs of bestanden naar/van je storage account te kopiëren.</td></tr>
+      <tr><td><strong>Azure Storage Explorer</strong></td><td>Grafische interface (vergelijkbaar met Windows Verkenner) om je opslag te beheren, werkt op Windows, macOS en Linux.</td></tr>
+      <tr><td><strong>Azure File Sync</strong></td><td>Synchroniseert Azure Files en on-premises bestanden in twee richtingen (bidirectioneel). "Cloud tiering" houdt veelgebruikte bestanden lokaal beschikbaar en maakt tegelijk lokale schijfruimte vrij.</td></tr>
+    </tbody>
+  </table>
+
+  <div class="quiz-block" id="quiz-4"></div>
+
+  <div class="page-footer-nav">
+    <a class="nav-link" href="05-netwerken-in-azure.html"><span class="dir">&larr; Vorige</span><span class="lbl">Netwerken in Azure</span></a>
+    <a class="nav-link next" href="07-identiteit-en-beveiliging.html"><span class="dir">Volgende &rarr;</span><span class="lbl">Identiteit en beveiliging</span></a>
+  </div>
+</main>
+
+<footer class="course-footer">
+  ROC van Amsterdam · Cloud &amp; Azure — Verdieping Software · Docent H.D. Lal
+</footer>
+
+<script src="../shared/scorm-api.js"></script>
+<script src="../shared/quiz-engine.js"></script>
+<script>
+ROCQuiz.render("quiz-4", {
+  title: "Check je begrip",
+  checkLabel: "Controleer antwoorden",
+  resetLabel: "Opnieuw proberen",
+  passLabel: "Goed gedaan! Je kent de basis van opslag in Azure.",
+  retryLabel: "Bekijk de tabellen hierboven nog eens en probeer het opnieuw.",
+  incompleteLabel: "Beantwoord eerst alle vragen.",
+  questions: [
+    {
+      text: "Waarom moet een storage account een wereldwijd unieke naam hebben?",
+      options: [
+        "Omdat de naam ook het internetadres van de opslag vormt",
+        "Omdat Azure anders geen factuur kan sturen",
+        "Alleen om verwarring tussen docenten te voorkomen"
+      ],
+      correct: 0,
+      explanation: "De naam van een storage account wordt gebruikt in het publieke internetadres (endpoint) van de opslag, dus moet die naam wereldwijd uniek zijn."
+    },
+    {
+      text: "Welke opslagdienst is geoptimaliseerd voor grote hoeveelheden ongestructureerde data, zoals foto's en video's?",
+      options: ["Table Storage", "Blob Storage", "Queue Storage"],
+      correct: 1,
+      explanation: "Blob Storage is bedoeld voor massale hoeveelheden ongestructureerde data zoals tekst- of binaire bestanden."
+    },
+    {
+      text: "Wat is het verschil tussen LRS en GRS?",
+      options: [
+        "LRS kopieert data binnen één datacenter, GRS kopieert data ook naar een tweede, gekoppelde regio",
+        "LRS en GRS zijn twee namen voor exact dezelfde redundantie",
+        "GRS is alleen bedoeld voor virtuele machines, LRS alleen voor blobs"
+      ],
+      correct: 0,
+      explanation: "LRS (Locally redundant storage) houdt kopieën binnen één datacenter in de primaire regio. GRS (Geo-redundant storage) voegt daar een kopie in een tweede, gekoppelde regio aan toe — dus beter beschermd tegen het uitvallen van een hele regio."
+    },
+    {
+      text: "Je hebt data die zelden wordt geraadpleegd en minstens 180 dagen bewaard moet blijven, waarbij een langere ophaaltijd geen probleem is. Welke access tier past het beste?",
+      options: ["Hot", "Cool", "Archive"],
+      correct: 2,
+      explanation: "De Archive-tier is bedoeld voor data die zelden wordt geraadpleegd, minimaal 180 dagen wordt bewaard, en waarbij een langere ophaaltijd acceptabel is — tegen de laagste opslagkosten."
+    }
+  ]
+});
+</script>
+</body>
+</html>

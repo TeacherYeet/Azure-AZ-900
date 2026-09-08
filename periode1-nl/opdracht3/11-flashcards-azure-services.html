@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Flashcards: Azure-diensten</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body>
+
+<header class="course-header">
+  <div class="container">
+    <div class="brand">
+      <img src="../shared/assets/roc-logo.png" alt="ROC van Amsterdam" class="logo-img">
+      <div class="brand-text">
+        <div class="school">ROC van Amsterdam</div>
+        <div class="course-title">Cloud &amp; Azure — Verdieping Software (D1-K1)</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span class="period-tag">Periode 1 · Nederlands</span><br>
+      Docent: H.D. Lal
+    </div>
+  </div>
+</header>
+
+<nav class="breadcrumb">
+  <div class="container">
+    <a href="../index.html">Cursusoverzicht</a> <span class="sep">/</span>
+    <a href="00-overzicht.html">Opdracht 3</a> <span class="sep">/</span>
+    Flashcards
+  </div>
+</nav>
+
+<main class="container">
+  <span class="page-kicker">Oefenen</span>
+  <h1>Flashcards: Azure-diensten</h1>
+  <p class="page-intro">
+    Oefen alle kernbegrippen uit deze opdracht — van architectuur en compute tot beveiliging, kosten
+    en monitoring. Klik op een kaart om de betekenis te zien. Deze begrippen komen ook terug in het
+    AZ-900-examen.
+  </p>
+
+  <div id="deck-1"></div>
+
+  <div class="page-footer-nav">
+    <a class="nav-link" href="10-monitoring-en-tools.html"><span class="dir">&larr; Vorige</span><span class="lbl">Monitoring en tools</span></a>
+    <a class="nav-link next" href="12-werkblad-logboek.html"><span class="dir">Volgende &rarr;</span><span class="lbl">Werkblad &amp; logboek</span></a>
+  </div>
+</main>
+
+<footer class="course-footer">
+  ROC van Amsterdam · Cloud &amp; Azure — Verdieping Software · Docent H.D. Lal
+</footer>
+
+<script src="../shared/scorm-api.js"></script>
+<script src="../shared/flashcards.js"></script>
+<script>
+ROCFlashcards.render("deck-1", {
+  hint: "Klik op de kaart om de betekenis te zien.",
+  prevLabel: "Vorige",
+  nextLabel: "Volgende",
+  shuffleLabel: "Schudden",
+  cards: [
+    { term: "Regio", def: "Een geografisch gebied met één of meer datacenters die dicht bij elkaar liggen en via een low-latency netwerk verbonden zijn." },
+    { term: "Availability zone", def: "Een fysiek gescheiden datacenterlocatie binnen dezelfde regio, met eigen stroom, koeling en netwerk — beschermt tegen uitval van één datacenter." },
+    { term: "Region pair", def: "Twee gekoppelde Azure-regio's op minimaal 300 mijl afstand, gebruikt voor disaster recovery en gefaseerde system-updates." },
+    { term: "Resource group", def: "Een container die Azure-resources met dezelfde levenscyclus bundelt en als één geheel beheert. Elke resource hoort bij precies één resource group." },
+    { term: "Subscription", def: "Een facturerings- en toegangsgrens binnen Azure; bevat één of meer resource groups." },
+    { term: "Management group", def: "Een groepering van meerdere subscriptions, voor bedrijfsbrede sturing en het overervend toepassen van beleid." },
+    { term: "Virtual Machine (VM)", def: "Een softwarematige nabootsing van een fysieke computer (IaaS); jij beheert zelf het besturingssysteem en de software." },
+    { term: "VM scale set", def: "Automatisch, load-balanced schalen van identieke VM's: meer bij drukte (scale out), minder bij lagere vraag (scale in)." },
+    { term: "Azure Functions", def: "Serverless, event-driven compute: je code draait alleen bij een trigger, en je betaalt naar gebruik." },
+    { term: "Azure App Service", def: "Een volledig beheerd PaaS-platform om webapps en API's snel te bouwen, te hosten en te schalen, zonder infrastructuurbeheer." },
+    { term: "Virtual Network (VNet)", def: "Het fundament van Azure-netwerken: laat resources veilig communiceren met elkaar, het internet en on-premises netwerken." },
+    { term: "VPN Gateway", def: "Verstuurt versleuteld verkeer tussen een Azure virtual network en een on-premises locatie, over het publieke internet." },
+    { term: "ExpressRoute", def: "Breidt een on-premises netwerk uit naar Azure via een privéverbinding, buiten het publieke internet om." },
+    { term: "Storage account", def: "De container in Azure waarin al je opslag wordt ondergebracht; heeft een wereldwijd unieke naam." },
+    { term: "Blob Storage", def: "Opslagdienst geoptimaliseerd voor massale hoeveelheden ongestructureerde data, zoals foto's, video's en documenten." },
+    { term: "Redundantie (LRS/GRS)", def: "Het bewaren van meerdere kopieën van data voor duurzaamheid. LRS = kopieën binnen één datacenter; GRS = kopieën ook in een tweede, gekoppelde regio." },
+    { term: "Access tiers", def: "Kostenniveaus voor Blob Storage: Hot (vaak gebruikt), Cool (weinig gebruikt, 30+ dagen), Archive (zelden gebruikt, 180+ dagen, laagste kosten)." },
+    { term: "Azure AD / Microsoft Entra ID", def: "Microsofts cloudgebaseerde dienst voor identiteits- en toegangsbeheer: authenticatie, SSO, B2B/B2C en apparaatbeheer." },
+    { term: "MFA", def: "Multi-Factor Authentication — extra beveiliging door twee of meer bewijsvormen te vereisen: iets wat je weet, bezit, of bent." },
+    { term: "RBAC", def: "Role-based access control — fijnmazig regelen wie welke acties mag uitvoeren op welke Azure-resources." },
+    { term: "Zero Trust", def: "Beveiligingsprincipe: vertrouw nooit automatisch, verifieer elke aanvraag altijd expliciet — ongeacht waar die vandaan komt." },
+    { term: "Pricing Calculator", def: "Tool om de kosten van specifieke Azure-producten in te schatten vóórdat je ze aanmaakt." },
+    { term: "TCO Calculator", def: "Tool die de kosten van je on-premises infrastructuur vergelijkt met de kosten van dezelfde werklast in Azure." },
+    { term: "Azure Policy", def: "Dwingt organisatiestandaarden af en beoordeelt of resources voldoen aan het ingestelde beleid, op grote schaal." },
+    { term: "Resource lock", def: "Beveiliging tegen onbedoelde verwijdering (Delete-lock) of aanpassing (ReadOnly-lock) van een resource." },
+    { term: "Azure Resource Manager (ARM)", def: "De beheerlaag van Azure waarmee resources binnen een subscription worden aangemaakt, aangepast en verwijderd; basis voor ARM-templates (infrastructure as code)." },
+    { term: "Azure Advisor", def: "Analyseert je resources en geeft persoonlijke aanbevelingen op het gebied van betrouwbaarheid, beveiliging, prestaties, kosten en operational excellence." },
+    { term: "Azure Monitor", def: "Verzamelt, analyseert en reageert op telemetrie uit cloud- en on-premises omgevingen, om beschikbaarheid en prestaties te maximaliseren." }
+  ]
+});
+</script>
+</body>
+</html>

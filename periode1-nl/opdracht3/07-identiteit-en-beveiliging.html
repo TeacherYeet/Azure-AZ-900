@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Identiteit en beveiliging</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600;9..144,700&family=Source+Sans+3:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
+<link rel="stylesheet" href="../shared/styles.css">
+</head>
+<body>
+
+<header class="course-header">
+  <div class="container">
+    <div class="brand">
+      <img src="../shared/assets/roc-logo.png" alt="ROC van Amsterdam" class="logo-img">
+      <div class="brand-text">
+        <div class="school">ROC van Amsterdam</div>
+        <div class="course-title">Cloud &amp; Azure — Verdieping Software (D1-K1)</div>
+      </div>
+    </div>
+    <div class="header-meta">
+      <span class="period-tag">Periode 1 · Nederlands</span><br>
+      Docent: H.D. Lal
+    </div>
+  </div>
+</header>
+
+<nav class="breadcrumb">
+  <div class="container">
+    <a href="../index.html">Cursusoverzicht</a> <span class="sep">/</span>
+    <a href="00-overzicht.html">Opdracht 3</a> <span class="sep">/</span>
+    Identiteit en beveiliging
+  </div>
+</nav>
+
+<main class="container">
+  <span class="page-kicker">Les 5 van 8</span>
+  <h1>Identiteit en beveiliging</h1>
+  <p class="page-intro">
+    Wie mag inloggen, en wat mag diegene dan doen? Identiteit en beveiliging vormen de basis van elke
+    veilige cloudomgeving. Deze les behandelt Azure AD (tegenwoordig Microsoft Entra ID), authenticatie
+    versus autorisatie, MFA, RBAC en de belangrijkste beveiligingsprincipes.
+  </p>
+
+  <h2>Azure Active Directory / Microsoft Entra ID</h2>
+  <p>
+    <strong>Azure Active Directory (Azure AD)</strong> — inmiddels hernoemd naar
+    <strong>Microsoft Entra ID</strong> — is Microsofts cloudgebaseerde dienst voor
+    <strong>identity and access management</strong> (identiteits- en toegangsbeheer). Het regelt onder
+    andere:
+  </p>
+  <ul>
+    <li><strong>Authenticatie</strong> — medewerkers loggen in om toegang te krijgen tot resources.</li>
+    <li><strong>Single sign-on (SSO)</strong> — één keer inloggen, toegang tot meerdere applicaties.</li>
+    <li><strong>Applicatiebeheer</strong>.</li>
+    <li><strong>Business-to-Business (B2B)</strong> — samenwerken met externe partners.</li>
+    <li><strong>Business-to-Customer (B2C)</strong> — identiteitsdiensten voor je klanten.</li>
+    <li><strong>Apparaatbeheer</strong> (device management).</li>
+  </ul>
+  <p>
+    Elke organisatie die zich aanmeldt voor een Microsoft-clouddienst (zoals Azure of Microsoft 365)
+    krijgt automatisch een eigen, vertrouwde <strong>Azure AD-tenant</strong>: een afgeschermde
+    Azure AD-directory met de gebruikers, groepen en apps van die organisatie.
+  </p>
+
+  <h2>Authenticatie versus autorisatie</h2>
+  <p>Dit zijn twee verschillende, opeenvolgende stappen — vaak afgekort als <strong>AuthN</strong> en <strong>AuthZ</strong>.</p>
+  <table>
+    <thead><tr><th>Begrip</th><th>Wat het doet</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>Authenticatie (AuthN)</strong></td>
+        <td>Stelt vast wíe de persoon of dienst is die toegang wil, door legitieme inloggegevens te vragen. Dit is de basis voor veilige identiteits- en toegangscontrole.</td>
+      </tr>
+      <tr>
+        <td><strong>Autorisatie (AuthZ)</strong></td>
+        <td>Bepaalt, ná authenticatie, welk toegangsniveau die persoon of dienst heeft: welke data mag diegene zien, en wat mag diegene ermee doen?</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>Kort gezegd: authenticatie bewijst wie je bent, autorisatie bepaalt wat je mag.</p>
+
+  <h2>Multi-Factor Authentication (MFA)</h2>
+  <p>
+    <strong>MFA</strong> geeft extra beveiliging door bij het inloggen twee of meer van de volgende
+    bewijsvormen te vereisen:
+  </p>
+  <ul>
+    <li><strong>Iets wat je weet</strong> — bijvoorbeeld een wachtwoord of het antwoord op een beveiligingsvraag.</li>
+    <li><strong>Iets wat je bezit</strong> — bijvoorbeeld een mobiele app die een melding ontvangt, of een token-apparaat.</li>
+    <li><strong>Iets wat je bent</strong> — een biometrisch kenmerk, zoals een vingerafdruk of gezichtsscan.</li>
+  </ul>
+  <p>
+    Zelfs als een wachtwoord wordt gestolen, is een account met MFA veel lastiger te kraken — de
+    aanvaller mist dan nog het tweede bewijs.
+  </p>
+
+  <h2>External Identities en Conditional Access</h2>
+  <p>
+    Via <strong>B2B</strong> kun je externe gebruikers (bijvoorbeeld partners) gecontroleerd toegang
+    geven tot jouw omgeving, en via <strong>B2C</strong> beheer je identiteiten van klanten die
+    inloggen op een klantgerichte applicatie.
+  </p>
+  <p>
+    <strong>Conditional Access</strong> is de manier waarop Azure AD signalen combineert om
+    toegangsbeslissingen te nemen en organisatiebeleid af te dwingen. Voorbeelden van signalen:
+    gebruikers-/groepslidmaatschap, IP-locatie, gebruikt apparaat, welke applicatie, en gedetecteerd
+    risico. Conditional Access-beleid werkt met simpele als-dan-regels: <em>als</em> een gebruiker
+    toegang wil tot een applicatie, <em>dan</em> moet diegene bijvoorbeeld eerst MFA doorlopen.
+  </p>
+
+  <h2>Azure role-based access control (RBAC)</h2>
+  <p>
+    <strong>RBAC</strong> regelt fijnmazig wie wát mag doen op welke resource. Met RBAC verdeel je
+    taken binnen een team en geef je gebruikers alleen zoveel toegang als ze nodig hebben voor hun
+    werk — niet meer. RBAC bepaalt zowel de toegang tot de Azure-portal als de toegang tot specifieke
+    resources, en kan worden toegepast op elk niveau van de resource-hiërarchie (management group,
+    subscription, resource group of losse resource) die je in de vorige les hebt gezien.
+  </p>
+
+  <div class="callout tip">
+    <div class="callout-title">💡 RBAC in de praktijk</div>
+    Een ontwikkelaar krijgt via RBAC de rol "Contributor" op één resource group, zodat diegene
+    resources binnen die groep mag aanmaken en aanpassen — maar geen toegang heeft tot de facturatie
+    van de hele subscription. Zo geef je precies genoeg toegang, en niet meer.
+  </div>
+
+  <h2>Zero Trust en defense in depth</h2>
+  <p>
+    <strong>Zero Trust</strong> is een beveiligingsprincipe dat uitgaat van: vertrouw nooit
+    automatisch, verifieer altijd. In plaats van te vertrouwen op alles binnen je eigen netwerk,
+    wordt elke aanvraag — ongeacht waar die vandaan komt — expliciet gecontroleerd voordat toegang
+    wordt verleend.
+  </p>
+  <p>
+    <strong>Defense in depth</strong> is een gelaagde aanpak van beveiliging, met meerdere
+    beschermingsniveaus die elkaar opvolgen: fysieke beveiliging, identiteit &amp; toegang, perimeter,
+    netwerk, compute, applicatie en data. Het idee is dat een aanval op één laag geïsoleerd blijft, en
+    niet automatisch doordringt tot de volgende laag.
+  </p>
+
+  <h2>Microsoft Defender for Cloud</h2>
+  <p>
+    <strong>Microsoft Defender for Cloud</strong> is een monitoringdienst die dreigingsbescherming
+    biedt voor zowel Azure- als on-premises omgevingen. Het:
+  </p>
+  <ul>
+    <li>geeft beveiligingsaanbevelingen,</li>
+    <li>detecteert en blokkeert malware,</li>
+    <li>analyseert en signaleert mogelijke aanvallen, en</li>
+    <li>biedt <em>just-in-time</em> toegangscontrole voor poorten, zodat poorten alleen open staan wanneer dat nodig is.</li>
+  </ul>
+
+  <div class="quiz-block" id="quiz-5"></div>
+
+  <div class="page-footer-nav">
+    <a class="nav-link" href="06-opslag-in-azure.html"><span class="dir">&larr; Vorige</span><span class="lbl">Opslag in Azure</span></a>
+    <a class="nav-link next" href="08-kosten-beheren.html"><span class="dir">Volgende &rarr;</span><span class="lbl">Kosten beheren</span></a>
+  </div>
+</main>
+
+<footer class="course-footer">
+  ROC van Amsterdam · Cloud &amp; Azure — Verdieping Software · Docent H.D. Lal
+</footer>
+
+<script src="../shared/scorm-api.js"></script>
+<script src="../shared/quiz-engine.js"></script>
+<script>
+ROCQuiz.render("quiz-5", {
+  title: "Check je begrip",
+  checkLabel: "Controleer antwoorden",
+  resetLabel: "Opnieuw proberen",
+  passLabel: "Goed gedaan! Je begrijpt identiteit en beveiliging in Azure.",
+  retryLabel: "Bekijk de uitleg hierboven nog eens en probeer het opnieuw.",
+  incompleteLabel: "Beantwoord eerst alle vragen.",
+  questions: [
+    {
+      text: "Wat is het verschil tussen authenticatie en autorisatie?",
+      options: [
+        "Authenticatie bepaalt wat je mag doen, autorisatie bepaalt wie je bent",
+        "Authenticatie stelt vast wie je bent, autorisatie bepaalt wat je mag doen",
+        "Het zijn twee namen voor exact hetzelfde proces"
+      ],
+      correct: 1,
+      explanation: "Authenticatie (AuthN) identificeert wie er toegang vraagt via inloggegevens. Autorisatie (AuthZ) bepaalt daarna welk toegangsniveau die geauthenticeerde gebruiker krijgt."
+    },
+    {
+      text: "Welke drie soorten bewijs kunnen onderdeel zijn van Multi-Factor Authentication?",
+      options: [
+        "Iets wat je weet, iets wat je bezit, iets wat je bent",
+        "Je e-mailadres, je gebruikersnaam, je functietitel",
+        "Je IP-adres, je browser, je besturingssysteem"
+      ],
+      correct: 0,
+      explanation: "MFA combineert minimaal twee van: iets wat je weet (wachtwoord), iets wat je bezit (telefoon/token), en iets wat je bent (biometrie)."
+    },
+    {
+      text: "Waarvoor gebruik je Azure RBAC (role-based access control)?",
+      options: [
+        "Om data te versleutelen tijdens transport",
+        "Om fijnmazig te bepalen wie welke acties mag uitvoeren op welke resources",
+        "Om automatisch back-ups te maken van storage accounts"
+      ],
+      correct: 1,
+      explanation: "RBAC regelt wie welke toegang heeft tot welke resources, zodat gebruikers alleen de rechten krijgen die ze nodig hebben voor hun taken."
+    },
+    {
+      text: "Wat houdt het beveiligingsprincipe 'defense in depth' in?",
+      options: [
+        "Eén sterk wachtwoord is voldoende beveiliging voor het hele systeem",
+        "Een gelaagde aanpak met meerdere beschermingsniveaus, zodat een aanval op één laag geïsoleerd blijft",
+        "Alle beveiliging wordt overgelaten aan de eindgebruiker"
+      ],
+      correct: 1,
+      explanation: "Defense in depth beschermt systemen via meerdere lagen (fysiek, identiteit, netwerk, compute, applicatie, data), zodat een doorbraak in één laag niet meteen de rest blootlegt."
+    }
+  ]
+});
+</script>
+</body>
+</html>
